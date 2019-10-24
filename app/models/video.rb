@@ -15,5 +15,7 @@
 class Video < ApplicationRecord
     validates :title, :runtime, :year, :description, presence: true
     validates :title, uniqueness: true
+    has_one_attached :movie
+    has_one_attached :thumbnail
     
 end
