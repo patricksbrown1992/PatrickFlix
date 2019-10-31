@@ -5,13 +5,15 @@ import SignUp from './signUp/signUpContainer';
 import Login from './logIn/logInContainer';
 import { Authorized, ProtectedRoute } from '../util/routeUtil';
 import VideoIndex from '../components/videos/videoIndexContainer';
+import Player from '../components/videos/playerContainer';
 const App = () => (
     <>
         <Switch>
             <Authorized path='/signup' component={SignUp} />
             <Authorized path='/login' component={Login} />
             <ProtectedRoute path='/videos' component={VideoIndex} />
-            <Route exact path='/' component={SplashBody} />
+            <ProtectedRoute path='/player/:video_id' component={Player} />
+            <Authorized exact path='/' component={SplashBody} />
         </Switch>
     </>
 );
