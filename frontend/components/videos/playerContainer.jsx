@@ -2,14 +2,17 @@ import { connect } from 'react-redux';
 import Player from './playerForm';
 import { clearErrors, logout } from '../../actions/sessionActions';
 
-const msp = (state) => ({
-    errors: state.errors
+import { getVideo } from '../../actions/videoActions';
+
+const msp = (state, ownProps) => {
+    // debugger
+    return {
+        video: state.entities.videos[31]
+    }
+}
+
+const mdp = (dispatch) => ({
+    getVideo: (id) => dispatch(getVideo(id))
 })
-
-const mdp = dispatch => ({
-
-    clearErrors: () => dispatch(clearErrors()),
-    logout: () => dispatch(logout())
-});
 
 export default connect(msp, mdp)(Player);

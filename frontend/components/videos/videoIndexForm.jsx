@@ -15,6 +15,13 @@ class VideoIndexForm extends React.Component {
             this.props.logout();
         // }
     }
+    componentDidMount(){
+        this.props.getVideos()
+
+    }
+
+
+
 
     searchClick() {
         this.setState({ search: !this.state.search });
@@ -32,6 +39,7 @@ class VideoIndexForm extends React.Component {
         }
         return (
             <div className='videos-index'>
+                
                 <div className='videos-index-header'>
                     <div className='videos-index-header-left'>
                         <img src={window.logo} />
@@ -72,7 +80,7 @@ class VideoIndexForm extends React.Component {
                         <ul>
                             <Link to='/player/4'>Dirty Dancing</Link>
                             <Link to='/player/5'>Ghost</Link>
-                            <Link to='/player/6'>Point Blank</Link>
+                            <Link to='/player/6'>Point Break</Link>
                             <Link to='/player/7'>Road House</Link>            
                         </ul>
                     </div>
