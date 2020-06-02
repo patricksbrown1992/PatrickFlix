@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import IndexItem from './indexItemContainer';
 
 class VideoIndexForm extends React.Component {
     constructor(props) {
@@ -43,19 +44,24 @@ class VideoIndexForm extends React.Component {
         }
         let vids = this.props.videos;
         let stewart = vids.slice(0, 3).map(vid => (
-            <li key={vid.id}>
-                <Link to={`/player/${vid.id}`}>{vid.title}</Link>
-            </li>
+            // <li className = 'video-element' key={vid.id}>
+            //     <Link to={`/player/${vid.id}`}>
+            //         {vid.title} 
+            //         <img src={vid.image_link} /> </Link>
+            // </li>
+            <IndexItem video={vid}/>
         ))
         let swayze = vids.slice(3, 7).map(vid => (
-            <li key={vid.id}>
-                <Link to={`/player/${vid.id}`}>{vid.title}</Link>
-            </li>
+            // <li className = 'video-element' key={vid.id}>
+            //     <Link to={`/player/${vid.id}`}>{vid.title} <img src={vid.image_link} /> </Link>
+            // </li>
+            <IndexItem video={vid}/>
         ))
         let harris = vids.slice(7).map(vid => (
-            <li key={vid.id}>
-                <Link to={`/player/${vid.id}`}>{vid.title}</Link>
-            </li>
+            // <li className = 'video-element' key={vid.id}>
+            //     <Link to={`/player/${vid.id}`}>{vid.title} <img src={vid.image_link} /> </Link>
+            // </li>
+            <IndexItem video={vid}/>
         ))
         debugger
         return (
