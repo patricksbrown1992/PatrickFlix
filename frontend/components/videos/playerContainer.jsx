@@ -5,9 +5,9 @@ import { clearErrors, logout } from '../../actions/sessionActions';
 import { getVideo } from '../../actions/videoActions';
 
 const msp = (state, ownProps) => {
-    // debugger
+    const video = state.entities.videos[ownProps.match.params.video_id];
     return {
-        video: state.entities.videos[31]
+        video: video
     }
 }
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, Redirect} from 'react-router-dom';
+import { loadavg } from 'os';
 
 class PlayerForm extends React.Component {
     constructor(props) {
@@ -10,7 +11,7 @@ class PlayerForm extends React.Component {
             playing: true,
             duration: null,
             seek: 0,
-            video: null
+            loaded: null
         };
 
 
@@ -21,9 +22,10 @@ class PlayerForm extends React.Component {
         this.toggleFullScreen = this.toggleFullScreen.bind(this);
     }
 
-    // componentDidMount(){
+    componentDidMount(){
         // let controlsToggleTimer;
         
+        this.setState({loaded: true})
         // const backToBrowse = document.getElementById("back-to-browse");
         // const backButton = document.getElementById("back-arrow-font");
         // const rewindButton = document.getElementById("reverse-button");
@@ -72,7 +74,7 @@ class PlayerForm extends React.Component {
 
         // })
 
-    // }
+    }
 
     toggleFullScreen() {
         // let actualVideoTwo = document.getElementById("video-player");
@@ -155,7 +157,10 @@ class PlayerForm extends React.Component {
         // } else if (this.state.playing === false) {
         //     playButtonRender = <i className="fas fa-play" id="play-button" onClick={this.togglePlay} ></i>
         // }
-        debugger
+        // debugger
+        if(!this.state.loaded){
+            return null;
+        }
 
         return (
             

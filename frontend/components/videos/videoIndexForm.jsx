@@ -4,9 +4,10 @@ import { Link } from 'react-router-dom';
 class VideoIndexForm extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { search: false, test: 1 };
+        this.state = { search: false, test: 1, loaded: null };
         this.handleSubmitLogOut = this.handleSubmitLogOut.bind(this);
         this.searchClick = this.searchClick.bind(this);
+
     }
 
     handleSubmitLogOut(e) {
@@ -16,7 +17,7 @@ class VideoIndexForm extends React.Component {
         // }
     }
     componentDidMount(){
-        this.props.getVideos()
+        this.props.getVideos().then(() => this.setState({loaded: true}))
 
     }
 
@@ -37,6 +38,26 @@ class VideoIndexForm extends React.Component {
             searchClass = 'hide-search';
             rightnav = 'search-hidden';
         }
+        if(!this.state.loaded){
+            return null;
+        }
+        let vids = this.props.videos;
+        let stewart = vids.slice(0, 3).map(vid => (
+            <li key={vid.id}>
+                <Link to={`/player/${vid.id}`}>{vid.title}</Link>
+            </li>
+        ))
+        let swayze = vids.slice(3, 7).map(vid => (
+            <li key={vid.id}>
+                <Link to={`/player/${vid.id}`}>{vid.title}</Link>
+            </li>
+        ))
+        let harris = vids.slice(7).map(vid => (
+            <li key={vid.id}>
+                <Link to={`/player/${vid.id}`}>{vid.title}</Link>
+            </li>
+        ))
+        debugger
         return (
             <div className='videos-index'>
                 
@@ -67,9 +88,7 @@ class VideoIndexForm extends React.Component {
                         <h1>Patrick Stewart</h1>
                         <ul>
                             
-                            <Link to='/player/1'>X-Men</Link>
-                            <Link to='/player/2'>Star Trek</Link>
-                            <Link to='/player/3'>Ted</Link>
+                            {stewart}
             
                         </ul>
                     </div>
@@ -78,10 +97,11 @@ class VideoIndexForm extends React.Component {
                     <div className='patrick-swayze-div'>
                         <h1>Patrick Swayze</h1>
                         <ul>
-                            <Link to='/player/4'>Dirty Dancing</Link>
+                            {/* <Link to='/player/4'>Dirty Dancing</Link>
                             <Link to='/player/5'>Ghost</Link>
                             <Link to='/player/6'>Point Break</Link>
-                            <Link to='/player/7'>Road House</Link>            
+                            <Link to='/player/7'>Road House</Link>             */}
+                            {swayze}
                         </ul>
                     </div>
                     <br />
@@ -89,9 +109,10 @@ class VideoIndexForm extends React.Component {
                     <div className='neil-patrick-harris-div'>
                         <h1>Neil Patrick Harris</h1>
                         <ul>
-                            <Link to='/player/8'>How I Met Your Mother</Link>
+                            {/* <Link to='/player/8'>How I Met Your Mother</Link>
                             <Link to='/player/9'>Doogie Howser</Link>
-                            <Link to='/player/10'>Gone Girl</Link>
+                            <Link to='/player/10'>Gone Girl</Link> */}
+                            {harris}
                         </ul>
                     </div>
                 </div>

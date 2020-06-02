@@ -5,7 +5,7 @@ export const RECEIVE_VIDEOS = "RECEIVE_VIDEOS";
 export const RECEIVE_VIDEO = "RECEIVE_VIDEO";
 
 const receiveVideos = (videos) => {
-    debugger
+    // debugger
     return {type: RECEIVE_VIDEOS,
     videos
     }
@@ -18,7 +18,7 @@ const receiveVideo = (video) => ({
 
 
 export const getVideos = () => dispatch => {
-    debugger
+    // debugger
     return VideoAPIUtil.getVideos().then(videos => {
         dispatch(receiveVideos(videos));
     })
