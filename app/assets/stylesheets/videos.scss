@@ -5,7 +5,7 @@
 
 
 .videos-index-header {
-    height: 67px;
+    height: 12%;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -95,42 +95,42 @@
 
 .patrick-stewart-div {
     display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: 33%;
+    flex-direction: row;
+    width: 80%;
+    height: 25%;
 }
 
-.patrick-stewart-div ul {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-}
+// .patrick-stewart-div ul {
+//     display: flex;
+//     flex-direction: row;
+//     justify-content: space-around;
+// }
 
 .patrick-swayze-div {
     display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: 33%;
+    flex-direction: row;
+    width: 80%;
+    height: 25%;
 }
 
-.patrick-swayze-div ul {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-}
+// .patrick-swayze-div ul {
+//     display: flex;
+//     flex-direction: row;
+//     justify-content: space-around;
+// }
 
 .neil-patrick-harris-div {
     display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: 33%;
+    flex-direction: row;
+    width: 80%;
+    height: 25%;
 }
 
-.neil-patrick-harris-div ul {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-}
+// .neil-patrick-harris-div ul {
+//     display: flex;
+//     flex-direction: row;
+//     justify-content: space-around;
+// }
 
 .video-player {
     width: 100%;
@@ -183,7 +183,28 @@
     align-items: center;
 }
 
-.video-element {
-    height: 200px;
-    width: 25%;
+// .video-element {
+//     height: 200px;
+//     width: 25%;
+// }
+
+.index-item{
+    height: 80%;
+    width: 20%;
+    
+}
+
+.index-item img {
+    height: 80%;
+    width: 80%;
+    object-fit: cover;
+}
+
+.videos-index-body{
+    height: 75%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+
 }

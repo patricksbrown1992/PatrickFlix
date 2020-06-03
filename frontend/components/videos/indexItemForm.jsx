@@ -20,11 +20,11 @@ class IndexItemForm extends React.Component {
 
     render() {
         let vid = this.props.video
-        debugger
+        // debugger
         return (
-            <div className='index-item' key={vid.id}>
+            <li className='index-item' key={vid.id}>
                 <Link to={`/player/${vid.id}`}> <img src={vid.image_link} alt=""/> </Link>
-            </div>
+            </li>
 
         )
     }

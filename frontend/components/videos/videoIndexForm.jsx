@@ -63,7 +63,7 @@ class VideoIndexForm extends React.Component {
             // </li>
             <IndexItem video={vid}/>
         ))
-        debugger
+        // debugger
         return (
             <div className='videos-index'>
                 
@@ -89,37 +89,35 @@ class VideoIndexForm extends React.Component {
                     </div>
                 </div>
 
-                <div>
+                <div className = 'videos-index-body'>
                     <div className='patrick-stewart-div'>
                         <h1>Patrick Stewart</h1>
-                        <ul>
+                        {/* <ul> */}
                             
                             {stewart}
             
-                        </ul>
+                        {/* </ul> */}
                     </div>
-                    <br />
-                    <br />
+                   
                     <div className='patrick-swayze-div'>
                         <h1>Patrick Swayze</h1>
-                        <ul>
+                        {/* <ul> */}
                             {/* <Link to='/player/4'>Dirty Dancing</Link>
                             <Link to='/player/5'>Ghost</Link>
                             <Link to='/player/6'>Point Break</Link>
                             <Link to='/player/7'>Road House</Link>             */}
                             {swayze}
-                        </ul>
+                        {/* </ul> */}
                     </div>
-                    <br />
-                    <br />
+                  
                     <div className='neil-patrick-harris-div'>
                         <h1>Neil Patrick Harris</h1>
-                        <ul>
+                        {/* <ul> */}
                             {/* <Link to='/player/8'>How I Met Your Mother</Link>
                             <Link to='/player/9'>Doogie Howser</Link>
                             <Link to='/player/10'>Gone Girl</Link> */}
                             {harris}
-                        </ul>
+                        {/* </ul> */}
                     </div>
                 </div>
             </div>
