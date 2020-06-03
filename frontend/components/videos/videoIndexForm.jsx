@@ -90,35 +90,47 @@ class VideoIndexForm extends React.Component {
                 </div>
 
                 <div className = 'videos-index-body'>
-                    <div className='patrick-stewart-div'>
+                    <div className= 'video-row'>
                         <h1>Patrick Stewart</h1>
-                        {/* <ul> */}
+                        <div className='patrick-stewart-div'>
                             
-                            {stewart}
-            
-                        {/* </ul> */}
+                            {/* <ul> */}
+                                
+                                {stewart}
+                
+                            {/* </ul> */}
+                        </div>
+
+                    </div>
+                    
+                    <div className= 'video-row'>
+                        <h1>Patrick Swayze</h1>
+                        <div className='patrick-swayze-div'>
+                            
+                            {/* <ul> */}
+                                {/* <Link to='/player/4'>Dirty Dancing</Link>
+                                <Link to='/player/5'>Ghost</Link>
+                                <Link to='/player/6'>Point Break</Link>
+                                <Link to='/player/7'>Road House</Link>             */}
+                                {swayze}
+                            {/* </ul> */}
+                        </div>
+                   </div>
+                    
+                    <div className= 'video-row'>
+                        <h1>Neil Patrick Harris</h1>
+                        <div className='neil-patrick-harris-div'>
+                            
+                            {/* <ul> */}
+                                {/* <Link to='/player/8'>How I Met Your Mother</Link>
+                                <Link to='/player/9'>Doogie Howser</Link>
+                                <Link to='/player/10'>Gone Girl</Link> */}
+                                {harris}
+                            {/* </ul> */}
+                        </div>
+
                     </div>
                    
-                    <div className='patrick-swayze-div'>
-                        <h1>Patrick Swayze</h1>
-                        {/* <ul> */}
-                            {/* <Link to='/player/4'>Dirty Dancing</Link>
-                            <Link to='/player/5'>Ghost</Link>
-                            <Link to='/player/6'>Point Break</Link>
-                            <Link to='/player/7'>Road House</Link>             */}
-                            {swayze}
-                        {/* </ul> */}
-                    </div>
-                  
-                    <div className='neil-patrick-harris-div'>
-                        <h1>Neil Patrick Harris</h1>
-                        {/* <ul> */}
-                            {/* <Link to='/player/8'>How I Met Your Mother</Link>
-                            <Link to='/player/9'>Doogie Howser</Link>
-                            <Link to='/player/10'>Gone Girl</Link> */}
-                            {harris}
-                        {/* </ul> */}
-                    </div>
                 </div>
             </div>
 
