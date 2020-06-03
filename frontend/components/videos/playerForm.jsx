@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, Redirect} from 'react-router-dom';
-import { loadavg } from 'os';
+import { Player } from 'video-react';
 
 class PlayerForm extends React.Component {
     constructor(props) {
@@ -23,7 +23,7 @@ class PlayerForm extends React.Component {
     }
 
     componentDidMount(){
-        // let controlsToggleTimer;
+        let controlsToggleTimer;
         
         this.setState({loaded: true})
         // const backToBrowse = document.getElementById("back-to-browse");
@@ -158,42 +158,48 @@ class PlayerForm extends React.Component {
         //     playButtonRender = <i className="fas fa-play" id="play-button" onClick={this.togglePlay} ></i>
         // }
         // debugger
-        if(!this.state.loaded){
-            return null;
-        }
+        // if(!this.state.loaded){
+        //     return null;
+        // }
+        const vid = this.props.video
+        // this.refs.player.play();
+        debugger
 
         return (
             
-            // <div className='video-player'>
-            //     <Link to={"/videos"}>
-            //         <div id="back-to-browse" className="back-to-browse">
-            //             <i className="fas fa-arrow-left fa-2x" id="back-arrow-icon"></i>
-            //             <h1 id="back-arrow-font" className="back-arrow-font">Back to Browse</h1>
+            <div className='video-player'>
+                {/* <Link to={"/videos"}>
+                    <div id="back-to-browse" className="back-to-browse">
+                        <i className="fas fa-arrow-left fa-2x" id="back-arrow-icon"></i>
+                        <h1 id="back-arrow-font" className="back-arrow-font">Back to Browse</h1>
                         
-            //         </div>
-            //     </Link>
+                    </div>
+                </Link>
                 
-            //     <br/>
-            //     <br/>
-            //     <div className='bottom-row'>
-            //         <h2>{playButtonRender}</h2>
-            //         <img id="reverse-button" className="reverse-button" src={window.forward_arrow} />
-            //         <img id="forward-button" className="forward-button" src={window.back_arrow} />
-            //         <div>
-            //             <input type="range" id="volume-bar" min="0" max="1" step="0.01" onChange={this.toggleVolume} value={this.state.volume} />
-            //             {volumeButtonRender}
-            //         </div>
-            //         <i className="fas fa-compress" id="screen-toggle-button" onClick={this.toggleFullScreen()}></i>
-            <div>
-                {/* <video id={this.props.video.id} className="individual-video" 
+                <br/>
+                <br/>
+                <div className='bottom-row'>
+                    <h2>{playButtonRender}</h2>
+                    <img id="reverse-button" className="reverse-button" src={window.forward_arrow} />
+                    <img id="forward-button" className="forward-button" src={window.back_arrow} />
+                    <div>
+                        <input type="range" id="volume-bar" min="0" max="1" step="0.01" onChange={this.toggleVolume} value={this.state.volume} />
+                        {volumeButtonRender}
+                    </div>
+                    <i className="fas fa-compress" id="screen-toggle-button" onClick={this.toggleFullScreen()}></i> */}
+            {/* <div>
+                <video id={this.props.video.id} className="individual-video" 
                     src={inidividualVidLink} poster={this.props.video.image_link} loop>
                 </video>  */}
-                    <img src={this.props.video.image_link} alt=""/>
+                    {/* <img src={this.props.video.image_link} alt=""/> */}
                  {/* hi */}
+            {/* </div> */}
+            {vid.title}
+            <video ref="player" id="thevideo" className="player" src={vid.video_link} poster={vid.image_link} preload="auto" loop autoPlay></video>
+            
+    
+                {/* </div> */}
             </div>
-                    
-                // </div>
-            // </div>
 
         )
     }
