@@ -20,11 +20,38 @@ class PlayerForm extends React.Component {
         this.togglePlay = this.togglePlay.bind(this);
         this.updateTime = this.updateTime.bind(this);
         this.toggleFullScreen = this.toggleFullScreen.bind(this);
+        this.keyHandler = this.keyHandler.bind(this);
+    }
+
+    keyHandler(e){
+        let actualVideoFive = document.getElementById("video-player");
+        debugger
+        if(e.keyCode === 109){
+            if(actualVideoFive.muted){
+                actualVideoFive.muted = false;
+                this.setState({ volume: 1 });
+            } else {
+                actualVideoFive.muted = true;
+                this.setState({ volume: 0 });
+            }
+        }
+
+        if(e.keyCode === 32){
+            let actualVideoFive = document.getElementById("video-player")
+            if (this.state.playing === true) {
+                actualVideoFive.pause();
+                this.setState({ playing: false })
+            } else {
+                actualVideoFive.play();
+                this.setState({ playing: true })
+            }
+        }
+       
     }
 
     componentDidMount(){
         let controlsToggleTimer;
-        
+        this.props.getVideos();
         this.setState({loaded: true})
         const backToBrowse = document.getElementById("back-to-browse");
         const backButton = document.getElementById("back-arrow-font");
@@ -33,6 +60,8 @@ class PlayerForm extends React.Component {
         const playPauseButton = document.getElementById("play-button");
         const volumeBar = document.getElementById("volume-bar");
         const volumeButton = document.getElementById("controls-volume-button"); 
+        document.addEventListener('keypress', this.keyHandler, false)
+        // const bottom_row = document.getElementById("bottom-row"); 
      
         
 
@@ -73,6 +102,14 @@ class PlayerForm extends React.Component {
             playPauseButton.style.color = "white";
 
         })
+
+        // bottom_row.addEventListener("moveover", () => {
+        //     debugger
+        //     bottom_row.classList.add('bottom-row')
+        // })
+        // bottom_row.addEventListener("moveout", () => {
+        //     bottom_row.classList.add('display_none')
+        // })
 
     }
 
@@ -174,7 +211,7 @@ class PlayerForm extends React.Component {
                 
              
                 <video ref="player" id="video-player" className="video-player" src={vid.video_link} poster={vid.image_link} preload="auto" loop autoPlay></video>
-                <div className='bottom-row'>
+                <div  id='bottom-row' className='bottom-row'>
                         <h2>{playButtonRender}</h2>
                         <img id="reverse-button" className="reverse-button" src={window.forward_arrow} />
                         <img id="forward-button" className="forward-button" src={window.back_arrow} />
