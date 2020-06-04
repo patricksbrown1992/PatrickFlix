@@ -3,6 +3,9 @@
     height: 100%;
 }
 
+.display_none {
+    display: none;
+}
 
 .videos-index-header {
     height: 12%;
@@ -134,7 +137,7 @@
     height: 100%;
     display: flex;
     flex-direction: column;
-    background-color: black;
+    background-color: red;
    
 }
 
@@ -143,6 +146,13 @@
     flex-direction: row;
 }
 
+.fa-volume-mute {
+    color: white;
+}
+
+.fa-volume-up {
+    color: white;
+}
 
 
 .forward-button {
@@ -172,11 +182,14 @@
     font-weight: 500;
 }
 
-.bottom-row {
-    width: 96%;
+
+
+.bottom-row{
+    
+    width: 85%;
     // margin-top: 90%;
     height: 40px;
-    left: 0;
+    left: 4%;
     right: 0;
     bottom: 33px;
     display: flex;

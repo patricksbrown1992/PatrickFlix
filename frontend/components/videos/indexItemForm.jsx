@@ -4,21 +4,35 @@ import { Link } from 'react-router-dom';
 class IndexItemForm extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { loaded: null };
+        this.state = { loaded: null, playing: false };
        
     }
 
+   
+
     componentDidMount(){
+      
+        let video_li = document.getElementById("video-li");
+        
+        const togglePlay = () => {
+                // debugger
+                video_li.play();
+                this.setState({ playing: true })
+            }
+        
 
-        // this.props.getVideos().then(() => this.setState({loaded: true}))
-        const video_li = document.getElementById("video-li");
-
-        const play = () => {
-            let vid = this.props.video;
-            <video ref="player" id="video-li" className="video-li" src={vid.video_link} poster={vid.image_link} preload="auto" loop autoPlay></video>
+        const togglePause = () => {
+            video_li.pause();
+            this.setState({ playing: false })
         }
-        video_li.addEventListener("mouseover", play)
+
+        video_li.addEventListener("mouseover", togglePlay)
+        video_li.addEventListener("mouseout", togglePause)
+        
     }
+
+   
+
 
 
 
@@ -27,10 +41,12 @@ class IndexItemForm extends React.Component {
 
     render() {
         let vid = this.props.video
+        
         // debugger
         return (
-            <li className='index-item' key={vid.id} id= 'video-li'>
-                <Link to={`/player/${vid.id}`}> <img src={vid.image_link} alt=""/> </Link>
+            <li className='index-item' key={vid.id} >
+                {/* <Link to={`/player/${vid.id}`}> <img src={vid.image_link} alt=""/> </Link> */}
+               <Link to={`/player/${vid.id}`}><video ref="player" id="video-li" className="video-li" src={vid.video_link} poster={vid.image_link} preload="meta" loop ></video></Link> 
             </li>
 
         )

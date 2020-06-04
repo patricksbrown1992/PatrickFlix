@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import Player from './playerForm';
 import { clearErrors, logout } from '../../actions/sessionActions';
 
-import { getVideo } from '../../actions/videoActions';
+import { getVideo, getVideos } from '../../actions/videoActions';
 
 const msp = (state, ownProps) => {
     const video = state.entities.videos[ownProps.match.params.video_id];
@@ -12,7 +12,8 @@ const msp = (state, ownProps) => {
 }
 
 const mdp = (dispatch) => ({
-    getVideo: (id) => dispatch(getVideo(id))
+    getVideo: (id) => dispatch(getVideo(id)),
+    getVideos: () => dispatch(getVideos())
 })
 
 export default connect(msp, mdp)(Player);
