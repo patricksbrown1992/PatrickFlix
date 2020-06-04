@@ -11,23 +11,24 @@ class IndexItemForm extends React.Component {
    
 
     componentDidMount(){
-      
-        let video_li = document.getElementById("video-li");
         
-        const togglePlay = () => {
-                // debugger
-                video_li.play();
-                this.setState({ playing: true })
-            }
+        let video_li = document.getElementById(`video-li ${this.props.video.id}`);
+        let arrow = document.getElementById(`movie-arrow ${this.props.video.id}`);  
+        debugger
+        
+        arrow.style.display = "none"
+        video_li.addEventListener("mouseover", ()=> {
+            arrow.style.display = "block"
+            arrow.style.position = "absolute"
+        })
+        
+        video_li.addEventListener("mouseout", ()=> {
+            arrow.style.display = "none"
+        })
         
 
-        const togglePause = () => {
-            video_li.pause();
-            this.setState({ playing: false })
-        }
-
-        video_li.addEventListener("mouseenter", togglePlay)
-        video_li.addEventListener("mouseleave", togglePause)
+        
+   
         
     }
 
@@ -44,9 +45,12 @@ class IndexItemForm extends React.Component {
         
         // debugger
         return (
-            <li className='index-item' key={vid.id} >
-                {/* <Link to={`/player/${vid.id}`}> <img src={vid.image_link} alt=""/> </Link> */}
-               <Link to={`/player/${vid.id}`}><video ref="player" id="video-li" className="video-li" src={vid.video_link} poster={vid.image_link} preload="meta" loop ></video></Link> 
+            <li onMouseEnter={() => {
+                
+            }} className='index-item' id = {`video-li ${vid.id}`} key={vid.id} >
+                <Link to={`/player/${vid.id}`}> <img src={vid.image_link} alt=""/> </Link>
+               {/* <Link to={`/player/${vid.id}`}><video ref="player" id="video-li" className="video-li" src={vid.video_link} poster={vid.image_link} preload="meta" loop ></video></Link>  */}
+               <i id={`movie-arrow ${vid.id}`} className="fas fa-caret-down fa-2x movie-arrow"></i>
             </li>
 
         )

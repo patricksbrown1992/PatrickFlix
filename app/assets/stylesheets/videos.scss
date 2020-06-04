@@ -208,16 +208,14 @@
 // }
 
 .index-item{
-    // height: 80%;
+    height: 400px;
     width: 30%;
     list-style: none;
 }
 
-.index-item:hover {
-    background-color: red;
-}
 
-.index-item video {
+
+.index-item img {
     height: 80%;
     width: 80%;
     object-fit: cover;
@@ -254,4 +252,19 @@
 
 .video-player-div-top {
     height: 10%;
+}
+
+
+.log-out-button {
+    background-color: black;
+    border: none;
+}
+
+.movie-arrow{
+    display: none;
+    color: blue;
+    position: absolute;
+    cursor: pointer;
+    
+
 }

@@ -84,7 +84,7 @@ class VideoIndexForm extends React.Component {
 
 
                         <img src={window.icon} />
-                        <button onClick={this.handleSubmitLogOut}><i  className="fas fa-caret-down fa-2x"></i></button>
+                        <button className = 'log-out-button' onClick={this.handleSubmitLogOut}><i  className="fas fa-caret-down fa-2x"></i></button>
 
                     </div>
                 </div>
