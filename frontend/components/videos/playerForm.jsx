@@ -25,7 +25,7 @@ class PlayerForm extends React.Component {
 
     keyHandler(e){
         let actualVideoFive = document.getElementById("video-player");
-        debugger
+  
         if(e.keyCode === 109){
             if(actualVideoFive.muted){
                 actualVideoFive.muted = false;
@@ -51,8 +51,7 @@ class PlayerForm extends React.Component {
 
     componentDidMount(){
         let controlsToggleTimer;
-        this.props.getVideos();
-        this.setState({loaded: true})
+        this.props.getVideos().then( () => this.setState({loaded: true}))
         const backToBrowse = document.getElementById("back-to-browse");
         const backButton = document.getElementById("back-arrow-font");
         const rewindButton = document.getElementById("reverse-button");
@@ -61,7 +60,7 @@ class PlayerForm extends React.Component {
         const volumeBar = document.getElementById("volume-bar");
         const volumeButton = document.getElementById("controls-volume-button"); 
         document.addEventListener('keypress', this.keyHandler, false)
-        // const bottom_row = document.getElementById("bottom-row"); 
+        const bottom_row = document.getElementById("bottom-row"); 
      
         
 
@@ -103,13 +102,16 @@ class PlayerForm extends React.Component {
 
         })
 
-        // bottom_row.addEventListener("moveover", () => {
-        //     debugger
-        //     bottom_row.classList.add('bottom-row')
-        // })
-        // bottom_row.addEventListener("moveout", () => {
-        //     bottom_row.classList.add('display_none')
-        // })
+        window.addEventListener("mousemove", () => {
+            // debugger
+            bottom_row.style.opacity = "1.0"
+            
+            setTimeout(function(){
+                bottom_row.style.opacity = "0";
+            }, 2000);
+        })
+
+     
 
     }
 
@@ -178,7 +180,11 @@ class PlayerForm extends React.Component {
 
     render() {
         // debugger
+        // if(!this.state.loaded){
+        //     return null;
+        // }
         let volumeButtonRender;
+
         if (this.state.volume > 0.6) {
             volumeButtonRender = <i className="vol fas fa-volume-up" id="controls-volume-button" onClick={this.toggleMute}></i>
         } else if (this.state.volume > 0.3 && this.state.volume <= 0.6) {
