@@ -18,12 +18,16 @@ class IndexItemForm extends React.Component {
         
         arrow.style.display = "none"
         video_li.addEventListener("mouseover", ()=> {
-            arrow.style.display = "block"
+            arrow.style.display = "inline-block"
             arrow.style.position = "absolute"
         })
         
         video_li.addEventListener("mouseout", ()=> {
             arrow.style.display = "none"
+        })
+
+        arrow.addEventListener("click", () => {
+            alert(`You clicked ${this.props.video.id} arrow`)
         })
         
 
