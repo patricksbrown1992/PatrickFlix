@@ -26,8 +26,8 @@ class IndexItemForm extends React.Component {
             this.setState({ playing: false })
         }
 
-        video_li.addEventListener("mouseover", togglePlay)
-        video_li.addEventListener("mouseout", togglePause)
+        video_li.addEventListener("mouseenter", togglePlay)
+        video_li.addEventListener("mouseleave", togglePause)
         
     }
 

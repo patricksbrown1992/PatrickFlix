@@ -68,7 +68,7 @@ class PlayerForm extends React.Component {
         const showBack = () => {
             backButton.style.opacity = "1.0";
             backToBrowse.style.opacity = '1.0';
-            playPauseButton.style.color = "grey";
+            playPauseButton.style.color = "white";
         }
 
         const hideBack = () => {
@@ -82,7 +82,7 @@ class PlayerForm extends React.Component {
 
         rewindButton.addEventListener("mouseover", () => {
             rewindButton.style.transform = "scale(1.2)";
-            playPauseButton.style.color = "grey";
+            playPauseButton.style.color = "white";
         })
 
         rewindButton.addEventListener("mouseout", () => {
@@ -92,7 +92,7 @@ class PlayerForm extends React.Component {
 
         fastForwardButton.addEventListener("mouseover", () => {
             fastForwardButton.style.transform = "scale(1.2)";
-            playPauseButton.style.color = "grey";
+            playPauseButton.style.color = "white";
 
         })
 
@@ -108,7 +108,7 @@ class PlayerForm extends React.Component {
             
             setTimeout(function(){
                 bottom_row.style.opacity = "0";
-            }, 2000);
+            }, 3000);
         })
 
      
@@ -207,27 +207,32 @@ class PlayerForm extends React.Component {
         return (
             
             <div className='video-player-div'>
-                <Link to={"/videos"}>
-                    <div id="back-to-browse" className="back-to-browse">
-                        <i className="fas fa-arrow-left fa-2x" id="back-arrow-icon"></i>
-                        <h1 id="back-arrow-font" className="back-arrow-font">Back to Browse</h1>
-                        
-                    </div>
-                </Link> 
-                
-             
-                <video ref="player" id="video-player" className="video-player" src={vid.video_link} poster={vid.image_link} preload="auto" loop autoPlay></video>
-                <div  id='bottom-row' className='bottom-row'>
-                        <h2>{playButtonRender}</h2>
-                        <img id="reverse-button" className="reverse-button" src={window.forward_arrow} />
-                        <img id="forward-button" className="forward-button" src={window.back_arrow} />
-                        <div>
-                            <input type="range" id="volume-bar" min="0" max="1" step="0.01" onChange={this.toggleVolume} value={this.state.volume} />
-                            {volumeButtonRender}
+                <div className = 'video-player-div-top'>
+                    <Link to={"/videos"}>
+                        <div id="back-to-browse" className="back-to-browse">
+                            <i className="fas fa-arrow-left fa-2x" id="back-arrow-icon"></i>
+                            <h1 id="back-arrow-font" className="back-arrow-font">Back to Browse</h1>
+                            
                         </div>
-                        <i className="fas fa-compress" id="screen-toggle-button" onClick={this.toggleFullScreen()}></i> 
-            
+                    </Link> 
                 </div>
+                
+                
+                <div className= 'video-player-div-bottom'>
+                    <video ref="player" id="video-player" className="video-player" src={vid.video_link} poster={vid.image_link} preload="auto" loop autoPlay></video>
+                    <div  id='bottom-row' className='bottom-row'>
+                            <h2>{playButtonRender}</h2>
+                            <img id="reverse-button" className="reverse-button" src={window.forward_arrow} />
+                            <img id="forward-button" className="forward-button" src={window.back_arrow} />
+                            <div>
+                                <input type="range" id="volume-bar" min="0" max="1" step="0.01" onChange={this.toggleVolume} value={this.state.volume} />
+                                {volumeButtonRender}
+                            </div>
+                            <i className="fas fa-compress" id="screen-toggle-button" onClick={this.toggleFullScreen()}></i> 
+                
+                    </div>
+                </div>
+                
 
             </div>
         )
