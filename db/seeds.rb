@@ -48,3 +48,35 @@ doogiehowser.thumbnail.attach(io: open('https://patrickflix-seeds.s3.amazonaws.c
 himym = Video.create({title: "How I Met Your Mother", year: 2005, runtime: "0m 46s", description: "Ted, in the year 2030, recounts to his son and daughter the events that led him to meet their mother."} )
 himym.movie.attach(io: open('https://patrickflix-seeds.s3.amazonaws.com/HIMYM_Trailer.mp4'), filename: 'HIMYM_Trailer.mp4')
 himym.thumbnail.attach(io: open('https://patrickflix-seeds.s3.amazonaws.com/himym_thumbnail.png'), filename: 'himym_thumbnail.png')
+
+aquaman = Video.create({title: "Aquaman", year: 2018, runtime: "2m 24s", description: "In the film, Aquaman sets out to lead the underwater kingdom of Atlantis, replacing his half-brother, King Orm, who seeks to unite the seven underwater kingdoms against the surface world."} )
+aquaman.movie.attach(io: open('https://patrickflix-seeds.s3.amazonaws.com/aquaman_trailer.mp4'), filename: 'aquaman_trailer.mp4')
+aquaman.thumbnail.attach(io: open('https://patrickflix-seeds.s3.amazonaws.com/aquaman_poster.jpg'), filename: 'aquaman_poster.jpg')
+
+youngadult = Video.create({title: "Young Adult", year: 2011, runtime: "1m 58s", description: "Mavis Gary (Charlize Theron) is a successful writer of teen literature who returns to her hometown with a dual mission: to relive her glory days and steal away her now-married high-school sweetheart (Patrick Wilson)."} )
+youngadult.movie.attach(io: open('https://patrickflix-seeds.s3.amazonaws.com/young_adult_trailer.mp4'), filename: 'young_adult_trailer.mp4')
+youngadult.thumbnail.attach(io: open('https://patrickflix-seeds.s3.amazonaws.com/young_adult_poster.jpg'), filename: 'young_adult_poster.jpg')
+
+watchmen = Video.create({title: "Watchmen", year: 2009, runtime: "2m 22s", description: "A dark and dystopian deconstruction of the superhero genre, the film is set in an alternate history in the year 1985 at the height of the Cold War between the United States and the Soviet Union, as a group of mostly retired American superheroes investigates the murder of one of their own before uncovering an elaborate and deadly conspiracy, while their moral limitations are challenged by the complex nature of the circumstances."} )
+watchmen.movie.attach(io: open('https://patrickflix-seeds.s3.amazonaws.com/watchmen_trailer.mp4'), filename: 'watchmen_trailer.mp4')
+watchmen.thumbnail.attach(io: open('https://patrickflix-seeds.s3.amazonaws.com/watchmen_poster.jpg'), filename: 'watchmen_poster.jpg')
+
+conjuring = Video.create({title: "The Conjuring", year: 2013, runtime: "2m 28s", description: "Patrick Wilson and Vera Farmiga star as Ed and Lorraine Warren, paranormal investigators and authors associated with prominent cases of haunting."} )
+conjuring.movie.attach(io: open('https://patrickflix-seeds.s3.amazonaws.com/conjuring_trailer.mp4'), filename: 'conjuring_trailer.mp4')
+conjuring.thumbnail.attach(io: open('https://patrickflix-seeds.s3.amazonaws.com/the_conjuring_poster.jpg'), filename: 'the_conjuring_poster.jpg')
+
+greyanatomy = Video.create({title: "Grey's Anatomy", year: 2005, runtime: "3m 26s", description: "The fictional series focuses on the lives of surgical interns, residents, and attending doctors as they develop into seasoned doctors while balancing personal and professional relationships."} )
+greyanatomy.movie.attach(io: open('https://patrickflix-seeds.s3.amazonaws.com/greys_anatomy_trailer.mp4'), filename: 'greys_anatomy_trailer.mp4')
+greyanatomy.thumbnail.attach(io: open('https://patrickflix-seeds.s3.amazonaws.com/grey_anatomy_poster.jpg'), filename: 'grey_anatomy_poster.jpg')
+
+enchanted = Video.create({title: "Enchanted", year: 2007, runtime: "2m 30s", description: "The plot focuses on an archetypal Disney Princess, who is forced from her traditional animated world into the live-action world of New York City."} )
+enchanted.movie.attach(io: open('https://patrickflix-seeds.s3.amazonaws.com/enchanted_trailer.mp4'), filename: 'enchanted_trailer.mp4')
+enchanted.thumbnail.attach(io: open('https://patrickflix-seeds.s3.amazonaws.com/enchanted_poster.jpg'), filename: 'enchanted_poster.jpg')
+
+madeofhonor = Video.create({title: "Made of Honor", year: 2008, runtime: "1m 22s", description: "The plot follows a lifelong playboy who falls in love with his best friend, only to have her get engaged and ask him to be her maid of honor."} )
+madeofhonor.movie.attach(io: open('https://patrickflix-seeds.s3.amazonaws.com/made_of_honor_trailer.mp4'), filename: 'made_of_honor_trailer.mp4')
+madeofhonor.thumbnail.attach(io: open('https://patrickflix-seeds.s3.amazonaws.com/made_of_honor_poster.jpg'), filename: 'made_of_honor_poster.jpg')
+
+cantbuymelove = Video.create({title: "Can't Buy Me Love", year: 1987, runtime: "1m 34s", description: "Patrick Dempsey and Amanda Peterson in a story about a nerd at a high school in Tucson, Arizona who gives a cheerleader $1,000 to pretend to be his girlfriend for a month."} )
+cantbuymelove.movie.attach(io: open('https://patrickflix-seeds.s3.amazonaws.com/cantbuymelove_trailer.mp4'), filename: 'cantbuymelove_trailer.mp4')
+cantbuymelove.thumbnail.attach(io: open('https://patrickflix-seeds.s3.amazonaws.com/cant_buy_me_love_poster.jpg'), filename: 'cant_buy_me_love_poster.jpg')

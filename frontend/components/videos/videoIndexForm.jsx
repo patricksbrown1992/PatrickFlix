@@ -58,9 +58,10 @@ class VideoIndexForm extends React.Component {
            
         //     <IndexItem  video={vid} index={index+3}/>
         // ))
-        let harris = vids.slice(7);
+        let harris = vids.slice(7, 10);
         // .map((vid, index) => (
-           
+        let wilson = vids.slice(10,14)
+        let dempsey = vids.slice(14)
         //     <IndexItem  video={vid} index={index+7}/>
         // ))
         
@@ -90,42 +91,42 @@ class VideoIndexForm extends React.Component {
                 </div>
 
                 <div className = 'videos-index-body'>
+
+                    {/* <div className = "featured-video">
+                        <video ref="player" id="video-player" className="video-player" src={this.props.videos[10].video_link} poster={vid.image_link} preload="auto" loop autoPlay></video>
+                    </div> */}
+
                     <div className= 'video-row'>
                         <h1>Patrick Stewart</h1>
-                        {/* <div className='patrick-stewart-div'>
-                            
-                       
                         
-                            {stewart}
-                           
-                                
-                
-                            
-                        </div> */}
                         <DetailRow identifier= {0} vids = {stewart} range={[0,1, 2]}/>
 
                     </div>
                     
                     <div className= 'video-row'>
                         <h1>Patrick Swayze</h1>
-                        {/* <div className='patrick-swayze-div'>
-                            
-                                
-                                {swayze}
-                         
-                        </div> */}
+                        
                         <DetailRow identifier= {1} vids={swayze} range = {[3,4, 5, 6]}/>
                    </div>
                     
                     <div className= 'video-row'>
                         <h1>Neil Patrick Harris</h1>
-                        {/* <div className='neil-patrick-harris-div'>
-                            
-                          
-                                {harris}
-                         
-                        </div> */}
+                       
                         <DetailRow identifier= {2} vids = {harris} range={[7,8,9]}/>
+
+                    </div>
+
+                    <div className= 'video-row'>
+                        <h1>Patrick Wilson</h1>
+                        
+                        <DetailRow identifier= {3} vids = {wilson} range={[10, 11, 12, 13]}/>
+
+                    </div>
+
+                    <div className= 'video-row'>
+                        <h1>Patrick Dempsey</h1>
+                        
+                        <DetailRow identifier= {4} vids = {dempsey} range={[14, 15, 16, 17]}/>
 
                     </div>
                    
