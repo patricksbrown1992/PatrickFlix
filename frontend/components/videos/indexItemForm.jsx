@@ -20,8 +20,9 @@ class IndexItemForm extends React.Component {
         
         arrow.style.display = "none"
         video_li.addEventListener("mouseover", ()=> {
-            arrow.style.display = "inline-block"
-            arrow.style.position = "absolute"
+            arrow.style.display = "inline-block";
+            arrow.style.position = "absolute";
+            this.props.receiveModal(this.props.index)
         })
         
         video_li.addEventListener("mouseout", ()=> {
@@ -32,6 +33,8 @@ class IndexItemForm extends React.Component {
             this.props.receiveModal(this.props.index)
            
         })
+
+
         
 
         

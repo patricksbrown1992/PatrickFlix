@@ -12,10 +12,10 @@ class DetailRowForm extends React.Component {
 
   
     // componentDidMount(){
-    //     let detail_row = document.getElementById(`detail-row ${this.props.identifier}`);
-    //     detail_row.addEventListener("mouseover", () => {
-    //         if(this.state.open){
-    //             this.props.receive()
+    //     let video_row_inner = document.getElementById(`video-row-inner-${this.props.identifier}`);
+    //     video_row_inner.addEventListener("mouseover", () => {
+    //         if(this.props.modal !== null ){
+
     //         }
     //     })
 
@@ -78,7 +78,7 @@ class DetailRowForm extends React.Component {
         // )
 
         return (
-            <div className = "video-row-inner">
+            <div className = "video-row-inner" id = {`video-row-inner-${this.props.identifier}`}>
                 <div className= 'links-row'>
                     {vids}
                 </div>
