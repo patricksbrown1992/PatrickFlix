@@ -41,7 +41,7 @@ class IndexItemForm extends React.Component {
         })
 
         arrow.addEventListener("click", () => {
-            debugger
+            
             if(this.props.modal == null){
                 this.props.receiveModal(this.props.index)
             } else {
@@ -69,7 +69,7 @@ class IndexItemForm extends React.Component {
 
     render() {
         let vid = this.props.video
-        debugger
+        // debugger
         
         return (
             <li onMouseEnter={() => {

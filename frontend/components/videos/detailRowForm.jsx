@@ -33,7 +33,7 @@ class DetailRowForm extends React.Component {
             
             <IndexItem  video={vid} index={index + this.props.range[0]}/>
         ))
-        debugger
+        // debugger
         // if(this.state.open){
             // vid = this.props.videos[this.props.modal]
             // detail_row.style.opacity = "1";
