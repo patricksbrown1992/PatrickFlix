@@ -49,7 +49,7 @@ class IndexItemForm extends React.Component {
 
     render() {
         let vid = this.props.video
-        
+        debugger
         
         return (
             <li onMouseEnter={() => {

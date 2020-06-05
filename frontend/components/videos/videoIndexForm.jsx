@@ -44,26 +44,21 @@ class VideoIndexForm extends React.Component {
             return null;
         }
         let vids = this.props.videos;
-        let stewart = vids.slice(0, 3).map((vid, index)=> (
-            // <li className = 'video-element' key={vid.id}>
-            //     <Link to={`/player/${vid.id}`}>
-            //         {vid.title} 
-            //         <img src={vid.image_link} /> </Link>
-            // </li>
-            <IndexItem  video={vid} index={index}/>
-        ))
-        let swayze = vids.slice(3, 7).map((vid, index) => (
-            // <li className = 'video-element' key={vid.id}>
-            //     <Link to={`/player/${vid.id}`}>{vid.title} <img src={vid.image_link} /> </Link>
-            // </li>
-            <IndexItem  video={vid} index={index+3}/>
-        ))
-        let harris = vids.slice(7).map((vid, index) => (
-            // <li className = 'video-element' key={vid.id}>
-            //     <Link to={`/player/${vid.id}`}>{vid.title} <img src={vid.image_link} /> </Link>
-            // </li>
-            <IndexItem  video={vid} index={index+7}/>
-        ))
+        let stewart = vids.slice(0, 3);
+        // .map((vid, index)=> (
+           
+        //     <IndexItem  video={vid} index={index}/>
+        // ))
+        let swayze = vids.slice(3, 7);
+        // .map((vid, index) => (
+           
+        //     <IndexItem  video={vid} index={index+3}/>
+        // ))
+        let harris = vids.slice(7);
+        // .map((vid, index) => (
+           
+        //     <IndexItem  video={vid} index={index+7}/>
+        // ))
         // debugger
         return (
             <div className='videos-index'>
@@ -93,47 +88,40 @@ class VideoIndexForm extends React.Component {
                 <div className = 'videos-index-body'>
                     <div className= 'video-row'>
                         <h1>Patrick Stewart</h1>
-                        <div className='patrick-stewart-div'>
+                        {/* <div className='patrick-stewart-div'>
                             
-                            {/* <ul> */}
+                       
                         
                             {stewart}
                            
                                 
                 
-                            {/* </ul> */}
-                        </div>
-                        <DetailRow identifier= {0} range={[0,1,2]}/>
+                            
+                        </div> */}
+                        <DetailRow identifier= {0} vids = {stewart} range={[0,2]}/>
 
                     </div>
                     
                     <div className= 'video-row'>
                         <h1>Patrick Swayze</h1>
-                        <div className='patrick-swayze-div'>
+                        {/* <div className='patrick-swayze-div'>
                             
-                            {/* <ul> */}
-                                {/* <Link to='/player/4'>Dirty Dancing</Link>
-                                <Link to='/player/5'>Ghost</Link>
-                                <Link to='/player/6'>Point Break</Link>
-                                <Link to='/player/7'>Road House</Link>             */}
+                                
                                 {swayze}
-                            {/* </ul> */}
-                        </div>
-                        <DetailRow identifier= {1} range = {[3,4,5,6]}/>
+                         
+                        </div> */}
+                        <DetailRow identifier= {1} vids={swayze} range = {[3,6]}/>
                    </div>
                     
                     <div className= 'video-row'>
                         <h1>Neil Patrick Harris</h1>
-                        <div className='neil-patrick-harris-div'>
+                        {/* <div className='neil-patrick-harris-div'>
                             
-                            {/* <ul> */}
-                                {/* <Link to='/player/8'>How I Met Your Mother</Link>
-                                <Link to='/player/9'>Doogie Howser</Link>
-                                <Link to='/player/10'>Gone Girl</Link> */}
+                          
                                 {harris}
-                            {/* </ul> */}
-                        </div>
-                        <DetailRow identifier= {2} range={[7, 8, 9]}/>
+                         
+                        </div> */}
+                        <DetailRow identifier= {2} vids = {harris} range={[7,9]}/>
 
                     </div>
                    

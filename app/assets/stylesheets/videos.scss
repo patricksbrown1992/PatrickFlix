@@ -102,44 +102,29 @@
     justify-content: space-around;
     height: 80%;
 }
-.detail-row {
-    height: 20%;
-    display: flex;
-    width: 80%;
-    margin-bottom: 25px;
-}
 
-// .patrick-stewart-div ul {
-//     display: flex;
-//     flex-direction: row;
-//     justify-content: space-around;
-// }
 
-.patrick-swayze-div {
+.upper-row {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     height: 80%;
 }
-
-// .patrick-swayze-div ul {
+// .patrick-swayze-div {
 //     display: flex;
 //     flex-direction: row;
 //     justify-content: space-around;
+//     height: 80%;
 // }
 
-.neil-patrick-harris-div {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    height: 80%;
-}
 
-// .neil-patrick-harris-div ul {
+// .detail-row {
 //     display: flex;
 //     flex-direction: row;
 //     justify-content: space-around;
+//     height: 80%;
 // }
+
 
 .video-player-div {
     width: 100%;
@@ -294,3 +279,14 @@
 //     flex-direction: row;
 //     opacity: 1;
 // }
+
+.video-row-inner {
+    display: flex;
+    flex-direction: column;
+}
+
+.links-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
