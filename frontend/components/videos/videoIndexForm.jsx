@@ -96,8 +96,10 @@ class VideoIndexForm extends React.Component {
                         <div className='patrick-stewart-div'>
                             
                             {/* <ul> */}
+                        
+                            {stewart}
+                           
                                 
-                                {stewart}
                 
                             {/* </ul> */}
                         </div>
@@ -116,8 +118,8 @@ class VideoIndexForm extends React.Component {
                                 <Link to='/player/7'>Road House</Link>             */}
                                 {swayze}
                             {/* </ul> */}
-                            <DetailRow identifier= {1} range = {[3,4,5,6]}/>
                         </div>
+                        <DetailRow identifier= {1} range = {[3,4,5,6]}/>
                    </div>
                     
                     <div className= 'video-row'>
@@ -130,8 +132,8 @@ class VideoIndexForm extends React.Component {
                                 <Link to='/player/10'>Gone Girl</Link> */}
                                 {harris}
                             {/* </ul> */}
-                            <DetailRow identifier= {2} range={[7, 8, 9]}/>
                         </div>
+                        <DetailRow identifier= {2} range={[7, 8, 9]}/>
 
                     </div>
                    

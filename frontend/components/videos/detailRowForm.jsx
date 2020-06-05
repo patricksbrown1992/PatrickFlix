@@ -21,19 +21,14 @@ class DetailRowForm extends React.Component {
    
     render() {
         let vid;
+        let detail_row = document.getElementById(`detail-row ${this.props.identifier}`);
         debugger
         if(this.props.modal !== null &&  this.props.range.includes(this.props.modal)){
             vid = this.props.videos[this.props.modal];
-            let vid_row = document.getElementById(`video-row ${this.props.identifier}`);
-            // if(this.props.modal == 1){
-            //     vid_row.classList.remove("open");
-            //     vid_row.classList.add("close");
-            // } else {
-                
-                vid_row.classList.remove("close");
-                vid_row.classList.add("open");
-                
-            // }
+            detail_row.style.opacity = "1";
+            detail_row.style.display = "flex";
+            detail_row.style.height = "200px";
+      
             
         } else {
             vid = {
@@ -41,12 +36,18 @@ class DetailRowForm extends React.Component {
                 year: '',
                 description: ''
             }
+            // detail_row.style.opacity = "0";
+            // detail_row.style.display = "none";
+            // detail_row.style.height = "0"
+            
+            // detail_row.classList.remove("open");
+            // vid_row.classList.add("close");
         }
       
         // debugger
         return (
-            <div className='video-row close' id = {`video-row ${this.props.identifier}`}>
-                {vid.title}{vid.year} - {vid.description}
+            <div className='detail-row close' id = {`detail-row ${this.props.identifier}`}>
+                {vid.title}({vid.year}) - {vid.description}
             </div>
 
         )
