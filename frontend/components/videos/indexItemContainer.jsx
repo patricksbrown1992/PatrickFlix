@@ -5,6 +5,7 @@ import {receiveModal, clearModal} from '../../actions/modalActions';
 const msp = state => ({
     errors: state.errors,
     videos: Object.values(state.entities.videos),
+    modal: state.modal
 });
 
 
