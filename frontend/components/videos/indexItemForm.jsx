@@ -14,7 +14,7 @@ class IndexItemForm extends React.Component {
         let vid = this.props.video;
         let video_li = document.getElementById(`video-li ${vid.id}`);
         let arrow = document.getElementById(`movie-arrow ${vid.id}`);  
-        let hidden_panel = document.getElementById(`hidden-panel ${vid.id}`);  
+        
         // debugger
 
         
@@ -58,9 +58,7 @@ class IndexItemForm extends React.Component {
                 <Link to={`/player/${vid.id}`}> <img src={vid.image_link} alt=""/> </Link>
                {/* <Link to={`/player/${vid.id}`}><video ref="player" id="video-li" className="video-li" src={vid.video_link} poster={vid.image_link} preload="meta" loop ></video></Link>  */}
                <i id={`movie-arrow ${vid.id}`} className="fas fa-caret-down fa-2x movie-arrow"></i>
-               <div id={`hidden-panel ${vid.id}`} className= "hidden-panel">
-                    {vid.title}({vid.year}) - {vid.description}
-               </div>
+               
             </li>
 
         )

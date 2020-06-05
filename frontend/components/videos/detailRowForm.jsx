@@ -34,31 +34,32 @@ class DetailRowForm extends React.Component {
             <IndexItem  video={vid} index={index + this.props.range[0]}/>
         ))
         debugger
-        if(this.state.open){
+        // if(this.state.open){
+            // vid = this.props.videos[this.props.modal]
+            // detail_row.style.opacity = "1";
+            // detail_row.style.display = "flex";
+            // detail_row.style.height = "20%"
+            // text = `${vid.title}(${vid.year}) - ${vid.description}`
+        // } else {
+            // detail_row.style.opacity = "0";
+            // detail_row.style.display = "none";
+            // detail_row.style.height = "0"
+            // text = ''
+        // }
+        
+        // debugger
+        if(this.props.modal !== null &&  this.props.range.includes(this.props.modal)){
             vid = this.props.videos[this.props.modal]
             detail_row.style.opacity = "1";
             detail_row.style.display = "flex";
             detail_row.style.height = "20%"
             text = `${vid.title}(${vid.year}) - ${vid.description}`
+            
+            // this.setState({open: true})
+            
         } else {
-            // detail_row.style.opacity = "0";
-            // detail_row.style.display = "none";
-            // detail_row.style.height = "0"
             text = ''
-        }
-        
-        // debugger
-        if(this.props.modal !== null &&  this.props.range.includes(this.props.modal)){
-            vid = this.props.videos[this.props.modal];
-            
-            this.setState({open: true})
-            
-        } else {
-            vid = {
-                title: '',
-                year: '',
-                description: ''
-            }
+            // this.setState({open: false})
         //     this.setState({open: false})
             // detail_row.style.opacity = "0";
             // detail_row.style.display = "none";

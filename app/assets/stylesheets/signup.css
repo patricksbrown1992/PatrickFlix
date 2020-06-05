@@ -1,0 +1,124 @@
+.sign-up-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100%;
+  width: 100%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-image: image-url("patrick-background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-size: 100% 100%;
+}
+
+.sign-up-title {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+}
+
+.sign-up-title h1 {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 40px;
+  color: #e50914;
+  line-height: 90px;
+  vertical-align: middle;
+  font-weight: 800;
+}
+
+.sign-up-body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #0a0a07;
+  height: 660px;
+  width: 380px;
+}
+
+.sign-up-body h1 {
+  color: #fff;
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 28px;
+  margin-top: 60px;
+}
+
+.sign-up-body input {
+  color: #fff;
+  background-color: #333333;
+  width: 300px;
+  height: 45px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  outline: none;
+  border: none;
+}
+
+.sign-up-form button {
+  width: 300px;
+  padding: 19px 16px;
+  color: #fff;
+  background-color: #e50914;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border: none;
+  outline: none;
+  text-align: center;
+  font-size: 16px;
+  vertical-align: middle;
+  cursor: pointer;
+  font-weight: 700;
+  border-radius: 4px;
+}
+
+.redirect-to-sign-in {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.redirect-to-sign-in h3 {
+  color: #474946;
+  margin-right: 10px;
+}
+
+.redirect-to-sign-in a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.sign-up-form li {
+  list-style: none;
+  color: red;
+  font-family: sans-serif;
+}
+/*# sourceMappingURL=signup.css.map */

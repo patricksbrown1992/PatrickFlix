@@ -98,7 +98,7 @@ class VideoIndexForm extends React.Component {
                 
                             
                         </div> */}
-                        <DetailRow identifier= {0} vids = {stewart} range={[0,2]}/>
+                        <DetailRow identifier= {0} vids = {stewart} range={[0,1, 2]}/>
 
                     </div>
                     
@@ -110,7 +110,7 @@ class VideoIndexForm extends React.Component {
                                 {swayze}
                          
                         </div> */}
-                        <DetailRow identifier= {1} vids={swayze} range = {[3,6]}/>
+                        <DetailRow identifier= {1} vids={swayze} range = {[3,4, 5, 6]}/>
                    </div>
                     
                     <div className= 'video-row'>
@@ -121,7 +121,7 @@ class VideoIndexForm extends React.Component {
                                 {harris}
                          
                         </div> */}
-                        <DetailRow identifier= {2} vids = {harris} range={[7,9]}/>
+                        <DetailRow identifier= {2} vids = {harris} range={[7,8,9]}/>
 
                     </div>
                    
