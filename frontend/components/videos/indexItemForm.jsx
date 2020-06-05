@@ -22,19 +22,32 @@ class IndexItemForm extends React.Component {
         video_li.addEventListener("mouseover", ()=> {
             arrow.style.display = "inline-block";
             arrow.style.position = "absolute";
+            
+            
+        })
+
+        video_li.addEventListener("mouseenter", ()=> {
             if(this.props.modal !== null){
                 this.props.receiveModal(this.props.index)
             }
             
+            
         })
+
+        
         
         video_li.addEventListener("mouseout", ()=> {
             arrow.style.display = "none"
         })
 
         arrow.addEventListener("click", () => {
+            debugger
+            if(this.props.modal == null){
+                this.props.receiveModal(this.props.index)
+            } else {
+                this.props.receiveModal(null)
+            }
             
-            this.props.receiveModal(this.props.index)
            
         })
 
