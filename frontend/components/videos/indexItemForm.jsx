@@ -15,7 +15,7 @@ class IndexItemForm extends React.Component {
         let video_li = document.getElementById(`video-li ${vid.id}`);
         let arrow = document.getElementById(`movie-arrow ${vid.id}`);  
         
-        // debugger
+     
 
         
         arrow.style.display = "none"
@@ -69,7 +69,7 @@ class IndexItemForm extends React.Component {
 
     render() {
         let vid = this.props.video
-        // debugger
+  
         
         return (
             <li onMouseEnter={() => {

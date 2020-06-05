@@ -33,7 +33,7 @@ class DetailRowForm extends React.Component {
             
             <IndexItem  video={vid} index={index + this.props.range[0]}/>
         ))
-        // debugger
+      
         // if(this.state.open){
             // vid = this.props.videos[this.props.modal]
             // detail_row.style.opacity = "1";
@@ -47,7 +47,7 @@ class DetailRowForm extends React.Component {
             // text = ''
         // }
         
-        // debugger
+     
         if(this.props.modal !== null &&  this.props.range.includes(this.props.modal)){
             vid = this.props.videos[this.props.modal]
             detail_row.style.opacity = "1";
@@ -69,7 +69,7 @@ class DetailRowForm extends React.Component {
         //     vid_row.classList.add("close");
         }
       
-        // debugger
+        
         // return (
             // <div className='detail-row close' id = {`detail-row ${this.props.identifier}`}>
             //     {vid.title}({vid.year}) - {vid.description}

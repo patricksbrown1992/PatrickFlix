@@ -103,7 +103,7 @@ class PlayerForm extends React.Component {
         })
 
         window.addEventListener("mousemove", () => {
-            // debugger
+           
             bottom_row.style.opacity = "1.0"
             
             setTimeout(function(){
@@ -179,7 +179,7 @@ class PlayerForm extends React.Component {
 
 
     render() {
-        // debugger
+        
         // if(!this.state.loaded){
         //     return null;
         // }

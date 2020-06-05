@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import VideoIndexForm from './videoIndexForm';
 import { clearErrors, logout } from '../../actions/sessionActions';
 import {getVideos} from '../../actions/videoActions';
+import {receiveModal} from '../../actions/modalActions';
 
 const msp = state => ({
     errors: state.errors,
@@ -11,7 +12,8 @@ const msp = state => ({
 const mdp = dispatch => ({
     getVideos: () => dispatch(getVideos()),
     clearErrors: () => dispatch(clearErrors()),
-    logout: () => dispatch(logout())
+    logout: () => dispatch(logout()),
+    receiveModal: (id) => dispatch(receiveModal(id))
 });
 
 export default connect(msp, mdp)(VideoIndexForm);

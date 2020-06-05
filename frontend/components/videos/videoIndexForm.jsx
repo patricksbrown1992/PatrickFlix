@@ -23,6 +23,10 @@ class VideoIndexForm extends React.Component {
 
     }
 
+    componentWillUnmount(){
+        this.props.receiveModal(null);
+    }
+
 
 
 
@@ -59,7 +63,7 @@ class VideoIndexForm extends React.Component {
            
         //     <IndexItem  video={vid} index={index+7}/>
         // ))
-        // debugger
+        
         return (
             <div className='videos-index'>
                 
