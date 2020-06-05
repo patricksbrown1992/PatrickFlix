@@ -1,10 +1,11 @@
 import { connect } from 'react-redux';
-import IndexItemForm from './indexItemForm';
-import {receiveModal, clearModal} from '../../actions/modalActions';
+import DetailRowForm from './detailRowForm';
+import {receiveModal, clearModal} from '../../actions/modalActions'
 
 const msp = state => ({
     errors: state.errors,
     videos: Object.values(state.entities.videos),
+    modal: state.modal
 });
 
 
@@ -13,4 +14,4 @@ const mdp = dispatch => ({
     clearModal: () => dispatch(clearModal())
 });
 
-export default connect(msp, mdp)(IndexItemForm);
+export default connect(msp, mdp)(DetailRowForm);

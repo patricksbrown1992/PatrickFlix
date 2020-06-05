@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import IndexItem from './indexItemContainer';
+import DetailRow from './detailRowContainer';
 
 class VideoIndexForm extends React.Component {
     constructor(props) {
@@ -43,25 +44,25 @@ class VideoIndexForm extends React.Component {
             return null;
         }
         let vids = this.props.videos;
-        let stewart = vids.slice(0, 3).map(vid => (
+        let stewart = vids.slice(0, 3).map((vid, index)=> (
             // <li className = 'video-element' key={vid.id}>
             //     <Link to={`/player/${vid.id}`}>
             //         {vid.title} 
             //         <img src={vid.image_link} /> </Link>
             // </li>
-            <IndexItem video={vid}/>
+            <IndexItem  video={vid} index={index}/>
         ))
-        let swayze = vids.slice(3, 7).map(vid => (
+        let swayze = vids.slice(3, 7).map((vid, index) => (
             // <li className = 'video-element' key={vid.id}>
             //     <Link to={`/player/${vid.id}`}>{vid.title} <img src={vid.image_link} /> </Link>
             // </li>
-            <IndexItem video={vid}/>
+            <IndexItem  video={vid} index={index+3}/>
         ))
-        let harris = vids.slice(7).map(vid => (
+        let harris = vids.slice(7).map((vid, index) => (
             // <li className = 'video-element' key={vid.id}>
             //     <Link to={`/player/${vid.id}`}>{vid.title} <img src={vid.image_link} /> </Link>
             // </li>
-            <IndexItem video={vid}/>
+            <IndexItem  video={vid} index={index+7}/>
         ))
         // debugger
         return (
@@ -100,6 +101,7 @@ class VideoIndexForm extends React.Component {
                 
                             {/* </ul> */}
                         </div>
+                        <DetailRow identifier= {0} range={[0,1,2]}/>
 
                     </div>
                     
@@ -114,6 +116,7 @@ class VideoIndexForm extends React.Component {
                                 <Link to='/player/7'>Road House</Link>             */}
                                 {swayze}
                             {/* </ul> */}
+                            <DetailRow identifier= {1} range = {[3,4,5,6]}/>
                         </div>
                    </div>
                     
@@ -127,6 +130,7 @@ class VideoIndexForm extends React.Component {
                                 <Link to='/player/10'>Gone Girl</Link> */}
                                 {harris}
                             {/* </ul> */}
+                            <DetailRow identifier= {2} range={[7, 8, 9]}/>
                         </div>
 
                     </div>

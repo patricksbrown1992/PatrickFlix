@@ -265,6 +265,24 @@
     color: blue;
     position: absolute;
     cursor: pointer;
-    
+}
 
+.hidden-panel {
+    display: none;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    overflow: hidden;
+}
+
+.close {
+    width: 0;
+    height: 0;
+    display: none;
+}
+
+.open {
+    width: 80%;
+    height: 150px;
+    display: flex;
+    flex-direction: row;
 }
