@@ -53,7 +53,7 @@ class DetailRowForm extends React.Component {
             detail_row.style.opacity = "1";
             detail_row.style.display = "flex";
             detail_row.style.height = "20%"
-            text = `${vid.title}(${vid.year}) - ${vid.description}`
+            text = <h3 className= 'featured-video-h3'>{vid.title}({vid.year}) - {vid.description}</h3>
             
             // this.setState({open: true})
             

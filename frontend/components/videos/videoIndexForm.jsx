@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import IndexItem from './indexItemContainer';
 import DetailRow from './detailRowContainer';
+import FeaturedVideo from './featuredVideoContainer';
 
 class VideoIndexForm extends React.Component {
     constructor(props) {
@@ -9,6 +10,7 @@ class VideoIndexForm extends React.Component {
         this.state = { search: false, test: 1, loaded: null };
         this.handleSubmitLogOut = this.handleSubmitLogOut.bind(this);
         this.searchClick = this.searchClick.bind(this);
+     
 
     }
 
@@ -19,9 +21,13 @@ class VideoIndexForm extends React.Component {
         // }
     }
     componentDidMount(){
+       
         this.props.getVideos().then(() => this.setState({loaded: true}))
+    
 
     }
+
+ 
 
     componentWillUnmount(){
         this.props.receiveModal(null);
@@ -33,6 +39,7 @@ class VideoIndexForm extends React.Component {
     searchClick() {
         this.setState({ search: !this.state.search });
     }
+   
 
     render() {
         let searchClass;
@@ -92,39 +99,38 @@ class VideoIndexForm extends React.Component {
 
                 <div className = 'videos-index-body'>
 
-                    {/* <div className = "featured-video">
-                        <video ref="player" id="video-player" className="video-player" src={this.props.videos[10].video_link} poster={vid.image_link} preload="auto" loop autoPlay></video>
-                    </div> */}
+                    <FeaturedVideo />
+                     
 
                     <div className= 'video-row'>
-                        <h1>Patrick Stewart</h1>
+                        <h1 className='featured-video-h1'>Patrick Stewart</h1>
                         
                         <DetailRow identifier= {0} vids = {stewart} range={[0,1, 2]}/>
 
                     </div>
                     
                     <div className= 'video-row'>
-                        <h1>Patrick Swayze</h1>
+                        <h1 className='featured-video-h1'>Patrick Swayze</h1>
                         
                         <DetailRow identifier= {1} vids={swayze} range = {[3,4, 5, 6]}/>
                    </div>
                     
                     <div className= 'video-row'>
-                        <h1>Neil Patrick Harris</h1>
+                        <h1 className='featured-video-h1'>Neil Patrick Harris</h1>
                        
                         <DetailRow identifier= {2} vids = {harris} range={[7,8,9]}/>
 
                     </div>
 
                     <div className= 'video-row'>
-                        <h1>Patrick Wilson</h1>
+                        <h1 className='featured-video-h1'>Patrick Wilson</h1>
                         
                         <DetailRow identifier= {3} vids = {wilson} range={[10, 11, 12, 13]}/>
 
                     </div>
 
                     <div className= 'video-row'>
-                        <h1>Patrick Dempsey</h1>
+                        <h1 className='featured-video-h1'>Patrick Dempsey</h1>
                         
                         <DetailRow identifier= {4} vids = {dempsey} range={[14, 15, 16, 17]}/>
 
