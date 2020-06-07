@@ -39,7 +39,7 @@ export const clearLists = () => {
 }
 
 export const getLists = (user) => dispatch => (
-    APIUtil.getLists(user).then(notebooks => (dispatch(receiveLists(notebooks))))
+    APIUtil.getLists(user).then(lists => (dispatch(receiveLists(lists))))
 );
 
 export const getList = (id) => dispatch => (
