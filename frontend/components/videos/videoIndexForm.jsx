@@ -32,7 +32,7 @@ class VideoIndexForm extends React.Component {
 
     showLogOut(){
         const modal = document.getElementById("log-out-modal");
-        // debugger
+
         if(modal.style.opacity == "1"){
             modal.style.opacity = "0"
             modal.style.zIndex = 1;
@@ -56,16 +56,19 @@ class VideoIndexForm extends React.Component {
 
     searchClick() {
         let search_res = document.getElementById('search-results');
+      
         if(search_res.style.opacity == '1'){
-            search_res.style.opacity = '0'
+            search_res.style.opacity = '0';
+            search_res.style.height = 0;
         } else {
-            search_res.style.opacity = '1'
+            search_res.style.opacity = '1';
+            
         }
         this.setState({ activated: !this.state.activated });
 
     }
     searchUpdate(){
-        debugger
+   
         return (e) => {
             this.setState({search: e.target.value})
         }
@@ -85,13 +88,13 @@ class VideoIndexForm extends React.Component {
 
     render() {
         let searchClass;
-        let rightnav;
+        
         if (this.state.activated) {
             searchClass = 'show-search';
-            rightnav = 'search-activated';
+            
         } else {
             searchClass = 'hide-search';
-            rightnav = 'search-hidden';
+            
         }
         if(!this.state.loaded){
             return null;
@@ -114,17 +117,33 @@ class VideoIndexForm extends React.Component {
         //     <IndexItem  video={vid} index={index+7}/>
         // ))
         let search = this.state.search
-        let search_arr = this.duplicateArray(this.props.videos);
+        let search_arr
+        if(this.state.search.length && this.state.activated){
+
+            let search_res = document.getElementById('search-results');
+            let search_form = document.getElementById('search-form');
+            let search_div = document.getElementById('search-div');
+            search_res.style.height = '150px';
+            search_form.style.height = '350px';
+            search_div.style.height = '35px';
+            // search_form.style.position = 'absolute';
+            search_form.style.top = '0';
+            search_arr = this.duplicateArray(this.props.videos);
         
-        search_arr = search_arr.filter(video => (
+             search_arr = search_arr.filter(video => (
             
             video.title.toUpperCase().includes(search.toUpperCase())
         ))
        
-        search_arr = search_arr.map(video => {
-            
-        return <li key = {video.id}>{video.title}</li>
-        })
+            search_arr = search_arr.map(video => {
+                return <li key = {video.id} id='search-li'> <Link to={`player/${video.id}`}>{video.title}</Link></li>
+            })
+        } else {
+            search_arr ='';
+        }
+
+        
+        
         
 
         return (
@@ -138,15 +157,31 @@ class VideoIndexForm extends React.Component {
 
                         </div>
                     </div>
-                    <div className={rightnav}>
-                        <form>
-                            <i onClick={this.searchClick} className="fas fa-search fa-2x"></i>
-                            <input className={searchClass} type="text" name="search" value={this.state.search} onChange = {this.searchUpdate()} placeholder="Titles, people, genres" />
-                            
-                        </form>
-                        <div id="search-results">
+                    <div className='right-nav'>
+                        {/* <form id='search-form'>
+                            <div id= 'search-div'>
+                                <i onClick={this.searchClick} className="fas fa-search fa-2x"></i>
+                                <input className={searchClass} type="text" name="search" value={this.state.search} onChange = {this.searchUpdate()} placeholder="Titles" />
+                            </div>
+                            <div id="search-results">
                                 {search_arr}
+                            </div>
+                            
+                            
+                        </form>  */}
+                        
+                        <div id='search-form'>
+                            <div id= 'search-div'>
+                                <i onClick={this.searchClick} className="fas fa-search fa-2x"></i>
+                                <input className={searchClass} type="text" name="search" value={this.state.search} onChange = {this.searchUpdate()} placeholder="Titles" />
+                            </div>
+                            <div id="search-results">
+                                {search_arr}
+                            </div>
                         </div>
+                        
+                        
+                        
 
 
                         <img onClick={this.showLogOut} src={window.icon} />
