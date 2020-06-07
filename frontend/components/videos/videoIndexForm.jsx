@@ -112,7 +112,7 @@ class VideoIndexForm extends React.Component {
                         </form>
 
 
-                        <img src={window.icon} />
+                        <img onClick={this.showLogOut} src={window.icon} />
                         <button onClick={this.showLogOut} id = 'log-out-arrow' ><i  className="fas fa-caret-down fa-2x"></i></button>
                         <div id='log-out-modal'>
                             <button id = 'log-out-button' onClick={this.handleSubmitLogOut}>Log Out</button>
