@@ -3,14 +3,17 @@ import { Link } from 'react-router-dom';
 import IndexItem from './indexItemContainer';
 import DetailRow from './detailRowContainer';
 import FeaturedVideo from './featuredVideoContainer';
+import { merge } from 'lodash';
 
 class VideoIndexForm extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { search: false, test: 1, loaded: null };
+        this.state = { activated: false, test: 1, loaded: null, search: ''};
         this.handleSubmitLogOut = this.handleSubmitLogOut.bind(this);
         this.searchClick = this.searchClick.bind(this);
         this.showLogOut = this.showLogOut.bind(this);
+        this.duplicateArray = this.duplicateArray.bind(this);
+        this.searchUpdate = this.searchUpdate.bind(this);
      
 
     }
@@ -25,10 +28,6 @@ class VideoIndexForm extends React.Component {
        
         this.props.getVideos().then(() => this.setState({loaded: true}))
         
-
-
-       
-
     }
 
     showLogOut(){
@@ -56,14 +55,38 @@ class VideoIndexForm extends React.Component {
 
 
     searchClick() {
-        this.setState({ search: !this.state.search });
+        let search_res = document.getElementById('search-results');
+        if(search_res.style.opacity == '1'){
+            search_res.style.opacity = '0'
+        } else {
+            search_res.style.opacity = '1'
+        }
+        this.setState({ activated: !this.state.activated });
+
+    }
+    searchUpdate(){
+        debugger
+        return (e) => {
+            this.setState({search: e.target.value})
+        }
+    }
+
+    duplicateArray(array) {
+        // deep dupes objects
+    
+        let ans = [];
+        for (let i = 0; i < array.length; i++) {
+            let newObject = merge({}, array[i]);
+            ans.push(newObject);
+        }
+        return ans;
     }
    
 
     render() {
         let searchClass;
         let rightnav;
-        if (this.state.search) {
+        if (this.state.activated) {
             searchClass = 'show-search';
             rightnav = 'search-activated';
         } else {
@@ -90,9 +113,20 @@ class VideoIndexForm extends React.Component {
         let dempsey = vids.slice(25)
         //     <IndexItem  video={vid} index={index+7}/>
         // ))
+        let search = this.state.search
+        let search_arr = this.duplicateArray(this.props.videos);
         
+        search_arr = search_arr.filter(video => (
+            
+            video.title.toUpperCase().includes(search.toUpperCase())
+        ))
+       
+        search_arr = search_arr.map(video => {
+            
+        return <li key = {video.id}>{video.title}</li>
+        })
         
-        
+
         return (
             <div className='videos-index'>
                 
@@ -107,9 +141,12 @@ class VideoIndexForm extends React.Component {
                     <div className={rightnav}>
                         <form>
                             <i onClick={this.searchClick} className="fas fa-search fa-2x"></i>
-
-                            <input className={searchClass} type="text" name="search" placeholder="Titles, people, genres" />
+                            <input className={searchClass} type="text" name="search" value={this.state.search} onChange = {this.searchUpdate()} placeholder="Titles, people, genres" />
+                            
                         </form>
+                        <div id="search-results">
+                                {search_arr}
+                        </div>
 
 
                         <img onClick={this.showLogOut} src={window.icon} />
