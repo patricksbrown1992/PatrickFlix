@@ -6,6 +6,7 @@ import Login from './logIn/logInContainer';
 import { Authorized, ProtectedRoute } from '../util/routeUtil';
 import VideoIndex from '../components/videos/videoIndexContainer';
 import Player from '../components/videos/playerContainer';
+import List from '../components/list/listContainer';
 const App = () => (
     <>
         <Switch>
@@ -13,7 +14,10 @@ const App = () => (
             <Authorized path='/login' component={Login} />
             <ProtectedRoute path='/videos' component={VideoIndex} />
             <ProtectedRoute path='/player/:video_id' component={Player} />
+            <ProtectedRoute path='/lists/:user_id' component={List} />
             <Authorized exact path='/' component={SplashBody} />
+
+
         </Switch>
     </>
 );
