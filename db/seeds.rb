@@ -84,21 +84,21 @@
 
 # ----------------
 
-# ted = Video.create!({title: "Ted", year: 2012, runtime: "2m 30s", description: "The film tells the story of John Bennett, a Boston native whose childhood wish brings his teddy bear friend Ted to life."} )
-# ted.movie.attach(io: open('app/assets/stewart/ted_trailer.mp4'), filename: 'ted_trailer.mp4')
-# ted.thumbnail.attach(io: open('app/assets/stewart/ted_thumbnail.jpg'), filename: 'ted_thumbnail.jpg')
+ted = Video.create!({title: "Ted", year: 2012, runtime: "2m 30s", description: "The film tells the story of John Bennett, a Boston native whose childhood wish brings his teddy bear friend Ted to life."} )
+ted.movie.attach(io: open('app/assets/stewart/ted_trailer.mp4'), filename: 'ted_trailer.mp4')
+ted.thumbnail.attach(io: open('app/assets/stewart/ted_thumbnail.jpg'), filename: 'ted_thumbnail.jpg')
 
-# xmen = Video.create({title: "X-Men", year: 2000, runtime: "2m 05s", description: "The film depicts a world where a small proportion of people are mutants, whose possession of superhuman powers makes them distrusted by normal humans."} )
-# xmen.movie.attach(io: open('app/assets/stewart/X-Men_Trailer.mp4'), filename: 'X-Men_Trailer.mp4')
-# xmen.thumbnail.attach(io: open('app/assets/stewart/X-Men_Thumbnail.jpeg'), filename: 'X-Men_Thumbnail.jpeg')
+xmen = Video.create({title: "X-Men", year: 2000, runtime: "2m 05s", description: "The film depicts a world where a small proportion of people are mutants, whose possession of superhuman powers makes them distrusted by normal humans."} )
+xmen.movie.attach(io: open('app/assets/stewart/X-Men_Trailer.mp4'), filename: 'X-Men_Trailer.mp4')
+xmen.thumbnail.attach(io: open('app/assets/stewart/X-Men_Thumbnail.jpeg'), filename: 'X-Men_Thumbnail.jpeg')
 
-# startrek = Video.create({title: "Star Trek: First Contact", year: 1996, runtime: "2m 19s", description: "The crew of the USS Enterprise-E travel back in time from the 24th century to the mid-21st century in order to stop the cybernetic Borg from conquering Earth by changing their past."} )
-# startrek.movie.attach(io: open('app/assets/stewart/Star_Trek_First_Contact_Trailer.mp4'), filename: 'Star_Trek_First_Contact_Trailer.mp4')
-# startrek.thumbnail.attach(io: open('app/assets/stewart/star_trek_first_contact_thumbnail.jpg'), filename: 'star_trek_first_contact_thumbnail.jpg')
+startrek = Video.create({title: "Star Trek: First Contact", year: 1996, runtime: "2m 19s", description: "The crew of the USS Enterprise-E travel back in time from the 24th century to the mid-21st century in order to stop the cybernetic Borg from conquering Earth by changing their past."} )
+startrek.movie.attach(io: open('app/assets/stewart/Star_Trek_First_Contact_Trailer.mp4'), filename: 'Star_Trek_First_Contact_Trailer.mp4')
+startrek.thumbnail.attach(io: open('app/assets/stewart/star_trek_first_contact_thumbnail.jpg'), filename: 'star_trek_first_contact_thumbnail.jpg')
 
-# logan = Video.create({title: "Logan", year: 2017, runtime: "1m 48s", description: "It follows an aged Wolverine and an extremely ill Charles Xavier who defend a young mutant named Laura from the villainous Reavers led by Donald Pierce and Zander Rice."} )
-# logan.movie.attach(io: open('app/assets/stewart/logan_trailer.mp4'), filename: 'logan_trailer.mp4')
-# logan.thumbnail.attach(io: open('app/assets/stewart/logan_poster.jpg'), filename: 'logan_poster.jpg')
+logan = Video.create({title: "Logan", year: 2017, runtime: "1m 48s", description: "It follows an aged Wolverine and an extremely ill Charles Xavier who defend a young mutant named Laura from the villainous Reavers led by Donald Pierce and Zander Rice."} )
+logan.movie.attach(io: open('app/assets/stewart/logan_trailer.mp4'), filename: 'logan_trailer.mp4')
+logan.thumbnail.attach(io: open('app/assets/stewart/logan_poster.jpg'), filename: 'logan_poster.jpg')
 
 dune = Video.create({title: "Dune", year: 1984, runtime: "3m 40s", description: 'Set in the distant future, the film chronicles the conflict between rival noble families as they battle for control of the extremely harsh desert planet Arrakis, also known as "Dune".'} )
 dune.movie.attach(io: open('app/assets/stewart/dune_trailer.mp4'), filename: 'dune_trailer.mp4')
