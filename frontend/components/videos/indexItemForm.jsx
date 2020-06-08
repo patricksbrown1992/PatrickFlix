@@ -9,21 +9,18 @@ class IndexItemForm extends React.Component {
         this.state = { loaded: null, playing: false, open: false, created: false };
         this.createList = this.createList.bind(this);
         this.duplicateArray = this.duplicateArray.bind(this);
-        this.debug = this.debug.bind(this);
+       
 
     }
 
 
-    debug(vid){
+    
+    componentDidMount(){
+        let vid = this.props.video;
+      
         if(this.props.lists[vid.id]){
             this.setState({created: true})
         }
-        
-    }
-    componentDidMount(){
-        let vid = this.props.video;
-        this.props.getLists(this.props.user).then(() => this.debug(vid))
-        
         let video_li = document.getElementById(`video-li ${vid.id}`);
         let arrow = document.getElementById(`movie-arrow ${vid.id}`);
         let check = document.getElementById(`${vid.id}-check`)
@@ -98,6 +95,7 @@ class IndexItemForm extends React.Component {
             this.props.deleteList({id: list.id, video_id: list.video_id, user_id: list.user_id}).then(() => this.setState({created: false}))
             
         } else {
+       
             this.props.createList({user_id: this.props.user.id, video_id}).then(() => this.setState({created: true}))
         }
         
