@@ -26,7 +26,7 @@ class VideoIndexForm extends React.Component {
     }
     componentDidMount(){
 
-        this.props.getVideos().then(() => this.setState({loaded: true}))
+        this.props.getVideos().then(() => this.props.getLists(this.props.user)).then(() => this.setState({loaded: true}))
 
     }
 
@@ -158,7 +158,7 @@ class VideoIndexForm extends React.Component {
                     <div className='videos-index-header-left'>
                         <img src={window.logo} />
                         <div>
-                            <Link to={`lists/${this.props.user}`}><h3>My List</h3></Link>
+                            <Link to={`lists/${this.props.user.id}`}><h3>My List</h3></Link>
 
                         </div>
                     </div>

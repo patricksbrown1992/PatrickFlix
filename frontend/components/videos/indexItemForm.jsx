@@ -89,12 +89,13 @@ class IndexItemForm extends React.Component {
     createList(video_id){
         if(this.state.created){
            
-           
-            let list = this.props.list[video_id]
-           
+            
+            let list = this.props.lists[video_id]
+        
             this.props.deleteList({id: list.id, video_id: list.video_id, user_id: list.user_id}).then(() => this.setState({created: false}))
             
         } else {
+
        
             this.props.createList({user_id: this.props.user.id, video_id}).then(() => this.setState({created: true}))
         }
