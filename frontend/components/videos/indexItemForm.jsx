@@ -23,35 +23,38 @@ class IndexItemForm extends React.Component {
         }
         let video_li = document.getElementById(`video-li ${vid.id}`);
         let arrow = document.getElementById(`movie-arrow ${vid.id}`);
-        let check = document.getElementById(`${vid.id}-check`)
-        let user = this.props.user
+        let check = document.getElementById(`${vid.id}-check`);
+        let add_remove_div = document.getElementById(`${vid.id}-add-remove-div`);
+        let user = this.props.user;
         // debugger
 
 
-        arrow.style.display = "none"
+        arrow.style.display = "none";
+        add_remove_div.style.opacity = '0';
         video_li.addEventListener("mouseover", ()=> {
             arrow.style.display = "inline-block";
             arrow.style.position = "absolute";
             arrow.style.marginTop = '125px';
             arrow.style.marginLeft = '45%';
-
+            add_remove_div.style.opacity = '1';
 
         })
 
         video_li.addEventListener("mouseenter", ()=> {
             if(this.props.modal !== null){
-                this.props.receiveModal(this.props.index)
+                this.props.receiveModal(this.props.index);
             }
 
 
         })
 
         check.addEventListener("click", () => {
-            this.createList(vid.id)
+            this.createList(vid.id);
         })
 
         video_li.addEventListener("mouseout", ()=> {
-            arrow.style.display = "none"
+            arrow.style.display = "none";
+            add_remove_div.style.opacity = '0';
         })
 
         arrow.addEventListener("click", () => {
@@ -100,7 +103,7 @@ class IndexItemForm extends React.Component {
             this.props.createList({user_id: this.props.user.id, video_id}).then(() => this.setState({created: true}))
         }
         
-        // alert('button clicked')
+       
 
     }
 
@@ -111,10 +114,13 @@ class IndexItemForm extends React.Component {
     render() {
         let vid = this.props.video
         let plusOrCheck;
+        let text
         if(this.state.created){
             plusOrCheck  = 'fas fa-check index-check';
+            text = <div id={`${vid.id}-add-remove-div`} className='add-remove-div'>Remove from My List</div>
         } else {
             plusOrCheck = 'fas fa-plus index-check'
+            text = <div id={`${vid.id}-add-remove-div`} className='add-remove-div'>Add to My List</div>
         }
         plusOrCheck
         return (
@@ -123,6 +129,7 @@ class IndexItemForm extends React.Component {
                 <div className='arrow-div'>
                     <i id={`movie-arrow ${vid.id}`} className="movie-arrow fas fa-caret-down fa-2x"></i>
                     <div id='index-button-background'><i id={`${vid.id}-check`} className={plusOrCheck}></i></div>
+                    {text}
                 </div>
 
 
