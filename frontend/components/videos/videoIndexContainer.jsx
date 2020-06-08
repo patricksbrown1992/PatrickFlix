@@ -7,6 +7,7 @@ import {receiveModal} from '../../actions/modalActions';
 const msp = state => ({
     errors: state.errors,
     videos: Object.values(state.entities.videos),
+    user: state.session.id
 });
 
 const mdp = dispatch => ({

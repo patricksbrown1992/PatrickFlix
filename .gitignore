@@ -10,6 +10,11 @@ node_modules/
 bundle.js
 bundle.js.map
 .byebug_history
+swayze
+stewart
+wilson
+harris
+dempsey
 
 # Ignore all logfiles and tempfiles.
 /log/*

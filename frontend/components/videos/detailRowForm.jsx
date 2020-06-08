@@ -7,6 +7,7 @@ class DetailRowForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = { open: false };
+        
 
     }
 
@@ -23,15 +24,15 @@ class DetailRowForm extends React.Component {
 
 
 
-
    
     render() {
         let vid;
         let detail_row = document.getElementById(`detail-row-${this.props.identifier}`);
         let text;
+        let button;
         let vids = this.props.vids.map((vid, index) => (
             
-            <IndexItem  video={vid} index={index + this.props.range[0]}/>
+            <IndexItem  key ={index + this.props.range[0]} video={vid} index={index + this.props.range[0]}/>
         ))
       
         // if(this.state.open){
@@ -52,13 +53,15 @@ class DetailRowForm extends React.Component {
             vid = this.props.videos[this.props.modal]
             detail_row.style.opacity = "1";
             detail_row.style.display = "flex";
-            detail_row.style.height = "20%"
-            text = <h3 className= 'featured-video-h3'>{vid.title}({vid.year}) - {vid.description}</h3>
+            detail_row.style.height = "350px"
+            text = <div className='detail-row-show'><h3 className= 'featured-video-h3'>{vid.title}({vid.year}) - {vid.description}</h3><img src={vid.image_link} alt=""/></div>
+            // button = <button onClick={this.createList(vid.id)}>Please Click</button>
             
             // this.setState({open: true})
             
         } else {
-            text = ''
+            text = '';
+            button='';
             // this.setState({open: false})
         //     this.setState({open: false})
             // detail_row.style.opacity = "0";
@@ -78,13 +81,14 @@ class DetailRowForm extends React.Component {
         // )
 
         return (
-            <div className = "video-row-inner" id = {`video-row-inner-${this.props.identifier}`}>
+            <div key={this.props.identifier} className = "video-row-inner" id = {`video-row-inner-${this.props.identifier}`}>
                 <div className= 'links-row'>
                     {vids}
                 </div>
-                <div className='detail-row close' id = {`detail-row-${this.props.identifier}`}>
+                <div  className='detail-row' id = {`detail-row-${this.props.identifier}`}>
                     {/* {vid.title}({vid.year}) - {vid.description} */}
                     {text}
+                    {button}
                 </div>
                 
             </div>

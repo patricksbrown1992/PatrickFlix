@@ -3,7 +3,7 @@ import FeaturedVideoForm from './featuredVideoForm';
 import { getVideo, getVideos } from '../../actions/videoActions';
 
 const msp = (state, ownProps) => {
-    const video = state.entities.videos[10];
+    const video = state.entities.videos[19];
     return {
         video: video,
         videos: Object.values(state.entities.videos)

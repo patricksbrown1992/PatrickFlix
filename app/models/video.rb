@@ -17,5 +17,6 @@ class Video < ApplicationRecord
     validates :title, uniqueness: true
     has_one_attached :movie
     has_one_attached :thumbnail
+    has_many :lists
     
 end

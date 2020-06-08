@@ -12,7 +12,7 @@ const msp = state => {
     videos: state.entities.videos,
     user: state.entities.user[state.session.id],
     lists: Object.values(state.entities.lists)
-    }
+    } 
 };
 
 const mdp = dispatch => ({

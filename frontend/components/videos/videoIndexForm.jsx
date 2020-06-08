@@ -14,7 +14,7 @@ class VideoIndexForm extends React.Component {
         this.showLogOut = this.showLogOut.bind(this);
         this.duplicateArray = this.duplicateArray.bind(this);
         this.searchUpdate = this.searchUpdate.bind(this);
-     
+
 
     }
 
@@ -25,9 +25,9 @@ class VideoIndexForm extends React.Component {
         // }
     }
     componentDidMount(){
-       
+
         this.props.getVideos().then(() => this.setState({loaded: true}))
-        
+
     }
 
     showLogOut(){
@@ -40,12 +40,12 @@ class VideoIndexForm extends React.Component {
             modal.style.opacity = "1.0"
             modal.style.zIndex = 5;
         }
-        
-        
+
+
 
     }
 
- 
+
 
     componentWillUnmount(){
         this.props.receiveModal(null);
@@ -56,19 +56,22 @@ class VideoIndexForm extends React.Component {
 
     searchClick() {
         let search_res = document.getElementById('search-results');
-      
+        let search_form = document.getElementById('search-form');
         if(search_res.style.opacity == '1'){
             search_res.style.opacity = '0';
             search_res.style.height = 0;
+            search_form.style.height = 'auto';
+            search_form.style.width = '45px'
         } else {
             search_res.style.opacity = '1';
-            
+            search_form.style.width = 'auto'
+
         }
         this.setState({ activated: !this.state.activated });
-
     }
+    
     searchUpdate(){
-   
+
         return (e) => {
             this.setState({search: e.target.value})
         }
@@ -76,7 +79,7 @@ class VideoIndexForm extends React.Component {
 
     duplicateArray(array) {
         // deep dupes objects
-    
+
         let ans = [];
         for (let i = 0; i < array.length; i++) {
             let newObject = merge({}, array[i]);
@@ -84,17 +87,17 @@ class VideoIndexForm extends React.Component {
         }
         return ans;
     }
-   
+
 
     render() {
         let searchClass;
-        
+
         if (this.state.activated) {
             searchClass = 'show-search';
-            
+
         } else {
             searchClass = 'hide-search';
-            
+
         }
         if(!this.state.loaded){
             return null;
@@ -102,12 +105,12 @@ class VideoIndexForm extends React.Component {
         let vids = this.props.videos;
         let stewart = vids.slice(0, 7);
         // .map((vid, index)=> (
-           
+
         //     <IndexItem  video={vid} index={index}/>
         // ))
         let swayze = vids.slice(7, 13);
         // .map((vid, index) => (
-           
+
         //     <IndexItem  video={vid} index={index+3}/>
         // ))
         let harris = vids.slice(13, 19);
@@ -118,42 +121,44 @@ class VideoIndexForm extends React.Component {
         // ))
         let search = this.state.search
         let search_arr
+        let search_form = document.getElementById('search-form');
         if(this.state.search.length && this.state.activated){
 
             let search_res = document.getElementById('search-results');
-            let search_form = document.getElementById('search-form');
+
             let search_div = document.getElementById('search-div');
             search_res.style.height = '150px';
             search_form.style.height = '350px';
             search_div.style.height = '35px';
-            // search_form.style.position = 'absolute';
-            search_form.style.top = '0';
+            search_form.style.justifyContent = 'flex-end';
+            // search_form.style.top = '0';
             search_arr = this.duplicateArray(this.props.videos);
-        
+
              search_arr = search_arr.filter(video => (
-            
+
             video.title.toUpperCase().includes(search.toUpperCase())
         ))
-       
+
             search_arr = search_arr.map(video => {
                 return <li key = {video.id} id='search-li'> <Link to={`player/${video.id}`}>{video.title}</Link></li>
             })
         } else {
             search_arr ='';
-        }
 
-        
-        
-        
+        }
+      
+
+
+
 
         return (
             <div className='videos-index'>
-                
+
                 <div className='videos-index-header'>
                     <div className='videos-index-header-left'>
                         <img src={window.logo} />
                         <div>
-                            <h3>My List</h3>
+                            <Link to={`lists/${this.props.user}`}><h3>My List</h3></Link>
 
                         </div>
                     </div>
@@ -166,10 +171,10 @@ class VideoIndexForm extends React.Component {
                             <div id="search-results">
                                 {search_arr}
                             </div>
-                            
-                            
+
+
                         </form>  */}
-                        
+
                         <div id='search-form'>
                             <div id= 'search-div'>
                                 <i onClick={this.searchClick} className="fas fa-search fa-2x"></i>
@@ -179,9 +184,9 @@ class VideoIndexForm extends React.Component {
                                 {search_arr}
                             </div>
                         </div>
-                        
-                        
-                        
+
+
+
 
 
                         <img onClick={this.showLogOut} src={window.icon} />
@@ -195,42 +200,42 @@ class VideoIndexForm extends React.Component {
                 <div className = 'videos-index-body'>
 
                     <FeaturedVideo />
-                     
+
 
                     <div className= 'video-row'>
                         <h1 className='featured-video-h1'>Patrick Stewart</h1>
-                        
+
                         <DetailRow identifier= {0} vids = {stewart} range={[0,1,2,3, 4, 5, 6]}/>
 
                     </div>
-                    
+
                     <div className= 'video-row'>
                         <h1 className='featured-video-h1'>Patrick Swayze</h1>
-                        
+
                         <DetailRow identifier= {1} vids={swayze} range = {[7, 8, 9, 10, 11, 12]}/>
                    </div>
-                    
+
                     <div className= 'video-row'>
                         <h1 className='featured-video-h1'>Neil Patrick Harris</h1>
-                       
+
                         <DetailRow identifier= {2} vids = {harris} range={[13,14, 15, 16, 17, 18]}/>
 
                     </div>
 
                     <div className= 'video-row'>
                         <h1 className='featured-video-h1'>Patrick Wilson</h1>
-                        
+
                         <DetailRow identifier= {3} vids = {wilson} range={[19, 20, 21, 22, 23, 24]}/>
 
                     </div>
 
                     <div className= 'video-row'>
                         <h1 className='featured-video-h1'>Patrick Dempsey</h1>
-                        
+
                         <DetailRow identifier= {4} vids = {dempsey} range={[25, 26, 27, 28, 29, 30, 31]}/>
 
                     </div>
-                   
+
                 </div>
             </div>
 

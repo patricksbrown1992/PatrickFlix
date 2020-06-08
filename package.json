@@ -44,5 +44,6 @@
   "bugs": {
     "url": "https://github.com/patricksbrown1992/PatrickFlix/issues"
   },
-  "homepage": "https://github.com/patricksbrown1992/PatrickFlix#readme"
+  "homepage": "https://github.com/patricksbrown1992/PatrickFlix#readme",
+  "devDependencies": {}
 }
