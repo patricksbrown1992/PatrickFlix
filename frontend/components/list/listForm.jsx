@@ -25,9 +25,14 @@ class ListForm extends React.Component {
     }
 
     removeList(e){
+        
+        let video_id = parseInt(e.target.id.split('-')[0]);
+        let user_id = this.props.user.id;
+        let id = parseInt(e.target.id.split('-')[1]);
         debugger
+        this.props.deleteList({video_id, user_id, id})
     }
-
+    
 
     handleSubmitLogOut(e) {
         // return (e) => {
@@ -127,8 +132,8 @@ class ListForm extends React.Component {
         let videos = this.props.videos;
         let lists = this.duplicateArray(this.props.lists);
         lists = lists.map(list => {
-       
-            return <Link onMouseOut={this.hideButton} onMouseOver={this.showButton} key = {list.id} id='list-li' to={`/player/${videos[list.video_id].id}`}><img className="tile__img" src={videos[list.video_id].image_link} /><h3 className='list-video-h3'>{videos[list.video_id].title}</h3><div id='button-background'><i onClick={this.removeList} className="fas fa-check"></i></div><div id='remove-from-list' >Remove from My List</div></Link>
+            
+            return <Link  onMouseOut={this.hideButton} onMouseOver={this.showButton} key = {list.id} id='list-li' to={`/player/${videos[list.video_id].id}`}><img className="tile__img" src={videos[list.video_id].image_link} /><h3 className='list-video-h3'>{videos[list.video_id].title}</h3><div  id='button-background'><i onClick={this.removeList} id={`${list.video_id}-${list.id}-list-check`} className="fas fa-check hidden"></i></div><div id='remove-from-list'  >Remove from My List</div></Link>
         })
 
         let search_arr
