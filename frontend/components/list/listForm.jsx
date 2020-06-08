@@ -15,6 +15,7 @@ class ListForm extends React.Component {
         this.showButton = this.showButton.bind(this);
         this.hideButton = this.hideButton.bind(this);
         this.removeList = this.removeList.bind(this);
+
     }
 
     searchUpdate(){
@@ -58,6 +59,8 @@ class ListForm extends React.Component {
     }
 
     hideButton(e){
+        // debugger
+        
         let kids = e.currentTarget.children;
         let background = kids[2]
         let check = background.children[0];
@@ -68,7 +71,7 @@ class ListForm extends React.Component {
     }
 
     showButton(e){
-        
+        // debugger
         let kids = e.currentTarget.children;
         let background = kids[2]
         let check = background.children[0];
@@ -106,17 +109,20 @@ class ListForm extends React.Component {
 
     componentDidMount(){
         this.props.getVideos().then( () => this.props.getLists(this.props.user)).then(() => this.setState({loaded: true}))
+        
+    
     }
 
+   
 
 
 
 
     render() {
 
-        if(!this.state.loaded){
-            return null
-        }
+        // if(!this.state.loaded){
+        //     return null
+        // }
 
         let searchClass;
 
@@ -132,8 +138,11 @@ class ListForm extends React.Component {
         let videos = this.props.videos;
         let lists = this.duplicateArray(this.props.lists);
         lists = lists.map(list => {
+            return <div id ={`${list.id}-list-div`} onMouseOut={this.hideButton} onMouseOver={this.showButton} key = {list.id} className='list-div'> 
+                <Link   id='list-li' to={`/player/${videos[list.video_id].id}`}><img className="tile__img" src={videos[list.video_id].image_link} /></Link>
+                <h3 className='list-video-h3'>{videos[list.video_id].title}</h3><div  id='button-background'><i onClick={this.removeList} id={`${list.video_id}-${list.id}-list-check`} className="fas fa-check hidden"></i></div><div id='remove-from-list'  >Remove from My List</div>
+            </div>
             
-            return <Link  onMouseOut={this.hideButton} onMouseOver={this.showButton} key = {list.id} id='list-li' to={`/player/${videos[list.video_id].id}`}><img className="tile__img" src={videos[list.video_id].image_link} /><h3 className='list-video-h3'>{videos[list.video_id].title}</h3><div  id='button-background'><i onClick={this.removeList} id={`${list.video_id}-${list.id}-list-check`} className="fas fa-check hidden"></i></div><div id='remove-from-list'  >Remove from My List</div></Link>
         })
 
         let search_arr
