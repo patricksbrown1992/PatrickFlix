@@ -15,7 +15,7 @@ ted.movie.attach(io: open('https://patrickflix-seeds.s3.amazonaws.com/ted_traile
 ted.thumbnail.attach(io: open('https://patrickflix-seeds.s3.amazonaws.com/ted_thumbnail.jpg'), filename: 'ted_thumbnail.jpg')
 
 xmen = Video.create({title: "X-Men", year: 2000, runtime: "2m 05s", description: "The film depicts a world where a small proportion of people are mutants, whose possession of superhuman powers makes them distrusted by normal humans."} )
-gxmen.movie.attach(io: open('https://patrickflix-seeds.s3.amazonaws.com/X-Men_Trailer'), filename: 'X-Men_Trailer')
+xmen.movie.attach(io: open('https://patrickflix-seeds.s3.amazonaws.com/X-Men_Trailer'), filename: 'X-Men_Trailer')
 xmen.thumbnail.attach(io: open('https://patrickflix-seeds.s3.amazonaws.com/X-Men_Thumbnail'), filename: 'X-Men_Thumbnail')
 
 startrek = Video.create({title: "Star Trek: First Contact", year: 1996, runtime: "2m 19s", description: "The crew of the USS Enterprise-E travel back in time from the 24th century to the mid-21st century in order to stop the cybernetic Borg from conquering Earth by changing their past."} )
@@ -131,7 +131,7 @@ alabama = Video.create({title: "Sweet Home Alabama", year: 2002, runtime: "2m 30
 alabama.movie.attach(io: open('https://patrickflix-seeds.s3.amazonaws.com/alabama_trailer.mp4'), filename: 'alabama_trailer.mp4')
 alabama.thumbnail.attach(io: open('https://patrickflix-seeds.s3.amazonaws.com/alabama_poster.jpg'), filename: 'alabama_poster.jpg')
 
-bridget_jones = Video.create({title: "Made of Honor", year: 2016, runtime: "2m 23s", description: "The film stars Renée Zellweger as Bridget Jones, who after becoming pregnant is unsure if Mark Darcy (Colin Firth, also reprising his role) or Jack Qwant (Patrick Dempsey) is the father."} )
+bridget_jones = Video.create({title: "Bridget Jones's Baby", year: 2016, runtime: "2m 23s", description: "The film stars Renée Zellweger as Bridget Jones, who after becoming pregnant is unsure if Mark Darcy (Colin Firth, also reprising his role) or Jack Qwant (Patrick Dempsey) is the father."} )
 bridget_jones.movie.attach(io: open('https://patrickflix-seeds.s3.amazonaws.com/bridget_jones_trailer.mp4'), filename: 'bridget_jones_trailer.mp4')
 bridget_jones.thumbnail.attach(io: open('https://patrickflix-seeds.s3.amazonaws.com/bridget_jones_poster.jpg'), filename: 'bridget_jones_poster.jpg')
 
