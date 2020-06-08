@@ -5,6 +5,7 @@ class IndexItemForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = { loaded: null, playing: false, open: false };
+        this.createList = this.createList.bind(this);
        
     }
 
@@ -14,8 +15,9 @@ class IndexItemForm extends React.Component {
         let vid = this.props.video;
         let video_li = document.getElementById(`video-li ${vid.id}`);
         let arrow = document.getElementById(`movie-arrow ${vid.id}`);  
-        
-     
+        let check = document.getElementById(`${vid.id}-check`)
+        let user = this.props.user
+        debugger
 
         
         arrow.style.display = "none"
@@ -34,8 +36,10 @@ class IndexItemForm extends React.Component {
             
         })
 
-        
-        
+        check.addEventListener("click", () => {
+            this.createList(vid.id) 
+        })
+       
         video_li.addEventListener("mouseout", ()=> {
             arrow.style.display = "none"
         })
@@ -61,7 +65,11 @@ class IndexItemForm extends React.Component {
 
    
 
+    createList(video_id){
+        this.props.createList({user_id: this.props.user, video_id})
+        // alert('button clicked')
 
+    }
 
 
 
@@ -69,15 +77,16 @@ class IndexItemForm extends React.Component {
 
     render() {
         let vid = this.props.video
-  
+      
         
         return (
-            <li onMouseEnter={() => {
-                
-            }} className='index-item' id = {`video-li ${vid.id}`} key={vid.id} >
+            <li  className='index-item' id = {`video-li ${vid.id}`} key={vid.id} >
                 <Link to={`/player/${vid.id}`}> <img src={vid.image_link} alt=""/> </Link>
-               {/* <Link to={`/player/${vid.id}`}><video ref="player" id="video-li" className="video-li" src={vid.video_link} poster={vid.image_link} preload="meta" loop ></video></Link>  */}
-               <i id={`movie-arrow ${vid.id}`} className="fas fa-caret-down fa-2x movie-arrow"></i>
+                <div className='arrow-div'>
+                    <i id={`movie-arrow ${vid.id}`} className="fas fa-caret-down fa-2x movie-arrow"></i>
+                    <i id={`${vid.id}-check`} className="fas fa-check"></i>
+                </div>
+               
                
             </li>
 
