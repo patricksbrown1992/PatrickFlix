@@ -218,13 +218,16 @@
     height: 150px;
     width: 550px;
     list-style: none;
-    position: relative
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    
 }
 
 
 
 .index-item img {
-    height: 100%;
+    height: 150px;
     width: 100%;
     object-fit: cover;
 }
@@ -468,6 +471,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    position: absolute;
 
 }
 
@@ -479,9 +483,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    position: absolute;
 }
 
 #play-button-detail{
     color: white;
     
+}
+
+.left-show-div{
+    width: 35%;
+    overflow-y: hidden;
 }

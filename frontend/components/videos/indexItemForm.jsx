@@ -37,7 +37,7 @@ class IndexItemForm extends React.Component {
         video_li.addEventListener("mouseover", ()=> {
             arrow.style.display = "inline-block";
             arrow.style.position = "absolute";
-            arrow.style.marginTop = '125px';
+            arrow.style.marginTop = '130px';
             arrow.style.marginLeft = '45%';
             add_remove_div.style.opacity = '1';
             title.style.opacity = '1'
@@ -130,12 +130,12 @@ class IndexItemForm extends React.Component {
         return (
             <li  className='index-item' id = {`video-li ${vid.id}`} key={vid.id} >
                 <Link to={`/player/${vid.id}`}> <img src={vid.image_link} alt=""/> </Link>
-                <div className='arrow-div'>
-                    <i id={`movie-arrow ${vid.id}`} className="movie-arrow fas fa-caret-down fa-2x"></i>
-                    <div id='index-button-background'><i id={`${vid.id}-check`} className={plusOrCheck}></i></div>
-                    {text}
-                    <h4 id ={`${vid.id}-index-item-title`} className='index-item-title'>{vid.title}</h4>
-                </div>
+                
+                <i id={`movie-arrow ${vid.id}`} className="movie-arrow fas fa-caret-down fa-2x"></i>
+                <div id='index-button-background'><i id={`${vid.id}-check`} className={plusOrCheck}></i></div>
+                {text}
+                <h4 id ={`${vid.id}-index-item-title`} className='index-item-title'>{vid.title}</h4>
+                
 
 
             </li>

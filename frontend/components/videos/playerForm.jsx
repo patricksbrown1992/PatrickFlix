@@ -66,7 +66,7 @@ class PlayerForm extends React.Component {
     componentDidMount(){
         let controlsToggleTimer;
         
-        this.props.getVideos()
+        this.props.getVideos().then(() => this.setState({loaded: true}))
         const backToBrowse = document.getElementById("back-to-browse");
         const backButton = document.getElementById("back-arrow-font");
         const rewindButton = document.getElementById("reverse-button");
@@ -278,6 +278,13 @@ class PlayerForm extends React.Component {
             playButtonRender = <i className="fas fa-play" id="play-button" onClick={this.togglePlay} ></i>
         }
         let vid;
+        // if(this.state.loaded){
+        //     vid = this.props.video;
+        // } else {
+        //     vid = {
+                
+        //     }
+        // }
         this.props.video ? vid = this.props.video : vid = this.props.watching
         
 
