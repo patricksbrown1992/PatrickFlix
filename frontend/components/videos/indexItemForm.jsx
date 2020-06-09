@@ -25,19 +25,22 @@ class IndexItemForm extends React.Component {
         let arrow = document.getElementById(`movie-arrow ${vid.id}`);
         let check = document.getElementById(`${vid.id}-check`);
         let add_remove_div = document.getElementById(`${vid.id}-add-remove-div`);
+        let title = document.getElementById(`${vid.id}-index-item-title`);
         let user = this.props.user;
         // debugger
 
 
         arrow.style.display = "none";
         add_remove_div.style.opacity = '0';
+        title.style.opacity = '0';
+
         video_li.addEventListener("mouseover", ()=> {
             arrow.style.display = "inline-block";
             arrow.style.position = "absolute";
             arrow.style.marginTop = '125px';
             arrow.style.marginLeft = '45%';
             add_remove_div.style.opacity = '1';
-
+            title.style.opacity = '1'
         })
 
         video_li.addEventListener("mouseenter", ()=> {
@@ -55,6 +58,7 @@ class IndexItemForm extends React.Component {
         video_li.addEventListener("mouseout", ()=> {
             arrow.style.display = "none";
             add_remove_div.style.opacity = '0';
+            title.style.opacity = '0'
         })
 
         arrow.addEventListener("click", () => {
@@ -130,6 +134,7 @@ class IndexItemForm extends React.Component {
                     <i id={`movie-arrow ${vid.id}`} className="movie-arrow fas fa-caret-down fa-2x"></i>
                     <div id='index-button-background'><i id={`${vid.id}-check`} className={plusOrCheck}></i></div>
                     {text}
+                    <h4 id ={`${vid.id}-index-item-title`} className='index-item-title'>{vid.title}</h4>
                 </div>
 
 

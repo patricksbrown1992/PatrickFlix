@@ -54,13 +54,13 @@ class DetailRowForm extends React.Component {
             detail_row.style.opacity = "1";
             detail_row.style.display = "flex";
             detail_row.style.height = "350px"
-            text = <div className='detail-row-show'><h3 className= 'featured-video-h3'>{vid.title}({vid.year}) - {vid.description}</h3><img src={vid.image_link} alt=""/></div>
+            text = <div className='detail-row-show'> <div><i className="fas fa-play" id="play-button"></i> <h3 className= 'featured-video-h3'>{vid.title}({vid.year}) - {vid.description}</h3></div><img src={vid.image_link} alt=""/></div>
             // button = <button onClick={this.createList(vid.id)}>Please Click</button>
             
             // this.setState({open: true})
             
         } else {
-            text = '';
+            text = <div className='detail-row-hide'></div>;
             button='';
             // this.setState({open: false})
         //     this.setState({open: false})
@@ -71,6 +71,7 @@ class DetailRowForm extends React.Component {
         //     detail_row.classList.remove("open");
         //     vid_row.classList.add("close");
         }
+        
       
         
         // return (

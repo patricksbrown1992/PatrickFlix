@@ -202,34 +202,34 @@ class VideoIndexForm extends React.Component {
                     <FeaturedVideo />
 
 
-                    <div className= 'video-row'>
+                    <div className= 'video-row' id='video-row-1'>
                         <h1 className='featured-video-h1'>Patrick Stewart</h1>
 
                         <DetailRow identifier= {0} vids = {stewart} range={[0,1,2,3, 4, 5, 6]}/>
 
                     </div>
 
-                    <div className= 'video-row'>
+                    <div className= 'video-row' id='video-row-2'>
                         <h1 className='featured-video-h1'>Patrick Swayze</h1>
 
                         <DetailRow identifier= {1} vids={swayze} range = {[7, 8, 9, 10, 11, 12]}/>
                    </div>
 
-                    <div className= 'video-row'>
+                    <div className= 'video-row' id='video-row-3'>
                         <h1 className='featured-video-h1'>Neil Patrick Harris</h1>
 
                         <DetailRow identifier= {2} vids = {harris} range={[13,14, 15, 16, 17, 18]}/>
 
                     </div>
 
-                    <div className= 'video-row'>
+                    <div className= 'video-row' id='video-row-4'>
                         <h1 className='featured-video-h1'>Patrick Wilson</h1>
 
                         <DetailRow identifier= {3} vids = {wilson} range={[19, 20, 21, 22, 23, 24]}/>
 
                     </div>
 
-                    <div className= 'video-row'>
+                    <div className= 'video-row' id='video-row-5'>
                         <h1 className='featured-video-h1'>Patrick Dempsey</h1>
 
                         <DetailRow identifier= {4} vids = {dempsey} range={[25, 26, 27, 28, 29, 30, 31]}/>
