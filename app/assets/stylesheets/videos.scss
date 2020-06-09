@@ -233,7 +233,7 @@
 }
 
 .videos-index-body{
-    height: 500vh;
+    // height: 500vh;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -489,6 +489,8 @@
 
 #play-button-detail{
     color: white;
+    margin-left: 20px;
+    margin-bottom: 5px;
     
 }
 
