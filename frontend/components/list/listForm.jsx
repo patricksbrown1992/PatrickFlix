@@ -210,7 +210,7 @@ class ListForm extends React.Component {
                     </div>
                 </div>
                 <div id="list-body">
-                    <h1 className="featured-video-h1">My List</h1>
+                    <h1 className="list-h1">My List</h1>
                     {lists}
                 </div>
 
