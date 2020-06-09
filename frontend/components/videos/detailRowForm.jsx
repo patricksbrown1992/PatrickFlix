@@ -28,6 +28,8 @@ class DetailRowForm extends React.Component {
     render() {
         let vid;
         let detail_row = document.getElementById(`detail-row-${this.props.identifier}`);
+        let video_row = document.getElementById(`video-row-${this.props.identifier}`);
+        debugger
         let text;
         let button;
         let vids = this.props.vids.map((vid, index) => (
@@ -53,21 +55,25 @@ class DetailRowForm extends React.Component {
             vid = this.props.videos[this.props.modal]
             detail_row.style.opacity = "1";
             detail_row.style.display = "flex";
-            detail_row.style.height = "350px"
-            text = <div className='detail-row-show'> <div className='left-show-div'><Link to={`/player/${vid.id}`}><i className="fas fa-play" id="play-button-detail"></i></Link><h3 className= 'featured-video-h3'>{vid.title}({vid.year}) - {vid.description}</h3></div><img src={vid.image_link} alt=""/></div>
+            detail_row.style.height = "350px";
+            video_row.style.height = '500px';
+            text = <div id ={`detail-row-show-${1}`} className='detail-row-show'> <div className='left-show-div'><Link to={`/player/${vid.id}`}><i className="fas fa-play" id="play-button-detail"></i></Link><h3 className= 'featured-video-h3'>{vid.title}({vid.year}) - {vid.description}</h3></div><img src={vid.image_link} alt=""/></div>
             // button = <button onClick={this.createList(vid.id)}>Please Click</button>
             
             // this.setState({open: true})
             
         } else {
-            text = <div className='detail-row-hide'></div>;
+            text = <div id ={`detail-row-hide-${1}`} className='detail-row-hide'></div>;
             button='';
+            
             // this.setState({open: false})
         //     this.setState({open: false})
             // detail_row.style.opacity = "0";
             // detail_row.style.display = "none";
             // detail_row.style.height = "0"
-            
+        if(video_row){
+            video_row.style.height = 'auto';
+        }
         //     detail_row.classList.remove("open");
         //     vid_row.classList.add("close");
         }
