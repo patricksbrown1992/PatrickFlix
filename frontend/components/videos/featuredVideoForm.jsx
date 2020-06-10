@@ -99,7 +99,7 @@ class FeaturedVideo extends React.Component {
                 <video id="featured-video" className="featured-video" src={this.props.videos[19].video_link} autoPlay loop></video>
                 <div className= 'featured-video-title-div'>
                     <h1 className = "featured-video-h1">{this.props.videos[19].title}</h1>
-                    <button className='aquaman-button'><Link to={`player/${this.props.videos[19].id}`}><i className="fas fa-play" id="play-button"></i>  Play</Link></button>
+                    <button className='aquaman-button'><Link to={`player/${this.props.videos[19].id}`}><i className="fas fa-play" id="play-featured-button"></i>  Play</Link></button>
                 </div>
                 <div className='featured-mute-div'>
                     {chooseButton}

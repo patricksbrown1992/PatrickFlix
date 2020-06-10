@@ -27,25 +27,26 @@ class PlayerForm extends React.Component {
     }
 
     keyHandler(e){
-        let actualVideoFive = document.getElementById("video-player");
+        debugger
+        let video = document.getElementById("video-player");
   
         if(e.keyCode === 109){
-            if(actualVideoFive.muted){
-                actualVideoFive.muted = false;
+            if(video.muted){
+                video.muted = false;
                 this.setState({ volume: 1 });
             } else {
-                actualVideoFive.muted = true;
+                video.muted = true;
                 this.setState({ volume: 0 });
             }
         }
 
         if(e.keyCode === 32){
-            let actualVideoFive = document.getElementById("video-player")
+            let video = document.getElementById("video-player")
             if (this.state.playing === true) {
-                actualVideoFive.pause();
+                video.pause();
                 this.setState({ playing: false })
             } else {
-                actualVideoFive.play();
+                video.play();
                 this.setState({ playing: true })
             }
         }
@@ -64,25 +65,26 @@ class PlayerForm extends React.Component {
     }
   
     componentDidMount(){
-        let controlsToggleTimer;
+        
         
         this.props.getVideos().then(() => this.setState({loaded: true}))
         const backToBrowse = document.getElementById("back-to-browse");
-        const backButton = document.getElementById("back-arrow-font");
-        const rewindButton = document.getElementById("reverse-button");
-        const fastForwardButton = document.getElementById("forward-button");
-        const playButton = document.getElementById("play-button");
-        const volumeBar = document.getElementById("volume-bar");
-        const volumeButton = document.getElementById("controls-volume-button"); 
-        const screenToggleButton = document.getElementById("screen-toggle-button");
+        // const backButton = document.getElementById("back-arrow-font");
+        // const rewind = document.getElementById("reverse-button");
+        // const fastForward = document.getElementById("forward-button");
+        // const playButton = document.getElementById('play-button');
+        // const volumeBar = document.getElementById("volume-bar");
+        const volumeButton = document.getElementById("volume-button"); 
+        // const fullScreen = document.getElementById("full-screen");
         const bottom_row = document.getElementById("bottom-row"); 
         const video = document.getElementById("video-player");
         const scrollBar = document.getElementById("scroll-bar");
-        const videoTime = document.getElementById("movie-duration");
+        const duration = document.getElementById("duration");
         
         this.seekCheck = setInterval(this.updateSeek, 1000);
         this.timeCheck = setInterval(this.updateTime, 1000);
         let volumeToggleTimer;
+        
         document.addEventListener('keypress', this.keyHandler, false)
         video.addEventListener('loadedmetadata', () => {
             this.setState({duration: Math.floor(video.duration)})
@@ -90,84 +92,44 @@ class PlayerForm extends React.Component {
 
             volumeButton.addEventListener("mouseout", () => {
                 volumeToggleTimer = setTimeout(() => {
-                    // volumeBar.style.display = "none";
-                    volumeButton.style.transform = "scale(1.0)";
+                  
+                   
                     scrollBar.style.opacity = "1.0";
-                    videoTime.style.opacity = "1.0"
-                    playButton.style.color = "white";
-                    screenToggleButton.style.color = "white";
+                    duration.style.opacity = "1.0"
+                  
+                
                 }, 1000);
             })
 
             volumeButton.addEventListener("mouseover", () => {
                 clearTimeout(volumeToggleTimer);
-                // volumeBar.style.display = "block";
-                volumeButton.style.transform = "scale(1.2)";
+            
+                
                 scrollBar.style.opacity = "0.0";
-                videoTime.style.opacity = "0.0"
-                playButton.style.color = "grey";
-                screenToggleButton.style.color = "grey";
+                duration.style.opacity = "0.0"
+            
             })
     
 
 
-        const showBack = () => {
-            backButton.style.opacity = "1.0";
-            backToBrowse.style.opacity = '1.0';
-            playButton.style.color = "white";
-        }
+  
 
-        scrollBar.addEventListener("mouseover", () => {
-            scrollBar.style.height = "8px";
-            playButton.style.color = "grey";
-            screenToggleButton.style.color = "grey";
-        })
+     
 
-        scrollBar.addEventListener("mouseout", () => {
-            scrollBar.style.height = "5px";
-            playButton.style.color = "white";
-            screenToggleButton.style.color = "white";
-        })
+       
 
-        const hideBack = () => {
-            backButton.style.opacity = "0.0";
-            backToBrowse.style.opacity = '0.0';
-            playButton.style.color = "white";
-        }
-
-        // backToBrowse.addEventListener("mouseover", showBack)
-        // backToBrowse.addEventListener("mouseout", hideBack)
-
-        rewindButton.addEventListener("mouseover", () => {
-            rewindButton.style.transform = "scale(1.2)";
-            playButton.style.color = "white";
-        })
-
-        rewindButton.addEventListener("mouseout", () => {
-            rewindButton.style.transform = "scale(1.0)";
-            playButton.style.color = "white";
-        })
-
-        fastForwardButton.addEventListener("mouseover", () => {
-            fastForwardButton.style.transform = "scale(1.2)";
-            playButton.style.color = "white";
-
-        })
-
-        fastForwardButton.addEventListener("mouseout", () => {
-            fastForwardButton.style.transform = "scale(1.0)";
-            playButton.style.color = "white";
-
-        })
+        
 
         window.addEventListener("mousemove", () => {
            
-            bottom_row.style.opacity = "1.0"
-            backToBrowse.style.opacity = "1.0"
+            bottom_row.style.opacity = "1.0";
+            backToBrowse.style.opacity = "1.0";
+     
             setTimeout(function(){
                 bottom_row.style.opacity = "0";
-                backToBrowse.style.opacity = "0"
-            }, 3000);
+                backToBrowse.style.opacity = "0";
+              
+            }, 4000);
         })
 
      
@@ -175,42 +137,42 @@ class PlayerForm extends React.Component {
     }
 
     toggleFullScreen() {
-        let actualVideoTwo = document.getElementById("video-player");
+        let video = document.getElementById("video-player");
         return () => {
-            if (actualVideoTwo.requestFullscreen) {
-                actualVideoTwo.requestFullscreen();
-            } else if (actualVideoTwo.webkitRequestFullScreen) {
-                actualVideoTwo.webkitRequestFullScreen();
-            } else if (actualVideoTwo.mozRequestFullScreen) {
-                actualVideoTwo.mozRequestFullScreen();
+            if (video.requestFullscreen) {
+                video.requestFullscreen();
+            } else if (video.webkitRequestFullScreen) {
+                video.webkitRequestFullScreen();
+            } else if (video.mozRequestFullScreen) {
+                video.mozRequestFullScreen();
             }
         };
     }
 
 
     changeTime(change) {
-        let actualVideo = document.getElementById("video-player") 
+        let video = document.getElementById("video-player") 
         return () => {
-            actualVideo.currentTime += change;
+            video.currentTime += change;
         };
     }
 
     toggleMute() {
-        let actualVideoThree = document.getElementById("video-player");
-        if (actualVideoThree.muted) {
-            actualVideoThree.muted = false;
+        let video = document.getElementById("video-player");
+        if (video.muted) {
+            video.muted = false;
             this.setState({ volume: 1 });
         } else {
-            actualVideoThree.muted = true;
+            video.muted = true;
             this.setState({ volume: 0 });
         }
     }
 
     toggleVolume(e) {
-        let actualVideoFour = document.getElementById("video-player");
+        let video = document.getElementById("video-player");
         e.preventDefault();
         let change = parseFloat(e.target.value);
-        actualVideoFour.volume = change;
+        video.volume = change;
         this.setState({ volume: change })
     }
 
@@ -232,25 +194,25 @@ class PlayerForm extends React.Component {
     }
 
     updateSeek() {
-        const actualVideoSix = document.getElementById("video-player");  
-        this.setState({ seek: actualVideoSix.currentTime });
+        const video = document.getElementById("video-player");  
+        this.setState({ seek: video.currentTime });
     }
 
     togglePlay() {
-        let actualVideo = document.getElementById("video-player")
+        let video = document.getElementById("video-player")
         if (this.state.playing === true) {
-            actualVideo.pause();
+            video.pause();
             this.setState({ playing: false })
         } else {
-            actualVideo.play();
+            video.play();
             this.setState({ playing: true })
         }
     }
 
     toggleSeek(e) {
-        const actualVideoFive = document.getElementById("video-player");  
-        const change = actualVideoFive.duration * (e.target.value / this.state.duration);
-        actualVideoFive.currentTime = change;
+        const video = document.getElementById("video-player");  
+        const change = video.duration * (e.target.value / this.state.duration);
+        video.currentTime = change;
         this.setState({ seek: change });
     }
 
@@ -263,19 +225,19 @@ class PlayerForm extends React.Component {
         let volumeButtonRender;
         
         if (this.state.volume > 0.6) {
-            volumeButtonRender = <i className="vol fas fa-volume-up" id="controls-volume-button" onClick={this.toggleMute}></i>
+            volumeButtonRender = <i className="vol fas fa-volume-up" id="volume-button" onClick={this.toggleMute}></i>
         } else if (this.state.volume > 0.3 && this.state.volume <= 0.6) {
-            volumeButtonRender = <i className="voltwo fas fa-volume-down" id="controls-volume-button" onClick={this.toggleMute}></i>
+            volumeButtonRender = <i className="voltwo fas fa-volume-down" id="volume-button" onClick={this.toggleMute}></i>
         } else if (this.state.volume > 0 && this.state.volume <= 0.3) {
-            volumeButtonRender = <i className="voltwo fas fa-volume-off" id="controls-volume-button" onClick={this.toggleMute}></i>
+            volumeButtonRender = <i className="voltwo fas fa-volume-off" id="volume-button" onClick={this.toggleMute}></i>
         } else {
-            volumeButtonRender = <i className="vol fas fa-volume-mute" id="controls-volume-button" onClick={this.toggleMute}></i>
+            volumeButtonRender = <i className="vol fas fa-volume-mute" id="volume-button" onClick={this.toggleMute}></i>
         }
-        let playButtonRender;
+        let playPauseButton;
         if (this.state.playing === true) {
-            playButtonRender = <i className="fas fa-pause" id="play-button" onClick={this.togglePlay}></i>
+            playPauseButton = <i className="fas fa-pause" id="play-button" onClick={this.togglePlay}></i>
         } else if (this.state.playing === false) {
-            playButtonRender = <i className="fas fa-play" id="play-button" onClick={this.togglePlay} ></i>
+            playPauseButton = <i className="fas fa-play" id="play-button" onClick={this.togglePlay} ></i>
         }
         let vid;
         // if(this.state.loaded){
@@ -303,22 +265,22 @@ class PlayerForm extends React.Component {
                 
                 
                 <div className= 'video-player-div-bottom'>
-                    <video ref="player" id="video-player" className="video-player" src={vid.video_link} poster={vid.image_link} preload="auto" loop autoPlay></video>
+                    <video onClick={this.togglePlay} ref="player" id="video-player" className="video-player" src={vid.video_link} poster={vid.image_link} preload="auto" loop autoPlay></video>
                     <div  id='bottom-row' className='bottom-row'>
-                        <div className="navigation-scroll-bar-container">
+                        <div className="scroll-bar-container center" >
                             <input id="scroll-bar" type="range" min="0" max={this.state.duration} step="1" value={Math.floor(this.state.seek)} onChange={this.toggleSeek}/>
-                            <h1 className="movie-duration" id="movie-duration">{this.state.time}</h1>
+                            <h1 className="duration" id="duration">{this.state.time}</h1>
                         </div>
                         <div id='controls'>
-                        <h2>{playButtonRender}</h2>
+                        <h2 className='center'>{playPauseButton}</h2>
                             <img onClick={this.changeTime(-10)} id="reverse-button" className="reverse-button" src={window.forward_arrow} />
                             <img onClick={this.changeTime(10)} id="forward-button" className="forward-button" src={window.back_arrow} />
                             <h4 className='featured-video-h4'>{vid.title}</h4>
-                            <div>
+                            <div className='center'>
                                 <input type="range" id="volume-bar" min="0" max="1" step="0.01" onChange={this.toggleVolume} value={this.state.volume} />
                                 {volumeButtonRender}
                             </div>
-                            <i className="fas fa-compress" id="screen-toggle-button" onClick={this.toggleFullScreen()}></i> 
+                            <i className="fas fa-compress" id="full-screen" onClick={this.toggleFullScreen()}></i> 
                         </div>
                             
                 
