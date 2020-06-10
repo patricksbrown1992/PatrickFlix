@@ -27,7 +27,7 @@ class PlayerForm extends React.Component {
     }
 
     keyHandler(e){
-        debugger
+      
         let video = document.getElementById("video-player");
   
         if(e.keyCode === 109){

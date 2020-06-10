@@ -178,7 +178,7 @@ class VideoIndexForm extends React.Component {
                         <div id='search-form'>
                             <div id= 'search-div'>
                                 <i onClick={this.searchClick} className="fas fa-search fa-2x"></i>
-                                <input className={searchClass} type="text" name="search" value={this.state.search} onChange = {this.searchUpdate()} placeholder="Titles" />
+                                <input className={searchClass}  id = 'search-input' type="text" name="search" value={this.state.search} onChange = {this.searchUpdate()} placeholder="Titles" />
                             </div>
                             <div id="search-results">
                                 {search_arr}
