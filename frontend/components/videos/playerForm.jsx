@@ -27,7 +27,7 @@ class PlayerForm extends React.Component {
     }
 
     keyHandler(e){
-      
+
         let video = document.getElementById("video-player");
   
         if(e.keyCode === 109){
@@ -38,6 +38,16 @@ class PlayerForm extends React.Component {
                 video.muted = true;
                 this.setState({ volume: 0 });
             }
+        }
+
+        if(e.keyCode === 37){
+            alert('left-arrow')
+            this.changeTime(-10);
+        }
+
+        if(e.keyCode === 39){
+            alert('right-arrow')
+            this.changeTime(10);
         }
 
         if(e.keyCode === 32){
@@ -85,7 +95,8 @@ class PlayerForm extends React.Component {
         this.timeCheck = setInterval(this.updateTime, 1000);
         let volumeToggleTimer;
         
-        document.addEventListener('keypress', this.keyHandler, false)
+        document.addEventListener('keydown', this.keyHandler, false);
+
         video.addEventListener('loadedmetadata', () => {
             this.setState({duration: Math.floor(video.duration)})
         });
@@ -151,7 +162,9 @@ class PlayerForm extends React.Component {
 
 
     changeTime(change) {
+        
         let video = document.getElementById("video-player") 
+      
         return () => {
             video.currentTime += change;
         };

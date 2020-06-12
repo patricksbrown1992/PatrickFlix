@@ -66,8 +66,8 @@
 #remove-from-list{
     background-color: white;
     color: black;
-    height: 20px;
-    width: 150px;
+    height: 30px;
+    width: 200px;
     position: absolute;
     margin-top: 60px;
     left: 55px;
@@ -84,7 +84,7 @@
     background-color: black;
     z-index: 5;
     position: absolute;
-    margin-top: 55px;
+    margin-top: 60px;
     left: 15px;
     padding: 5px;
     border-radius: 50%;
@@ -93,16 +93,17 @@
 
 .add-remove-div{
     color: white;
-    background-color: black;
-    width: 75px;
-    height: 24px;
-    font-size: 10px;
+    // background-color: black;
+    width: 100px;
+    height: 28px;
+    font-size: 14px;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-left: 35px;
-    margin-top: 5%;
+    margin-top: 22px;
     position: absolute;
+    text-shadow: 2px 2px 2px #0f0f0f;
 
 }
 
