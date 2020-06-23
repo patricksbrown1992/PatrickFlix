@@ -50,11 +50,11 @@ class DetailRowForm extends React.Component {
         let button;
         let left_arrow;
         let right_arrow;
-        let vids = this.props.vids.slice(this.state.start,this.state.start + 4).map((vid, index) => (
+        let vids = this.props.vids.map((vid, index) => (
             
             <IndexItem  key ={index + this.props.range[0]} video={vid} index={index + this.props.range[0]}/>
         ))
-      
+        vids = vids.slice(this.state.start,this.state.start + 4)
         // if(this.state.open){
             // vid = this.props.videos[this.props.modal]
             // detail_row.style.opacity = "1";
@@ -124,11 +124,15 @@ class DetailRowForm extends React.Component {
 
         return (
             <div key={this.props.identifier} className = "video-row-inner" id = {`video-row-inner-${this.props.identifier}`}>
-                {left_arrow}
-                <div className= 'links-row'>
-                    {vids}
+                
+                <div className = "top-row">
+                    {left_arrow}
+                    <div className= 'links-row'>
+                        {vids}
+                    </div>
+                    {right_arrow}
                 </div>
-                {right_arrow}
+                
                 <div  className='detail-row' id = {`detail-row-${this.props.identifier}`}>
                     {/* {vid.title}({vid.year}) - {vid.description} */}
                     {text}

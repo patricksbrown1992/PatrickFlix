@@ -35,10 +35,11 @@ class IndexItemForm extends React.Component {
         title.style.opacity = '0';
 
         video_li.addEventListener("mouseover", ()=> {
-            arrow.style.display = "inline-block";
-            arrow.style.position = "absolute";
-            arrow.style.marginTop = '130px';
-            arrow.style.marginLeft = '45%';
+            // arrow.style.display = "inline-block";
+            // arrow.style.position = "absolute";
+            // arrow.style.marginTop = '130px';
+            // arrow.style.marginLeft = '45%';
+            arrow.style.display = 'inline-block'
             add_remove_div.style.opacity = '1';
             title.style.opacity = '1'
         })

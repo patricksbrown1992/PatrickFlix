@@ -161,4 +161,12 @@ html{
 
 .fa-arrow-right, .fa-arrow-left {
     color: white;
+    cursor: pointer;
+}
+
+.top-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
