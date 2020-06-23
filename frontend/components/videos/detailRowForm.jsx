@@ -48,6 +48,8 @@ class DetailRowForm extends React.Component {
         // debugger
         let text;
         let button;
+        let left_arrow;
+        let right_arrow;
         let vids = this.props.vids.slice(this.state.start,this.state.start + 4).map((vid, index) => (
             
             <IndexItem  key ={index + this.props.range[0]} video={vid} index={index + this.props.range[0]}/>
@@ -99,7 +101,18 @@ class DetailRowForm extends React.Component {
         //     detail_row.classList.remove("open");
         //     vid_row.classList.add("close");
         }
+
+        if(this.state.start == 0){
+            left_arrow = '';
+        } else {
+           left_arrow = <i onClick={this.left}class="fas fa-arrow-left"></i>;
+        }
         
+        if(this.state.start < this.props.vids.length-4){
+            right_arrow = <i onClick={this.right} class="fas fa-arrow-right"></i>;
+        } else {
+            right_arrow = '';
+        }
       
         
         // return (
@@ -111,11 +124,11 @@ class DetailRowForm extends React.Component {
 
         return (
             <div key={this.props.identifier} className = "video-row-inner" id = {`video-row-inner-${this.props.identifier}`}>
-                <i onClick={this.left}class="fas fa-arrow-left"></i>
+                {left_arrow}
                 <div className= 'links-row'>
                     {vids}
                 </div>
-                <i onClick={this.right} class="fas fa-arrow-right"></i>
+                {right_arrow}
                 <div  className='detail-row' id = {`detail-row-${this.props.identifier}`}>
                     {/* {vid.title}({vid.year}) - {vid.description} */}
                     {text}
