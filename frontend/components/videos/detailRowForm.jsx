@@ -105,11 +105,18 @@ class DetailRowForm extends React.Component {
         if(this.state.start == 0){
             left_arrow = '';
         } else {
-           left_arrow = <i onClick={this.left}class="fas fa-arrow-left"></i>;
+            left_arrow = 
+            <div onClick={this.left} className='left-arrow-div'>
+                <i onClick={this.left}class="fas fa-chevron-left fa-3x"></i>
+            </div>
         }
         
         if(this.state.start < this.props.vids.length-4){
-            right_arrow = <i onClick={this.right} class="fas fa-arrow-right"></i>;
+            right_arrow = 
+            <div onClick={this.right} className='right-arrow-div'>
+                <i onClick={this.right} class="fas fa-chevron-right fa-3x"></i>
+            </div>
+            
         } else {
             right_arrow = '';
         }

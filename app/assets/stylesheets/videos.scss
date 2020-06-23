@@ -332,8 +332,8 @@ h1, h2, h3, h4, h5, h6, a, div {
     flex-direction: row;
     justify-content: center;
     height: 200px;
-    width: 80%;
- 
+    width: 100%;
+    position: relative;
     // overflow-x: scroll;
 }
 
@@ -575,4 +575,23 @@ h1, h2, h3, h4, h5, h6, a, div {
     width: 35%;
     overflow-y: hidden;
    
+}
+
+.left-arrow-div, .right-arrow-div {
+    background-color: grey;
+    height: 150px;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background: rgba(0,0,0,0.219);
+    z-index: 20;
+    position: absolute;
+}
+.left-arrow-div {
+    left: 0
+}
+.right-arrow-div {
+    right: 0
 }

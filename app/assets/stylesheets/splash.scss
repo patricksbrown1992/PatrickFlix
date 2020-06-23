@@ -159,14 +159,15 @@ html{
 }
 
 
-.fa-arrow-right, .fa-arrow-left {
+.fa-chevron-right, .fa-chevron-left {
     color: white;
     cursor: pointer;
+    
 }
 
 .top-row {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    align-items: center;
+
 }
