@@ -25,12 +25,17 @@ class DetailRowForm extends React.Component {
     // }
 
     right(){
-
-        this.setState({right: this.state.start += 1})
+        if(this.state.start < this.props.vids.length-4){
+            this.setState({start: this.state.start += 1})
+        }
+        
     }
 
     left(){
-        this.setState({right: this.state.start -= 1})
+        if(this.state.start > 0){
+            this.setState({start: this.state.start -= 1})
+        }
+        
 
     }
 
