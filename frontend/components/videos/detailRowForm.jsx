@@ -6,7 +6,9 @@ import IndexItem from './indexItemContainer';
 class DetailRowForm extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { open: false };
+        this.state = { open: false, start: 0 };
+        this.right = this.right.bind(this);
+        this.left = this.left.bind(this);
         
 
     }
@@ -22,6 +24,15 @@ class DetailRowForm extends React.Component {
 
     // }
 
+    right(){
+
+        this.setState({right: this.state.start += 1})
+    }
+
+    left(){
+        this.setState({right: this.state.start -= 1})
+
+    }
 
 
    
@@ -32,7 +43,7 @@ class DetailRowForm extends React.Component {
         // debugger
         let text;
         let button;
-        let vids = this.props.vids.map((vid, index) => (
+        let vids = this.props.vids.slice(this.state.start,this.state.start + 4).map((vid, index) => (
             
             <IndexItem  key ={index + this.props.range[0]} video={vid} index={index + this.props.range[0]}/>
         ))
@@ -95,14 +106,17 @@ class DetailRowForm extends React.Component {
 
         return (
             <div key={this.props.identifier} className = "video-row-inner" id = {`video-row-inner-${this.props.identifier}`}>
+                <i onClick={this.left}class="fas fa-arrow-left"></i>
                 <div className= 'links-row'>
                     {vids}
                 </div>
+                <i onClick={this.right} class="fas fa-arrow-right"></i>
                 <div  className='detail-row' id = {`detail-row-${this.props.identifier}`}>
                     {/* {vid.title}({vid.year}) - {vid.description} */}
                     {text}
                     {button}
                 </div>
+                
                 
             </div>
         )
