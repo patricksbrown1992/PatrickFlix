@@ -27,7 +27,7 @@ class IndexItemForm extends React.Component {
         let add_remove_div = document.getElementById(`${vid.id}-add-remove-div`);
         let title = document.getElementById(`${vid.id}-index-item-title`);
         let user = this.props.user;
-        // debugger
+   
 
 
         arrow.style.display = "none";

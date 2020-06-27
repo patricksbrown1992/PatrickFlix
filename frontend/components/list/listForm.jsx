@@ -59,7 +59,7 @@ class ListForm extends React.Component {
     }
 
     hideButton(e){
-        // debugger
+  
         
         let kids = e.currentTarget.children;
         let background = kids[2]
@@ -71,7 +71,7 @@ class ListForm extends React.Component {
     }
 
     showButton(e){
-        // debugger
+   
         let kids = e.currentTarget.children;
         let background = kids[2]
         let check = background.children[0];
@@ -125,6 +125,7 @@ class ListForm extends React.Component {
         // }
 
         let searchClass;
+        let list_heigth_id;
 
         if (this.state.activated) {
             searchClass = 'show-search';
@@ -137,7 +138,7 @@ class ListForm extends React.Component {
 
         let videos = this.props.videos;
         let lists = this.duplicateArray(this.props.lists);
- 
+        
         lists = lists.map(list => {
          
             return <div id ={`${list.id}-list-div`} onMouseOut={this.hideButton} onMouseOver={this.showButton} key = {list.id} className='list-div'> 
@@ -146,6 +147,12 @@ class ListForm extends React.Component {
             </div>
             
         })
+        if(Object.values(this.props.lists).length){
+            list_heigth_id = 'list-body'
+        } else {
+            list_heigth_id = 'list-empty'
+        }
+        
 
         let search_arr
         let search_form = document.getElementById('search-form');
@@ -166,10 +173,12 @@ class ListForm extends React.Component {
             search_arr = search_arr.filter(video => (
 
             video.title.toUpperCase().includes(search.toUpperCase())
+    
              ))
 
             search_arr = search_arr.map(video => {
-                return <li key = {video.id}  id='search-li'> <Link to={`/player/${video.id}`}>{video.title}</Link></li>
+                return <li key = {video.id}  id='search-li'> <Link to={`/player/${video.id}`}>{video.title}</Link>
+                <hr/></li>
             })
         } else {
             search_arr ='';
@@ -209,7 +218,7 @@ class ListForm extends React.Component {
                         </div>
                     </div>
                 </div>
-                <div id="list-body">
+                <div id={list_heigth_id}>
                     <h1 className="list-h1">My List</h1>
                     {lists}
                 </div>

@@ -140,7 +140,8 @@ class VideoIndexForm extends React.Component {
         ))
 
             search_arr = search_arr.map(video => {
-                return <li key = {video.id} id='search-li'> <Link to={`player/${video.id}`}>{video.title}</Link></li>
+            return <li key = {video.id}  id='search-li'> <Link to={`/player/${video.id}`}>{video.title}</Link>
+            <hr/></li>
             })
         } else {
             search_arr ='';

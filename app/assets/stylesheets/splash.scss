@@ -17,7 +17,14 @@ html{
 .body {
     height: 100%;
     width: 100%;
+    overflow-x: hidden;
+    -ms-overflow-style: none;
+    
+
 }
+body::-webkit-scrollbar {
+    display: none;
+  }
 
 #root {
     height: 100%;

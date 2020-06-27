@@ -45,7 +45,7 @@ class DetailRowForm extends React.Component {
         let vid;
         let detail_row = document.getElementById(`detail-row-${this.props.identifier}`);
         let video_row = document.getElementById(`video-row-${this.props.identifier}`);
-        // debugger
+     
         let text;
         let button;
         let left_arrow;

@@ -42,6 +42,16 @@
     flex-direction: column;
     padding-left: 20px;
     padding-top: 15px;
+    height: auto;
+}
+
+#list-empty{
+    background-color: #141414;
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+    padding-top: 15px;
+    height: 100%;
 }
 
 .videos-index-header-left a {
@@ -100,7 +110,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: 35px;
+    margin-left: 40px;
     margin-top: 22px;
     position: absolute;
     text-shadow: 2px 2px 2px #0f0f0f;
