@@ -39,9 +39,9 @@ class SplashForm extends React.Component {
                 <div className='splash-header'>
                     <div className="links-div">
                         <ul>
-                            <a href="https://patricksbrown1992.github.io/portfolio/">Portfolio</a>
-                            <a href="https://www.linkedin.com/in/patricksbrown1992/">LinkedIn</a>
-                            <a href="https://github.com/patricksbrown1992">Github</a>
+                            <a href="https://patricksbrown1992.github.io/portfolio/" target="_blank">Portfolio</a>
+                            <a href="https://www.linkedin.com/in/patricksbrown1992/" target="_blank">LinkedIn</a>
+                            <a href="https://github.com/patricksbrown1992" target="_blank">Github</a>
 
                         </ul>
                     </div>
