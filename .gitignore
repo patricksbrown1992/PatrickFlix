@@ -7,14 +7,15 @@
 # Ignore bundler config.
 /.bundle
 node_modules/
-bundle.js
-bundle.js.map
+.bundle.js*
 .byebug_history
 swayze
 stewart
 wilson
 harris
 dempsey
+bundle.js*
+
 
 # Ignore all logfiles and tempfiles.
 /log/*

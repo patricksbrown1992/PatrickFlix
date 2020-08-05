@@ -9,7 +9,8 @@ module.exports = {
         filename: 'bundle.js'
     },
     module: {
-        rules: [{
+        rules: [
+            {
             test: /\.jsx?$/,
             exclude: /(node_modules)/,
             use: {
@@ -18,7 +19,12 @@ module.exports = {
                     presets: ['@babel/env', '@babel/react']
                 }
             },
-        }]
+        }, 
+        {
+            test: /\.css$/,
+            use: ["style-loader", "css-loader", "postcss-loader"]
+          }
+    ]
     },
     devtool: 'source-map',
     resolve: {

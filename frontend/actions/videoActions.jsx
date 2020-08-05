@@ -8,7 +8,8 @@ export const CLEAR_WATCH = 'CLEAR_WATCH';
 
 const receiveVideos = (videos) => {
 
-    return {type: RECEIVE_VIDEOS,
+    return {
+    type: RECEIVE_VIDEOS,
     videos
     }
 }

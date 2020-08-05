@@ -252,7 +252,7 @@ h1, h2, h3, h4, h5, h6, a, div {
 .index-item img {
     height: 150px;
     width: 100%;
-    object-fit: fill;
+    // object-fit: cover;
 }
 
 .videos-index-body{
@@ -519,7 +519,7 @@ h1, h2, h3, h4, h5, h6, a, div {
 .detail-row-show img{
     width: 65%;
     height: 270px;
-    object-fit: fill;
+    // object-fit: fill;
     background: linear-gradient(to right,#000,transparent);;
 }
 
