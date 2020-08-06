@@ -4,7 +4,7 @@
 # PatrickFlix
 
 ## Overview
-
+Patrick-based actors only Netflix with AWS storage
 
 ## Technology
 Ruby on Rails handles the backend data management. ES6, React and Redux create a fun, dynamic and seamless experience on the frontend. AWS S3 for storage.

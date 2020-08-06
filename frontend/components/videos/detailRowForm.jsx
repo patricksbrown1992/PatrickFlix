@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import IndexItem from './indexItemContainer';
+import HiddenRowContainer from './hiddenRowContainer';
 
 
 class DetailRowForm extends React.Component {
@@ -43,63 +44,41 @@ class DetailRowForm extends React.Component {
    
     render() {
         let vid;
-        let detail_row = document.getElementById(`detail-row-${this.props.identifier}`);
-        let video_row = document.getElementById(`video-row-${this.props.identifier}`);
-     
-        let text;
-        let button;
+        
+        let video_row = document.getElementById(`video-row-inner-${this.props.identifier}`);
+        
+        let hidden_row_div;
         let left_arrow;
         let right_arrow;
         let vids = this.props.vids.map((vid, index) => (
             
             <IndexItem  key ={index + this.props.range[0]} video={vid} index={index + this.props.range[0]}/>
         ))
-        vids = vids.slice(this.state.start,this.state.start + 4)
-        // if(this.state.open){
-            // vid = this.props.videos[this.props.modal]
-            // detail_row.style.opacity = "1";
-            // detail_row.style.display = "flex";
-            // detail_row.style.height = "20%"
-            // text = `${vid.title}(${vid.year}) - ${vid.description}`
-        // } else {
-            // detail_row.style.opacity = "0";
-            // detail_row.style.display = "none";
-            // detail_row.style.height = "0"
-            // text = ''
-        // }
-        
-        // if(this.state.open){
-            // text = <div id ={`detail-row-show-${1}`} className='detail-row-show'> <div className='left-show-div'><Link to={`/player/${vid.id}`}><i className="fas fa-play" id="play-button-detail"></i></Link><h3 className= 'featured-video-h3'>{vid.title}({vid.year}) - {vid.description}</h3></div><img src={vid.image_link} alt=""/></div>
-        // } else {
-        //     text = <div id ={`detail-row-hide-${1}`} className='detail-row-hide'></div>;
-        //     button='';
-        // }
 
+        vids = vids.slice(this.state.start,this.state.start + 4)
+        
         if(this.props.modal !== null &&  this.props.range.includes(this.props.modal)){
+            // debugger
             vid = this.props.videos[this.props.modal]
-            detail_row.style.opacity = "1";
-            detail_row.style.display = "flex";
-            detail_row.style.height = "350px";
-            video_row.style.height = '500px';
-            text = <div id ={`detail-row-show-${1}`} className='detail-row-show'> <div className='left-show-div'><Link to={`/player/${vid.id}`}><i className="fas fa-play" id="play-button-detail"></i></Link><h3 className= 'featured-video-h3'>{vid.title}({vid.year}) - {vid.description}</h3></div><img src={vid.image_link} alt=""/></div>
-            // button = <button onClick={this.createList(vid.id)}>Please Click</button>
+            hidden_row_div = <HiddenRowContainer vid={vid}/>
             
-            // this.setState({open: true})
+            video_row.style.height = '600px';
             
-        } else {
-            text = <div id ={`detail-row-hide-${1}`} className='detail-row-hide'></div>;
-            button='';
+         
             
-            // this.setState({open: false})
-        //     this.setState({open: false})
-            // detail_row.style.opacity = "0";
-            // detail_row.style.display = "none";
-            // detail_row.style.height = "0"
-        if(video_row){
-            video_row.style.height = 'auto';
-        }
-        //     detail_row.classList.remove("open");
-        //     vid_row.classList.add("close");
+        } 
+        else {
+     
+  
+            hidden_row_div = ''
+            // <div id ={`detail-row-hide-${1}`} className='detail-row-hide'></div>;
+         
+            
+        
+            if(video_row){
+                video_row.style.height = '200px';
+            }
+   
         }
 
         if(this.state.start == 0){
@@ -107,14 +86,14 @@ class DetailRowForm extends React.Component {
         } else {
             left_arrow = 
             <div onClick={this.left} className='left-arrow-div'>
-                <i onClick={this.left}class="fas fa-chevron-left fa-3x"></i>
+                <i onClick={this.left}className="fas fa-chevron-left fa-3x"></i>
             </div>
         }
         
         if(this.state.start < this.props.vids.length-4){
             right_arrow = 
             <div onClick={this.right} className='right-arrow-div'>
-                <i onClick={this.right} class="fas fa-chevron-right fa-3x"></i>
+                <i onClick={this.right} className="fas fa-chevron-right fa-3x"></i>
             </div>
             
         } else {
@@ -128,7 +107,7 @@ class DetailRowForm extends React.Component {
             // </div>
 
         // )
-
+   
         return (
             <div key={this.props.identifier} className = "video-row-inner" id = {`video-row-inner-${this.props.identifier}`}>
                 
@@ -139,12 +118,8 @@ class DetailRowForm extends React.Component {
                     </div>
                     {right_arrow}
                 </div>
-                
-                <div  className='detail-row' id = {`detail-row-${this.props.identifier}`}>
-                    {/* {vid.title}({vid.year}) - {vid.description} */}
-                    {text}
-                    {button}
-                </div>
+                {hidden_row_div}
+              
                 
                 
             </div>
