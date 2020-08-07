@@ -125,7 +125,7 @@ madeofhonor.thumbnail.attach(io: open('https://patrickflix-seeds.s3.amazonaws.co
 
 cantbuymelove = Video.create({title: "Can't Buy Me Love", year: 1987, runtime: "1m 34s", description: "Patrick Dempsey and Amanda Peterson in a story about a nerd at a high school in Tucson, Arizona who gives a cheerleader $1,000 to pretend to be his girlfriend for a month."} )
 cantbuymelove.movie.attach(io: open('https://patrickflix-seeds.s3.amazonaws.com/cantbuymelove_trailer.mp4'), filename: 'cantbuymelove_trailer.mp4')
-cantbuymelove.thumbnail.attach(io: open('https://patrickflix-seeds.s3.amazonaws.com/cant_buy_me_love.png'), filename: 'cant_buy_me_love.png')
+cantbuymelove.thumbnail.attach(io: open('https://patrickflix-seeds.s3.amazonaws.com/cant-buy-me-love.png'), filename: 'cant-buy-me-love.png')
 
 alabama = Video.create({title: "Sweet Home Alabama", year: 2002, runtime: "2m 30s", description: "New York fashion designer Melanie (Reese Witherspoon) suddenly finds herself engaged to the city's most eligible bachelor. But Melanie's past holds many secrets, including Jake (Josh Lucas), the redneck husband she married in high school, who refuses to divorce her."} )
 alabama.movie.attach(io: open('https://patrickflix-seeds.s3.amazonaws.com/alabama-trailer.mp4'), filename: 'alabama-trailer.mp4')
