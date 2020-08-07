@@ -20,7 +20,7 @@ xmen.thumbnail.attach(io: open('https://patrickflix-seeds.s3.amazonaws.com/x-men
 
 startrek = Video.create({title: "Star Trek: First Contact", year: 1996, runtime: "2m 19s", description: "The crew of the USS Enterprise-E travel back in time from the 24th century to the mid-21st century in order to stop the cybernetic Borg from conquering Earth by changing their past."} )
 startrek.movie.attach(io: open('https://patrickflix-seeds.s3.amazonaws.com/first-contact-trailer.mp4'), filename: 'first-contact-trailer.mp4')
-startrek.thumbnail.attach(io: open('https://patrickflix-seeds.s3.amazonaws.com/first-conact.png'), filename: 'first-conact.png')
+startrek.thumbnail.attach(io: open('https://patrickflix-seeds.s3.amazonaws.com/first-contact.png'), filename: 'first-contact.png')
 
 logan = Video.create({title: "Logan", year: 2017, runtime: "1m 48s", description: "It follows an aged Wolverine and an extremely ill Charles Xavier who defend a young mutant named Laura from the villainous Reavers led by Donald Pierce and Zander Rice."} )
 logan.movie.attach(io: open('https://patrickflix-seeds.s3.amazonaws.com/logan-trailer.mp4'), filename: 'logan-trailer.mp4')
