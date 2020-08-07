@@ -20,12 +20,15 @@ class DetailRowForm extends React.Component {
         let vid = this.props.vid
         return (
             
-            <div id ={`detail-row-show-${1}`} className='detail-row-show'> 
-                <div className='left-show-div'><Link to={`/player/${vid.id}`}>
-                    <i className="fas fa-play" id="play-button-detail"></i></Link>
-                    <h3 className= 'featured-video-h3'>{vid.title}({vid.year}) - {vid.description}</h3>
-                </div>
-                <img src={vid.image_link} alt=""/>
+            <div className='detail-row-show'> 
+                {/* <div className='left-show-div'> */}
+                    <Link to={`/player/${vid.id}`}><i className="fas fa-play" id="play-button-detail"></i></Link>
+                    <h1 className= 'hidden-video-h1'>{vid.title}</h1>
+                    <h3 className= 'hidden-video-h3'>{vid.description}</h3>
+                    {/* <img src={vid.image_link} alt="movie poster"/> */}
+                {/* </div> */}
+                
+                <div className='left-div-hidden' style={{ 'backgroundImage': `url(${vid.image_link})`}}></div>
             </div>
             
                 
