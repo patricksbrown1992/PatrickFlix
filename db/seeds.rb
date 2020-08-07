@@ -69,7 +69,7 @@ gonegirl.thumbnail.attach(io: open('https://patrickflix-seeds.s3.amazonaws.com/g
 
 doogiehowser = Video.create({title: "Doogie Howser", year: 1989, runtime: "1m 01s", description: "The show stars Neil Patrick Harris in the title role as a teenage physician who balances the challenge of practicing medicine with the everyday problems of teenage life."} )
 doogiehowser.movie.attach(io: open('https://patrickflix-seeds.s3.amazonaws.com/Doogie_Howser_Trailer.mp4'), filename: 'Doogie_Howser_Trailer.mp4')
-doogiehowser.thumbnail.attach(io: open('https://patrickflix-seeds.s3.amazonaws.com/doogie_howser.png'), filename: 'doogie_howser.png')
+doogiehowser.thumbnail.attach(io: open('https://patrickflix-seeds.s3.amazonaws.com/doogie_howser.jpg'), filename: 'doogie_howser.jpg')
 
 himym = Video.create({title: "How I Met Your Mother", year: 2005, runtime: "0m 46s", description: "Ted, in the year 2030, recounts to his son and daughter the events that led him to meet their mother."} )
 himym.movie.attach(io: open('https://patrickflix-seeds.s3.amazonaws.com/HIMYM_Trailer.mp4'), filename: 'HIMYM_Trailer.mp4')
