@@ -15,17 +15,10 @@ class DetailRowForm extends React.Component {
     }
 
   
-    // componentDidMount(){
-    //     let video_row_inner = document.getElementById(`video-row-inner-${this.props.identifier}`);
-    //     video_row_inner.addEventListener("mouseover", () => {
-    //         if(this.props.modal !== null ){
 
-    //         }
-    //     })
-
-    // }
 
     right(){
+        
         if(this.state.start < this.props.vids.length-4){
             this.setState({start: this.state.start += 1})
         }
@@ -54,11 +47,11 @@ class DetailRowForm extends React.Component {
             
             <IndexItem  key ={index + this.props.range[0]} video={vid} index={index + this.props.range[0]}/>
         ))
-
+        
         vids = vids.slice(this.state.start,this.state.start + 4)
         
         if(this.props.modal !== null &&  this.props.range.includes(this.props.modal)){
-            // debugger
+
             vid = this.props.videos[this.props.modal]
             hidden_row_div = <HiddenRowContainer vid={vid}/>
             
@@ -71,7 +64,7 @@ class DetailRowForm extends React.Component {
      
   
             hidden_row_div = ''
-            // <div id ={`detail-row-hide-${1}`} className='detail-row-hide'></div>;
+        
          
             
         
@@ -86,14 +79,14 @@ class DetailRowForm extends React.Component {
         } else {
             left_arrow = 
             <div onClick={this.left} className='left-arrow-div'>
-                <i onClick={this.left}className="fas fa-chevron-left fa-3x"></i>
+                <i className="fas fa-chevron-left fa-3x"></i>
             </div>
         }
         
         if(this.state.start < this.props.vids.length-4){
             right_arrow = 
             <div onClick={this.right} className='right-arrow-div'>
-                <i onClick={this.right} className="fas fa-chevron-right fa-3x"></i>
+                <i  className="fas fa-chevron-right fa-3x"></i>
             </div>
             
         } else {
@@ -101,12 +94,7 @@ class DetailRowForm extends React.Component {
         }
       
         
-        // return (
-            // <div className='detail-row close' id = {`detail-row ${this.props.identifier}`}>
-            //     {vid.title}({vid.year}) - {vid.description}
-            // </div>
-
-        // )
+    
    
         return (
             <div key={this.props.identifier} className = "video-row-inner" id = {`video-row-inner-${this.props.identifier}`}>
