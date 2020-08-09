@@ -14,7 +14,7 @@ class PlayerForm extends React.Component {
             loaded: null
         };
 
-
+        this.load = this.load.bind(this);
         this.toggleVolume = this.toggleVolume.bind(this);
         this.toggleMute = this.toggleMute.bind(this);
         this.togglePlay = this.togglePlay.bind(this);
@@ -24,13 +24,20 @@ class PlayerForm extends React.Component {
         this.changeTime = this.changeTime.bind(this);
         this.toggleSeek = this.toggleSeek.bind(this);
         this.updateSeek = this.updateSeek.bind(this);
+
+        this.mouseMove = this.mouseMove.bind(this);
+       
+    }
+
+    load() {
+        this.refs.player.load();
     }
 
     keyHandler(e){
-
-        let video = document.getElementById("video-player");
+        
+        let video = this.refs.player
   
-        if(e.keyCode === 109){
+        if(e.keyCode === 77){
             if(video.muted){
                 video.muted = false;
                 this.setState({ volume: 1 });
@@ -41,13 +48,14 @@ class PlayerForm extends React.Component {
         }
 
         if(e.keyCode === 37){
-            alert('left-arrow')
-            this.changeTime(-10);
+           
+            this.setState({seek: video.currentTime -= 10})
+          
         }
 
         if(e.keyCode === 39){
-            alert('right-arrow')
-            this.changeTime(10);
+        
+            this.setState({seek: video.currentTime += 10})
         }
 
         if(e.keyCode === 32){
@@ -76,50 +84,47 @@ class PlayerForm extends React.Component {
   
     componentDidMount(){
         
-        
-        this.props.getVideos().then(() => this.setState({loaded: true}))
-        const backToBrowse = document.getElementById("back-to-browse");
-        // const backButton = document.getElementById("back-arrow-font");
-        // const rewind = document.getElementById("reverse-button");
-        // const fastForward = document.getElementById("forward-button");
-        // const playButton = document.getElementById('play-button');
-        // const volumeBar = document.getElementById("volume-bar");
-        const volumeButton = document.getElementById("volume-button"); 
-        // const fullScreen = document.getElementById("full-screen");
-        const bottom_row = document.getElementById("bottom-row"); 
-        const video = document.getElementById("video-player");
-        const scrollBar = document.getElementById("scroll-bar");
-        const duration = document.getElementById("duration");
-        
+    
+        this.props.getVideos()
+        // const backToBrowse = document.getElementById("back-to-browse");
+       
+        // const volumeButton = document.getElementById("volume-button"); 
+       
+        // const bottom_row = document.getElementById("bottom-row"); 
+        // const video = document.getElementById("video-player");
+      
+        // const scrollBar = document.getElementById("scroll-bar");
+        // const duration = document.getElementById("duration");
+    
         this.seekCheck = setInterval(this.updateSeek, 1000);
         this.timeCheck = setInterval(this.updateTime, 1000);
-        let volumeToggleTimer;
+        // let volumeToggleTimer;
         
         document.addEventListener('keydown', this.keyHandler, false);
 
-        video.addEventListener('loadedmetadata', () => {
-            this.setState({duration: Math.floor(video.duration)})
-        });
+        // video.addEventListener('loadedmetadata', () => {
+        //     this.setState({duration: Math.floor(video.duration)})
+        // });
 
-            volumeButton.addEventListener("mouseout", () => {
-                volumeToggleTimer = setTimeout(() => {
-                  
-                   
-                    scrollBar.style.opacity = "1.0";
-                    duration.style.opacity = "1.0"
-                  
+        // volumeButton.addEventListener("mouseout", () => {
+        //     volumeToggleTimer = setTimeout(() => {
                 
-                }, 1000);
-            })
+                
+        //         scrollBar.style.opacity = "1.0";
+        //         duration.style.opacity = "1.0"
+                
+            
+        //     }, 1000);
+        // })
 
-            volumeButton.addEventListener("mouseover", () => {
-                clearTimeout(volumeToggleTimer);
+        // volumeButton.addEventListener("mouseover", () => {
+        //     clearTimeout(volumeToggleTimer);
+        
             
-                
-                scrollBar.style.opacity = "0.0";
-                duration.style.opacity = "0.0"
-            
-            })
+        //     scrollBar.style.opacity = "0.0";
+        //     duration.style.opacity = "0.0"
+        
+        // })
     
 
 
@@ -131,21 +136,41 @@ class PlayerForm extends React.Component {
 
         
 
-        window.addEventListener("mousemove", () => {
+        // window.addEventListener("mousemove", () => {
            
-            bottom_row.style.opacity = "1.0";
-            backToBrowse.style.opacity = "1.0";
+        //     bottom_row.style.opacity = "1.0";
+        //     backToBrowse.style.opacity = "1.0";
      
-            setTimeout(function(){
-                bottom_row.style.opacity = "0";
-                backToBrowse.style.opacity = "0";
+        //     setTimeout(function(){
+        //         bottom_row.style.opacity = "0";
+        //         backToBrowse.style.opacity = "0";
               
-            }, 4000);
-        })
+        //     }, 4000);
+        // })
 
      
 
     }
+
+    mouseMove(){
+        const video = document.getElementById("video-player");
+        // if(video.currentTime == 0){
+            // video.load()
+        // }
+        const backToBrowse = document.getElementById("back-to-browse");
+        const bottom_row = document.getElementById("bottom-row"); 
+    
+        bottom_row.style.opacity = "1.0";
+        backToBrowse.style.opacity = "1.0";
+    
+        setTimeout(function(){
+            bottom_row.style.opacity = "0";
+            backToBrowse.style.opacity = "0";
+            
+        }, 8000);
+    }
+
+    
 
     toggleFullScreen() {
         let video = document.getElementById("video-player");
@@ -162,8 +187,8 @@ class PlayerForm extends React.Component {
 
 
     changeTime(change) {
-        
         let video = document.getElementById("video-player") 
+    
       
         return () => {
             video.currentTime += change;
@@ -190,11 +215,13 @@ class PlayerForm extends React.Component {
     }
 
     updateTime() {
-        const timer = this.state.duration - Math.floor(this.state.seek);
+        const video = document.getElementById("video-player");  
+        const timer = video.duration - Math.floor(this.state.seek);
         let minutes = Math.floor(timer / 60)
-        let seconds = timer % 60;
-
+        let seconds = Math.floor(timer % 60);
+       
         if (minutes < 10) {
+            
             minutes = `0${minutes}`;
         }
 
@@ -203,6 +230,7 @@ class PlayerForm extends React.Component {
         }
 
         const newTime = `${minutes}:${seconds}`
+
         this.setState({ time: newTime });
     }
 
@@ -213,18 +241,25 @@ class PlayerForm extends React.Component {
 
     togglePlay() {
         let video = document.getElementById("video-player")
-        if (this.state.playing === true) {
-            video.pause();
-            this.setState({ playing: false })
-        } else {
+        if(video.currentTime == 0){
             video.play();
             this.setState({ playing: true })
+        } else {
+            if (this.state.playing === true) {
+                video.pause();
+                this.setState({ playing: false })
+            } else {
+                video.play();
+                this.setState({ playing: true })
+            }
         }
+        
     }
 
     toggleSeek(e) {
         const video = document.getElementById("video-player");  
-        const change = video.duration * (e.target.value / this.state.duration);
+   
+        const change = video.duration * (e.target.value / video.duration);
         video.currentTime = change;
         this.setState({ seek: change });
     }
@@ -232,9 +267,17 @@ class PlayerForm extends React.Component {
 
 
     render() {
+        const video = document.getElementById("video-player");  
+        if(!this.props.video && !this.props.videos[parseInt(this.props.match.params.video_id)]){
+            return null
+        }
         
-      
         
+        
+        
+        let time;
+        time = this.state.time == "NaN:NaN" ? '' : this.state.time;
+        const max = video ? `${Math.floor(video.duration)}` : '1';
         let volumeButtonRender;
         
         if (this.state.volume > 0.6) {
@@ -247,25 +290,45 @@ class PlayerForm extends React.Component {
             volumeButtonRender = <i className="vol fas fa-volume-mute" id="volume-button" onClick={this.toggleMute}></i>
         }
         let playPauseButton;
-        if (this.state.playing === true) {
-            playPauseButton = <i className="fas fa-pause" id="play-button" onClick={this.togglePlay}></i>
-        } else if (this.state.playing === false) {
-            playPauseButton = <i className="fas fa-play" id="play-button" onClick={this.togglePlay} ></i>
-        }
-        let vid;
-        // if(this.state.loaded){
-        //     vid = this.props.video;
-        // } else {
-        //     vid = {
+        if(!video){
+
+        } else {
+            if(video.readyState < 3 ){
+                playPauseButton = <div className="loader"></div>
+            } else {
+                if(video.currentTime == 0){
+                    playPauseButton = <i className="fas fa-play" id="play-button" onClick={this.togglePlay} ></i>
+    
+                } else {
+                    
+                    if (this.state.playing === true) {
+                        playPauseButton = <i className="fas fa-pause" id="play-button" onClick={this.togglePlay}></i>
+                    } else if (this.state.playing === false) {
+                        playPauseButton = <i className="fas fa-play" id="play-button" onClick={this.togglePlay} ></i>
+                    }
+    
+                }
                 
-        //     }
-        // }
-        this.props.video ? vid = this.props.video : vid = this.props.watching
+            }
+        }
         
 
+        
+        
+        let vid;
+       
+        if(this.props.video){
+            vid = this.props.video
+        } else if(this.props.videos[parseInt(this.props.match.params.video_id)]){
+            vid = this.props.videos[parseInt(this.props.match.params.video_id)]
+        }
+        
+      
+       
+        
         return (
             
-            <div className='video-player-div'>
+            <div onMouseMove={this.mouseMove} className='video-player-div'>
                 <div className = 'video-player-div-top'>
                     <Link to={"/videos"}>
                         <div id="back-to-browse" className="back-to-browse">
@@ -278,11 +341,11 @@ class PlayerForm extends React.Component {
                 
                 
                 <div className= 'video-player-div-bottom'>
-                    <video onClick={this.togglePlay} ref="player" id="video-player" className="video-player" src={vid.video_link} poster={vid.image_link} preload="auto" loop autoPlay></video>
+                    <video onClick={this.togglePlay} ref="player" id="video-player" className="video-player" src={vid.video_link} poster={vid.image_link} preload="meta" loop autoPlay></video>
                     <div  id='bottom-row' className='bottom-row'>
                         <div className="scroll-bar-container center" >
-                            <input id="scroll-bar" type="range" min="0" max={this.state.duration} step="1" value={Math.floor(this.state.seek)} onChange={this.toggleSeek}/>
-                            <h1 className="duration" id="duration">{this.state.time}</h1>
+                            <input id="scroll-bar" type="range" min="0" max={max} step="1" value={Math.floor(this.state.seek)} onChange={this.toggleSeek}/>
+                            <h1 className="duration" id="duration">{time}</h1>
                         </div>
                         <div id='controls'>
                         <h2 className='center'>{playPauseButton}</h2>
