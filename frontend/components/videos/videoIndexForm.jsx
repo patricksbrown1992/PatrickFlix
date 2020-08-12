@@ -4,6 +4,7 @@ import IndexItem from './indexItemContainer';
 import DetailRow from './detailRowContainer';
 import FeaturedVideo from './featuredVideoContainer';
 import { merge } from 'lodash';
+import MyListContainer from './myListContainer';
 
 class VideoIndexForm extends React.Component {
     constructor(props) {
@@ -91,7 +92,8 @@ class VideoIndexForm extends React.Component {
 
     render() {
         let searchClass;
-
+        let lists;
+        let my_list;
         if (this.state.activated) {
             searchClass = 'show-search';
 
@@ -102,7 +104,7 @@ class VideoIndexForm extends React.Component {
         if(!this.state.loaded){
             return null;
         }
-        let vids = this.props.videos;
+        let vids = Object.values(this.props.videos);
         let stewart = vids.slice(0, 7);
         // .map((vid, index)=> (
 
@@ -132,7 +134,7 @@ class VideoIndexForm extends React.Component {
             search_div.style.height = '35px';
             search_form.style.justifyContent = 'flex-end';
             // search_form.style.top = '0';
-            search_arr = this.duplicateArray(this.props.videos);
+            search_arr = this.duplicateArray(Object.values(this.props.videos));
 
              search_arr = search_arr.filter(video => (
 
@@ -147,7 +149,32 @@ class VideoIndexForm extends React.Component {
             search_arr ='';
 
         }
-      
+        
+        if(this.props.lists.length){
+            let vid_object = this.props.videos
+            let list_to_vids = [];
+        
+            let i = 0
+            while(i < this.props.lists.length){
+                list_to_vids.push(vid_object[this.props.lists[i].video_id])
+                i++;
+            }
+            
+          
+                
+          
+            my_list = <div className= 'video-row' id='video-row-6'>
+                    <h1 className='index-h1'>My List</h1>
+
+                    <MyListContainer identifier= {6} vids = {list_to_vids} />
+
+            </div>
+
+            
+        } else {
+            lists = ''
+            my_list = ''
+        }
 
 
 
@@ -202,7 +229,7 @@ class VideoIndexForm extends React.Component {
 
                     <FeaturedVideo />
 
-
+                    {my_list}
                     <div className= 'video-row' id='video-row-1'>
                         <h1 className='index-h1'>Patrick Stewart</h1>
 

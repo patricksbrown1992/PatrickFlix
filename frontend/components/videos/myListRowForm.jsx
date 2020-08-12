@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import IndexItem from './indexItemContainer';
-import HiddenRowContainer from './hiddenRowContainer';
+import ListItemContainer from './myListItemContainer';
 
 
-class DetailRowForm extends React.Component {
+
+class MyListForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = { open: false, start: 0 };
@@ -38,42 +38,17 @@ class DetailRowForm extends React.Component {
     render() {
         let vid;
         
-        let video_row = document.getElementById(`video-row-inner-${this.props.identifier}`);
         
-        let hidden_row_div;
         let left_arrow;
         let right_arrow;
         
         let vids = this.props.vids.map((vid, index) => (
             
-            <IndexItem  key ={index + this.props.range[0]} video={vid} index={index + this.props.range[0]}/>
+            <ListItemContainer  key ={index} video={vid} />
         ))
         
-        vids = vids.slice(this.state.start,this.state.start + 4)
-        
-        if(this.props.modal !== null &&  this.props.range.includes(this.props.modal)){
-
-            vid = this.props.videos[this.props.modal]
-            hidden_row_div = <HiddenRowContainer vid={vid}/>
-            
-            video_row.style.height = '600px';
-            
-         
-            
-        } 
-        else {
-     
-  
-            hidden_row_div = ''
-        
-         
-            
-        
-            if(video_row){
-                video_row.style.height = '200px';
-            }
-   
-        }
+        vids = vids.slice(this.state.start, this.state.start + 4)
+       
 
         if(this.state.start == 0){
             left_arrow = '';
@@ -95,24 +70,20 @@ class DetailRowForm extends React.Component {
         }
       
         
-    
+     
+   
         return (
-            <div key={this.props.identifier} className = "video-row-inner" id = {`video-row-inner-${this.props.identifier}`}>
-                
-                <div className = "top-row">
-                    {left_arrow}
-                    <div className= 'links-row'>
-                        {vids}
-                    </div>
-                    {right_arrow}
+            <div className = "my-lists-row">
+                {left_arrow}
+                <div className= 'lists-links-row'>
+                    {vids}
                 </div>
-                {hidden_row_div}
-              
-                
-                
+                {right_arrow}
             </div>
+ 
+   
         )
     }
 
 }
-export default DetailRowForm;
+export default MyListForm;

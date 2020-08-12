@@ -7,8 +7,9 @@ import {getLists} from '../../actions/listActions';
 
 const msp = state => ({
     errors: state.errors,
-    videos: Object.values(state.entities.videos),
+    videos: state.entities.videos,
     user: state.entities.user[state.session.id],
+    lists: Object.values(state.entities.lists)
 });
 
 const mdp = dispatch => ({

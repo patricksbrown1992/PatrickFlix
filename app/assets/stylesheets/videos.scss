@@ -7,6 +7,54 @@ h1, h2, h3, h4, h5, h6, a, div {
     height: 100%;
 }
 
+.my-lists-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 200px;
+    width: 100%;
+}
+
+.my-list-item {
+    height: 150px;
+    width: 25%;
+    list-style: none;
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+}
+
+.my-list-item a{
+    height: 100%;
+    width: 100%;
+}
+
+.my-list-item img{
+    height: 100%;
+    width: 100%;
+}
+
+.lists-links-row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: start;
+    height: 200px;
+    width: 100%;
+    position: relative;
+}
+
 #back-arrow-icon{
     padding-right: 10px;
 }
