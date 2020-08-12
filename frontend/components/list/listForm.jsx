@@ -145,11 +145,7 @@ class ListForm extends React.Component {
             </div>
             
         })
-        if(Object.values(this.props.lists).length){
-            list_heigth_id = 'list-body'
-        } else {
-            list_heigth_id = 'list-empty'
-        }
+        
         
 
         let search_arr
@@ -216,7 +212,7 @@ class ListForm extends React.Component {
                         </div>
                     </div>
                 </div>
-                <div id={list_heigth_id}>
+                <div id='list-body'>
                     <h1 className="list-h1">My List</h1>
                     {lists}
                 </div>

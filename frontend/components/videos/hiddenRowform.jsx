@@ -28,7 +28,8 @@ class DetailRowForm extends React.Component {
                     {/* <img src={vid.image_link} alt="movie poster"/> */}
                 {/* </div> */}
                 
-                <div className='left-div-hidden' style={{ 'backgroundImage': `url(${vid.image_link})`}}></div>
+                <div className='left-div-hidden' style={{ 'backgroundImage': `url(${vid.image_link}), linear-gradient(to right,#000,transparent)`,
+            'backgroundSize': '100% 100%'}}></div>
             </div>
             
                 

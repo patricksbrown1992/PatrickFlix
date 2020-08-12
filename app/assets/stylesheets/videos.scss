@@ -725,9 +725,13 @@ h1, h2, h3, h4, h5, h6, a, div {
     top: 0;
     left: 40%;
     background-size: 100% 100%;
-    // background: -webkit-gradient(linear,left top, right top,from(#000),to(transparent));
-    // background: -o-linear-gradient(left,#000,transparent);
-    // background: linear-gradient(to left,#000,transparent);
+    background-blend-mode: overlay;
+    background-size: 100% 100%;
+
+    background: -webkit-gradient(linear,left top, right top,from(#000),to(transparent));
+    background: -o-linear-gradient(left,#000,transparent);
+    background: linear-gradient(to left,#000,transparent);
+
 }
 
 .loader {
@@ -747,16 +751,18 @@ h1, h2, h3, h4, h5, h6, a, div {
     100% { transform: rotate(360deg); }
   }
 
-.detail-row-show img{
-    width: 65%;
-    height: 350px;
-    margin-left: 40%;
-    background: -webkit-gradient(linear,left top, right top,from(#000),to(transparent));
-    background: -o-linear-gradient(left,#000,transparent);
-    background: linear-gradient(to right,#000,transparent);
+// .detail-row-show .left-div-hidden{
+//     width: 65%;
+//     height: 350px;
+    // lef
+    // background: -webkit-gradient(linear,left top, right top,from(#000),to(transparent));
+    // background: -o-linear-gradient(left,#000,transparent);
+    // background: linear-gradient(to right,#000,transparent);
+    // background-size: cover;
+
     // position: relative;
     // padding: 30px;
-}
+// }
 
 
 
