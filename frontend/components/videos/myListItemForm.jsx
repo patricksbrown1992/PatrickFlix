@@ -6,53 +6,15 @@ import { deleteList } from '../../util/listUtil';
 class IndexItemForm extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { loaded: null, playing: false, open: false, created: false };
+        this.state = { loaded: null };
         this.destroyList    = this.destroyList.bind(this);
         this.duplicateArray = this.duplicateArray.bind(this);
-       
-
+        this.mouse_over = this.mouse_over.bind(this);
+        this.mouse_out = this.mouse_out.bind(this);
     }
 
 
-    
-    componentDidMount(){
-        let vid = this.props.video;
-      
-        if(this.props.lists[vid.id]){
-            this.setState({created: true})
-        }
-        let video_li = document.getElementById(`video-li ${vid.id}`);
-       
-        let check = document.getElementById(`${vid.id}-check`);
-        let remove_div = document.getElementById(`${vid.id}-add-remove-div`);
-        let title = document.getElementById(`${vid.id}-index-item-title`);
-        let user = this.props.user;
-   
 
-
-  
-        remove_div.style.opacity = '0';
-        title.style.opacity = '0';
-
-        video_li.addEventListener("mouseover", ()=> {
-      
-            remove_div.style.opacity = '1';
-            title.style.opacity = '1'
-        })
-
-    
-
-        check.addEventListener("click", () => {
-            this.destroyList(vid.id);
-        })
-
-        video_li.addEventListener("mouseout", ()=> {
-          
-            remove_div.style.opacity = '0';
-            title.style.opacity = '0'
-        })
-
-    }
 
     duplicateArray(array) {
         // deep dupes objects
@@ -65,14 +27,30 @@ class IndexItemForm extends React.Component {
         return ans;
     }
 
+    mouse_over(){
+        let vid = this.props.video
+        let remove_div = document.getElementById(`${vid.id}-add-remove-div`);
+        let title = document.getElementById(`${vid.id}-index-item-title`);
+        remove_div.style.opacity = '1';
+        title.style.opacity = '1'
+    }
+
+    mouse_out(){
+        let vid = this.props.video
+        let remove_div = document.getElementById(`${vid.id}-add-remove-div`);
+        let title = document.getElementById(`${vid.id}-index-item-title`);
+        remove_div.style.opacity = '0';
+        title.style.opacity = '0'
+    }
 
 
 
-    destroyList(video_id){
+
+    destroyList(){
       
-        let list = this.props.lists[video_id]
+        let list = this.props.lists[this.props.video.id]
         
-        this.props.deleteList({id: list.id, video_id: list.video_id, user_id: list.user_id}).then(() => this.setState({created: false}))
+        this.props.deleteList({id: list.id, video_id: list.video_id, user_id: list.user_id})
             
     }
 
@@ -82,17 +60,23 @@ class IndexItemForm extends React.Component {
 
     render() {
         let vid = this.props.video
-        
+    
         let plusOrCheck  = 'fas fa-check index-check';
         let text = <div id={`${vid.id}-add-remove-div`} className='add-remove-div'>Remove from My List</div>
-
+        let remove_div = document.getElementById(`${vid.id}-add-remove-div`);
+        let title = document.getElementById(`${vid.id}-index-item-title`);
+        if(title && remove_div){
+            remove_div.style.opacity = '0';
+            title.style.opacity = '0';
+        }
+        
         
   
         return (
-            <li  className='my-list-item' id = {`video-li ${vid.id}`} key={vid.id} >
+            <li  onMouseOver={this.mouse_over} onMouseOut={this.mouse_out} className='my-list-item' id = {`my-list-video-li ${vid.id}`} key={vid.id} >
                 <Link to={`/player/${vid.id}`}> <img src={vid.image_link} alt=""/> </Link>
                 
-                <div id='index-button-background'><i id={`${vid.id}-check`} className={plusOrCheck}></i></div>
+                <div onClick={this.destroyList} id='index-button-background'><i id={`${vid.id}-check`} className={plusOrCheck}></i></div>
                 {text}
                 <h4 id ={`${vid.id}-index-item-title`} className='index-item-title'>{vid.title}</h4>
                 

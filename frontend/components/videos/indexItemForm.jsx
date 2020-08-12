@@ -95,17 +95,17 @@ class IndexItemForm extends React.Component {
 
 
     createList(video_id){
-        if(this.state.created){
+        if(this.props.lists[video_id]){
            
             
             let list = this.props.lists[video_id]
         
-            this.props.deleteList({id: list.id, video_id: list.video_id, user_id: list.user_id}).then(() => this.setState({created: false}))
+            this.props.deleteList({id: list.id, video_id: list.video_id, user_id: list.user_id})
             
         } else {
 
        
-            this.props.createList({user_id: this.props.user.id, video_id}).then(() => this.setState({created: true}))
+            this.props.createList({user_id: this.props.user.id, video_id})
         }
         
        
@@ -120,14 +120,15 @@ class IndexItemForm extends React.Component {
         let vid = this.props.video
         let plusOrCheck;
         let text
-        if(this.state.created){
+        
+        if(this.props.lists[vid.id]){
             plusOrCheck  = 'fas fa-check index-check';
             text = <div id={`${vid.id}-add-remove-div`} className='add-remove-div'>Remove from My List</div>
         } else {
             plusOrCheck = 'fas fa-plus index-check'
             text = <div id={`${vid.id}-add-remove-div`} className='add-remove-div'>Add to My List</div>
         }
-        plusOrCheck
+        
         return (
             <li  className='index-item' id = {`video-li ${vid.id}`} key={vid.id} >
                 <Link to={`/player/${vid.id}`}> <img src={vid.image_link} alt=""/> </Link>
