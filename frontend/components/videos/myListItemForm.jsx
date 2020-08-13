@@ -14,7 +14,16 @@ class IndexItemForm extends React.Component {
     }
 
 
-
+    // componentDidMount(){
+    //     let vid = this.props.video
+    //     let video_li = document.getElementById(`my-list-video-li ${vid.id}`);
+    //     // let arrow = document.getElementById(`movie-arrow ${vid.id}`);
+    //     let check = document.getElementById(`${vid.id}-check`);
+    //     let add_remove_div = document.getElementById(`${vid.id}-add-remove-div-my-list`);
+    //     let title = document.getElementById(`${vid.id}-index-item-title-my-list`);
+    //     // arrow.style.display = "none";
+      
+    // }
 
     duplicateArray(array) {
         // deep dupes objects
@@ -29,18 +38,22 @@ class IndexItemForm extends React.Component {
 
     mouse_over(){
         let vid = this.props.video
-        let remove_div = document.getElementById(`${vid.id}-add-remove-div`);
-        let title = document.getElementById(`${vid.id}-index-item-title`);
+        let remove_div = document.getElementById(`${vid.id}-add-remove-div-my-list`);
+        let title = document.getElementById(`${vid.id}-index-item-title-my-list`);
         remove_div.style.opacity = '1';
+        remove_div.style.display = 'flex';
         title.style.opacity = '1'
+        title.style.display = 'flex';
     }
 
     mouse_out(){
         let vid = this.props.video
-        let remove_div = document.getElementById(`${vid.id}-add-remove-div`);
-        let title = document.getElementById(`${vid.id}-index-item-title`);
+        let remove_div = document.getElementById(`${vid.id}-add-remove-div-my-list`);
+        let title = document.getElementById(`${vid.id}-index-item-title-my-list`);
         remove_div.style.opacity = '0';
+        remove_div.style.display = 'none';
         title.style.opacity = '0'
+        title.style.display = 'none';
     }
 
 
@@ -62,9 +75,9 @@ class IndexItemForm extends React.Component {
         let vid = this.props.video
     
         let plusOrCheck  = 'fas fa-check index-check';
-        let text = <div id={`${vid.id}-add-remove-div`} className='add-remove-div'>Remove from My List</div>
-        let remove_div = document.getElementById(`${vid.id}-add-remove-div`);
-        let title = document.getElementById(`${vid.id}-index-item-title`);
+        let text = <div id={`${vid.id}-add-remove-div-my-list`} className='add-remove-div'>Remove from My List</div>
+        let remove_div = document.getElementById(`${vid.id}-add-remove-div-my-list`);
+        let title = document.getElementById(`${vid.id}-index-item-title-my-list`);
         if(title && remove_div){
             remove_div.style.opacity = '0';
             title.style.opacity = '0';
@@ -78,7 +91,7 @@ class IndexItemForm extends React.Component {
                 
                 <div onClick={this.destroyList} id='index-button-background'><i id={`${vid.id}-check`} className={plusOrCheck}></i></div>
                 {text}
-                <h4 id ={`${vid.id}-index-item-title`} className='index-item-title'>{vid.title}</h4>
+                <h4 id ={`${vid.id}-index-item-title-my-list`} className='index-item-title'>{vid.title}</h4>
                 
 
 
