@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import FeaturedVideoForm from './featuredVideoForm';
+import FeaturedVideoForm from './featureVideoForm';
 import { getVideo, getVideos } from '../../actions/videoActions';
 
 const msp = (state, ownProps) => {
