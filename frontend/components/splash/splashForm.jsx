@@ -9,62 +9,50 @@ const mdp = dispatch => ({
 });
 
 
-
-
-
-class SplashForm extends React.Component {
-    constructor(props) {
-        super(props);
-        this.loginPerson = this.loginPerson.bind(this);
-
+const SplashForm = props => {
+    
+    function loginPerson(e){
+        e.preventDefault();
+        const email = 'admin@admin.com';
+        const password = '123456'
+        const person = {email, password};
+        props.login(person);
+        props.clearErrors()
     }
 
-    loginPerson(){
+   
+    return (
+        <div className='splash-form'>
 
-        let email = 'admin@admin.com';
-        let password = '123456'
-        let person = {email, password};
-        this.props.login(person);
-        this.props.clearErrors()
-     
-    }
+            <div className='splash-header'>
+                <div className="links-div">
+                    <ul>
+                        <a href="https://patricksbrown1992.github.io/portfolio/" target="_blank">Portfolio</a>
+                        <a href="https://www.linkedin.com/in/patricksbrown1992/" target="_blank">LinkedIn</a>
+                        <a href="https://github.com/patricksbrown1992" target="_blank">Github</a>
 
-    
-    
-    render (){
-
-        return (
-            <div className='splash-form'>
-
-                <div className='splash-header'>
-                    <div className="links-div">
-                        <ul>
-                            <a href="https://patricksbrown1992.github.io/portfolio/" target="_blank">Portfolio</a>
-                            <a href="https://www.linkedin.com/in/patricksbrown1992/" target="_blank">LinkedIn</a>
-                            <a href="https://github.com/patricksbrown1992" target="_blank">Github</a>
-
-                        </ul>
-                    </div>
-                    <img src={window.big} />
-                    <div className='splash-head-right'>
-                        <h3>Have an account?</h3>
-                        <nav>
-                            <Link to='/login'>Sign In</Link>
-                        </nav>
-
-                    </div>
+                    </ul>
                 </div>
-                <div className='splash-body'>
-                    <h1>See what's next.</h1>
-                    <h3>WATCH ANYWHERE. CANCEL ANYTIME.</h3>
+                <img src={window.big} />
+                <div className='splash-head-right'>
+                    <h3>Have an account?</h3>
                     <nav>
-                        <Link to='/signup'>Sign Up</Link>
+                        <Link to='/login'>Sign In</Link>
                     </nav>
-                    <button onClick={this.loginPerson}>Demo Login</button>
+
                 </div>
             </div>
-        )
-    }
+            <div className='splash-body'>
+                <h1>See what's next.</h1>
+                <h3>WATCH ANYWHERE. CANCEL ANYTIME.</h3>
+                <nav>
+                    <Link to='/signup'>Sign Up</Link>
+                </nav>
+                <button onClick={loginPerson}>Demo Login</button>
+            </div>
+        </div>
+    )
+    
 }
 
 
