@@ -1,0 +1,145 @@
+.nav-left a {
+  display: flex;
+}
+
+.nav {
+  height: 75px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+  background-color: #000002;
+}
+
+.nav-left {
+  width: 50%;
+  display: flex;
+  height: 100%;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.nav-left div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.nav-left img {
+  padding-right: 10px;
+}
+
+.nav-left h3 {
+  color: white;
+  font-size: 18px;
+
+  text-decoration: none;
+}
+
+.right-nav {
+  width: 50%;
+  display: flex;
+  height: 100%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+#search-results-show {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  z-index: 3;
+  opacity: 1;
+  width: auto;
+  height: 150px;
+}
+
+#search-results-hide {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  z-index: 3;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+#search-div-show {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  z-index: 3;
+  width: 250px;
+  height: 300px;
+  justify-content: flex-end;
+}
+
+#log-out-modal-show {
+  opacity: 1;
+  z-index: 5;
+  height: 50px;
+  width: 75px;
+  margin-top: 85px;
+}
+
+#log-out-modal-hide {
+  opacity: 0;
+  height: 50px;
+  width: 75px;
+  margin-top: 85px;
+  z-index: 1;
+}
+
+#search-div-hide {
+  display: flex;
+  flex-direction: row;
+  color: white;
+  z-index: 3;
+}
+
+.hide-search {
+  height: 0;
+  opacity: 0;
+  width: 0;
+}
+
+#search-li {
+  list-style: none;
+}
+
+#search-li a {
+  color: black;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#log-out-arrow {
+  background-color: black;
+  border: none;
+  cursor: pointer;
+}
+
+#log-out-button {
+  color: black;
+  background-color: white;
+  border: none;
+  cursor: pointer;
+  width: 75px;
+  height: 50px;
+}
+
+.right-nav h3 {
+  color: white;
+}
+
+.right-nav img {
+  height: 50%;
+  cursor: pointer;
+  padding-left: 10px;
+  padding-right: 10px;
+}
