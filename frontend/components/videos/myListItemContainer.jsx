@@ -5,7 +5,7 @@ import { createList, deleteList, getLists } from "../../actions/listActions";
 
 const msp = (state) => ({
   errors: state.errors,
-  videos: Object.values(state.entities.videos),
+  videos: state.entities.videos,
   modal: state.modal,
   user: state.entities.user[state.session.id],
   lists: state.entities.lists,
