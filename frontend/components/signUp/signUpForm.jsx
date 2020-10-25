@@ -10,22 +10,11 @@ const SignUpForm = (props) => {
     return "";
   });
 
-  function handleChangeEmail(e) {
-    e.preventDefault();
-    updateEmail(e.target.value);
-  }
-
-  function handleChangePassword(e) {
-    e.preventDefault();
-    updatePassword(e.target.value);
-  }
-
   function handleSubmit(e) {
     e.preventDefault();
     props.signup({ email, password });
     updatePassword("");
     updateEmail("");
-    setState({ email: "", password: "" });
     props.clearErrors();
   }
 
@@ -42,13 +31,13 @@ const SignUpForm = (props) => {
           type="text"
           value={email}
           placeholder="email"
-          onChange={handleChangeEmail}
+          onChange={(e) => updateEmail(e.target.value)}
         />
         <input
           type="password"
           value={password}
           placeholder="password"
-          onChange={handleChangePassword}
+          onChange={(e) => updatePassword(e.target.value)}
         />
         <ul>
           <br />
