@@ -65,7 +65,7 @@ const PlayerForm = (props) => {
 
   function toggleFullScreen(e) {
     e.preventDefault();
-    debugger;
+
     const video = document.getElementById("video-player");
 
     if (video.requestFullscreen) {
@@ -225,9 +225,9 @@ const PlayerForm = (props) => {
   }
 
   const toggleBackToBrowse = mouseMoved
-    ? "back-to-browse-show"
-    : "back-to-browse-hide";
-  const toggleBottomRow = mouseMoved ? "bottom-row-show" : "bottom-row-hide";
+    ? "back-to-browse show"
+    : "back-to-browse hide";
+  const toggleBottomRow = mouseMoved ? "bottom-row show" : "bottom-row hide";
 
   return (
     <div onMouseMove={mouseMove} className="video-player-div">

@@ -7,7 +7,12 @@ const IndexItemForm = ({ lists, list, deleteList, videos }) => {
     return false;
   });
 
-  const toggleShow = activated ? "add-remove-div-show" : "add-remove-div-hide";
+  const toggleTextShow = activated
+    ? "add-remove-div show"
+    : "add-remove-div hide";
+  const toggleTitleShow = activated
+    ? "index-item-title show"
+    : "index-item-title hide";
 
   return (
     <li
@@ -32,8 +37,8 @@ const IndexItemForm = ({ lists, list, deleteList, videos }) => {
       >
         <i className="fas fa-check index-check"></i>
       </div>
-      <div className={toggleShow}>Remove from My List</div>
-      <h4 className="index-item-title">{videos[list.video_id].title}</h4>
+      <div className={toggleTextShow}>Remove from My List</div>
+      <h4 className={toggleTitleShow}>{videos[list.video_id].title}</h4>
     </li>
   );
 };

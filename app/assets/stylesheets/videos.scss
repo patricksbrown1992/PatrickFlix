@@ -58,40 +58,6 @@ div {
   display: none;
 }
 
-.videos-index-header {
-  height: 75px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  width: 100%;
-  background-color: #000002;
-}
-
-.videos-index-header-left {
-  width: 50%;
-  display: flex;
-  height: 100%;
-  flex-direction: row;
-  justify-content: center;
-}
-
-.videos-index-header-left div {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-
-.videos-index-header-left img {
-  padding-right: 10px;
-}
-
-.videos-index-header-left h3 {
-  color: white;
-  font-size: 18px;
-
-  text-decoration: none;
-}
-
 .search-hidden {
   width: 50%;
   display: flex;
@@ -114,32 +80,6 @@ div {
   color: #fff;
   cursor: pointer;
   margin-left: 6px;
-}
-
-.hide-search {
-  height: 0;
-  opacity: 0;
-  width: 0;
-}
-
-.right-nav {
-  width: 50%;
-  display: flex;
-  height: 100%;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-}
-
-.right-nav h3 {
-  color: white;
-}
-
-.right-nav img {
-  height: 50%;
-  cursor: pointer;
-  padding-left: 10px;
-  padding-right: 10px;
 }
 
 .fa-caret-down {
@@ -176,11 +116,9 @@ div {
 }
 
 .back-to-browse {
-  display: flex;
   flex-direction: row;
   margin-left: 3vw;
   margin-top: 3vh;
-  opacity: 0;
   align-items: center;
 }
 
@@ -227,13 +165,6 @@ div {
   font-weight: 500;
 }
 
-#log-out-modal {
-  opacity: 0;
-  height: 50px;
-  width: 75px;
-  margin-top: 85px;
-}
-
 #play-button {
   cursor: pointer;
 }
@@ -244,12 +175,11 @@ div {
   height: 10%;
 
   bottom: 15px;
-  display: flex;
+
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   position: absolute;
-  opacity: "0";
 }
 
 .scroll-bar-container {
@@ -305,18 +235,10 @@ div {
   text-decoration: none;
 }
 
-#log-out-arrow {
-  background-color: black;
-  border: none;
-  cursor: pointer;
-}
-
 .movie-arrow {
   color: white;
   position: absolute;
   cursor: pointer;
-  display: none;
-  opacity: 0;
   margin-top: 130px;
   margin-left: 45%;
 }
@@ -328,11 +250,18 @@ div {
   overflow: hidden;
 }
 
-.video-row-inner {
+.video-row-inner-hide {
   display: flex;
   flex-direction: column;
   width: 100vw;
   height: 200px;
+}
+
+.video-row-inner-show {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 600px;
 }
 
 .links-row {
@@ -348,7 +277,6 @@ div {
   display: flex;
   flex-direction: column;
   width: 100vw;
-  // height: 90vh;
   align-items: center;
   margin-top: 15px;
   margin-bottom: 80px;
@@ -481,52 +409,25 @@ div {
   cursor: pointer;
 }
 
-#log-out-button {
-  color: black;
-  background-color: white;
-  border: none;
-  cursor: pointer;
-  width: 75px;
-  height: 50px;
-}
-
-#search-results {
-  background-color: white;
-  display: flex;
-  flex-direction: column;
-  overflow-y: scroll;
-  z-index: 3;
-  opacity: 0;
-  height: 0;
-  width: 200px;
-}
-
-#search-form {
+#search-form-show {
   display: flex;
   flex-direction: column;
   z-index: 3;
   height: auto;
   width: 45px;
+  // height: 350px;
+  height: auto;
+  justify-content: flex-end;
 }
 
-#search-div {
+#search-form-hide {
   display: flex;
-  flex-direction: row;
-  height: 50%;
-  color: white;
+  flex-direction: column;
   z-index: 3;
-}
-
-#search-li {
-  list-style: none;
-}
-
-#search-li a {
-  color: black;
-  text-decoration: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  height: auto;
+  // width: 45px;
+  width: 0;
+  height: 0;
 }
 
 .detail-row-show {
@@ -536,14 +437,12 @@ div {
   background-color: #000000;
   flex-direction: row;
   align-items: center;
-  // padding-top: 10px;
   position: relative;
 }
 
 .detail-row-hide {
   height: 0;
   width: 0;
-  // opacity: 0;
 }
 
 .detail-row-show h3 {
@@ -573,7 +472,7 @@ div {
   width: 15px;
   height: 15px;
   -webkit-animation: spin 2s linear infinite;
-          animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
 }
 
 @-webkit-keyframes spin {
@@ -594,19 +493,6 @@ div {
   }
 }
 
-// .detail-row-show .left-div-hidden{
-//     width: 65%;
-//     height: 350px;
-// lef
-// background: -webkit-gradient(linear,left top, right top,from(#000),to(transparent));
-// background: -o-linear-gradient(left,#000,transparent);
-// background: linear-gradient(to right,#000,transparent);
-// background-size: cover;
-
-// position: relative;
-// padding: 30px;
-// }
-
 #index-button-background {
   background-color: black;
   margin-left: 5%;
@@ -623,12 +509,7 @@ div {
 .index-item-title {
   margin-top: 65px;
   color: white;
-
   height: 35px;
-  display: -ms-flexbox;
-  // display: flex;
-  display: none;
-  opacity: 0;
   align-items: center;
   justify-content: center;
   position: absolute;

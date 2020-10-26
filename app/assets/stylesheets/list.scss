@@ -5,6 +5,16 @@
   flex-direction: row;
 }
 
+.hide {
+  display: none;
+  opacity: 0;
+}
+
+.show {
+  display: flex;
+  opacity: 1;
+}
+
 .list-div {
   display: flex;
   flex-direction: row;
@@ -56,10 +66,6 @@
   height: 100%;
 }
 
-.videos-index-header-left a {
-  display: flex;
-}
-
 .hidden {
   opacity: 1;
 }
@@ -84,10 +90,8 @@
   left: 85px;
   z-index: 5;
   text-align: center;
-  display: flex;
   justify-content: center;
   align-items: center;
-  opacity: 0;
   cursor: default;
 }
 
@@ -99,23 +103,13 @@
   left: 45px;
   padding: 5px;
   border-radius: 50%;
-  opacity: 0;
 }
-
-// .index-check{
-//     display: none;
-//     opacity: 0;
-// }
 
 .add-remove-div {
   color: white;
-  // background-color: black;
   width: 100px;
   height: 28px;
   font-size: 14px;
-  // display: flex;
-  display: none;
-  opacity: 0;
   justify-content: center;
   align-items: center;
   margin-left: 40px;
