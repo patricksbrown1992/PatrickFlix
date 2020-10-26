@@ -22,16 +22,6 @@ const PlayerForm = (props) => {
     return 0;
   });
 
-  function mouseMove(e) {
-    e.preventDefault();
-    if (!mouseMoved) {
-      updateMouseMoved(true);
-      setTimeout(function () {
-        updateMouseMoved(false);
-      }, 4000);
-    }
-  }
-
   function keyHandler(e) {
     e.preventDefault();
     const video = document.getElementById("video-player");
@@ -156,11 +146,22 @@ const PlayerForm = (props) => {
     props.getVideos();
     const seekCheck = setInterval(changeSeek, 1000);
     const timeCheck = setInterval(changeTime, 1000);
+    const setMouseMove = function () {
+      if (!mouseMoved) {
+        updateMouseMoved(true);
+        setTimeout(function () {
+          updateMouseMoved(false);
+        }, 4000);
+      }
+    };
     document.addEventListener("keydown", keyHandler, false);
-
+    document.addEventListener("mousemove", setMouseMove);
     return () => {
       clearInterval(seekCheck);
       clearInterval(timeCheck);
+      clearTimeout(setMouseMove);
+      document.removeEventListener("keydown", keyHandler);
+      document.removeEventListener("mousemove", setMouseMove);
     };
   }, []);
 
@@ -230,7 +231,7 @@ const PlayerForm = (props) => {
   const toggleBottomRow = mouseMoved ? "bottom-row show" : "bottom-row hide";
 
   return (
-    <div onMouseMove={mouseMove} className="video-player-div">
+    <div className="video-player-div">
       <div className="video-player-div-top">
         <Link to={"/videos"}>
           <div id="back-to-browse" className={toggleBackToBrowse}>
