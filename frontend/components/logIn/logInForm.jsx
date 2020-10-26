@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-const LogInForm = (props) => {
+const LogInForm = ({ login, clearErrors, errors }) => {
   const [email, updateEmail] = useState(() => {
     return "";
   });
@@ -10,22 +10,12 @@ const LogInForm = (props) => {
     return "";
   });
 
-  function handleChangeEmail(e) {
-    e.preventDefault();
-    updateEmail(e.target.value);
-  }
-
-  function handleChangePassword(e) {
-    e.preventDefault();
-    updatePassword(e.target.value);
-  }
-
   function handleSubmit(e) {
     e.preventDefault();
-    props.login({ email, password });
+    login({ email, password });
     updatePassword("");
     updateEmail("");
-    props.clearErrors();
+    clearErrors();
   }
 
   return (
@@ -41,18 +31,18 @@ const LogInForm = (props) => {
           type="text"
           value={email}
           placeholder="email"
-          onChange={handleChangeEmail}
+          onChange={(e) => updateEmail(e.target.value)}
         />
         <input
           type="password"
           value={password}
           placeholder="password"
-          onChange={handleChangePassword}
+          onChange={(e) => updatePassword(e.target.value)}
         />
         <ul>
           <br />
-          {props.errors
-            ? props.errors.map((error, idx) => {
+          {errors
+            ? errors.map((error, idx) => {
                 return <li key={idx}>{error}</li>;
               })
             : ""}
