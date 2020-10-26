@@ -14,16 +14,6 @@ const NavForm = (props) => {
     return false;
   });
 
-  function searchClick(e) {
-    e.preventDefault();
-    updateActivated(!activated);
-  }
-
-  function handleSubmitLogOut(e) {
-    e.preventDefault();
-    props.logout();
-  }
-
   const searchClass = activated ? "show-search" : "hide-search";
 
   let search_arr = Object.values(props.videos).filter((video) =>
@@ -31,11 +21,11 @@ const NavForm = (props) => {
   );
   const searchRes = activated ? "search-results-show" : "search-results-hide";
   const searchDiv = activated ? "search-div-show" : "search-div-hide";
-  const modalShow = modal ? "log-out-modal-show" : "log-out-modal-hide";
+  const modalShow = modal ? "show" : "hide";
 
   return (
-    <div className="videos-index-header">
-      <div className="videos-index-header-left">
+    <div className="nav">
+      <div className="nav-left">
         <Link to="/videos">
           <img src={window.logo} />
         </Link>
@@ -52,7 +42,10 @@ const NavForm = (props) => {
       <div className="right-nav">
         <div id={searchDiv}>
           <div style={{ display: "flex", flexDirection: "row" }}>
-            <i onClick={searchClick} className="fas fa-search fa-2x"></i>
+            <i
+              onClick={() => updateActivated(!activated)}
+              className="fas fa-search fa-2x"
+            ></i>
             <input
               className={searchClass}
               input="search-input"
@@ -69,7 +62,6 @@ const NavForm = (props) => {
               ? search_arr.map((video) => {
                   return (
                     <li key={video.id} id="search-li">
-                      {" "}
                       <Link to={`/player/${video.id}`}>{video.title}</Link>
                       <hr />
                     </li>
@@ -83,8 +75,8 @@ const NavForm = (props) => {
         <button onClick={() => updateModal(!modal)} id="log-out-arrow">
           <i className="fas fa-caret-down fa-2x"></i>
         </button>
-        <div id={modalShow}>
-          <button id="log-out-button" onClick={handleSubmitLogOut}>
+        <div id="log-out-modal" className={modalShow}>
+          <button id="log-out-button" onClick={() => props.logout()}>
             Log Out
           </button>
         </div>

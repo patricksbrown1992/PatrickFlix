@@ -22,12 +22,8 @@ const ListItemForm = ({ list, videos, deleteList, user }) => {
     return false;
   });
 
-  const showRemoveItem = activated
-    ? "remove-from-list-show"
-    : "remove-from-list-hide";
-  const showListItem = activated
-    ? "button-background-show"
-    : "button-background-hide";
+  const showRemoveItem = activated ? "show" : "hide";
+  const showListItem = activated ? "show" : "hide";
 
   return (
     <div
@@ -41,7 +37,7 @@ const ListItemForm = ({ list, videos, deleteList, user }) => {
         <img src={videos[list.video_id].image_link} />
       </Link>
       <h3 className="list-video-h3">{videos[list.video_id].title}</h3>
-      <div id={showListItem}>
+      <div id="button-background" className={showListItem}>
         <i
           onClick={() =>
             deleteList({
@@ -54,7 +50,9 @@ const ListItemForm = ({ list, videos, deleteList, user }) => {
           className="fas fa-check hidden"
         ></i>
       </div>
-      <div id={showRemoveItem}>Remove from My List</div>
+      <div id="remove-from-list" className={showRemoveItem}>
+        Remove from My List
+      </div>
     </div>
   );
 };
