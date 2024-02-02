@@ -109,12 +109,6 @@ const VideoIndexForm = (props) => {
         <div className="links-index-div">
           <ul>
             <a
-              href="https://patricksbrown1992.github.io/portfolio/"
-              target="_blank"
-            >
-              Portfolio
-            </a>
-            <a
               href="https://www.linkedin.com/in/patricksbrown1992/"
               target="_blank"
             >
